@@ -1,0 +1,2 @@
+((Function) @arrowFunction (#match? @arrowFunction "=>"))
+
