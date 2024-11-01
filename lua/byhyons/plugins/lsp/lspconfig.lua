@@ -133,6 +133,7 @@ return {
               -- make the language server recognize "vim" global
               diagnostics = {
                 globals = { "vim" },
+                disable = { "missing-fields" }, -- Disabilita il warning per i campi mancanti
               },
               completion = {
                 callSnippet = "Replace",
