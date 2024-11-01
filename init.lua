@@ -10,4 +10,3 @@ require("byhyons.keymaps").setup()
 require("filetype")
 
 require("custom.github")
-vim.api.nvim_set_keymap("n", "<leader>lr", ":lua CreateGitHubRepo()<CR>", { noremap = true, silent = true })

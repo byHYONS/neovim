@@ -1,5 +1,6 @@
 return {
   -- Plugin per cursori multipli
+  -- per attivare più cursori: CRTL + N
   {
     "mg979/vim-visual-multi",
     branch = "master",
@@ -13,13 +14,13 @@ return {
     config = function()
       require("move").setup({
         -- Configurazioni opzionali, lasciare vuoto per impostazioni di default
-        mappings = {
-          move_line_up = "<A-Up>", -- Alt (Option) + Freccia su
-          move_line_down = "<A-Down>", -- Alt (Option) + Freccia giù
-          move_block_up = "<A-S-Up>", -- Alt + Shift + Freccia su
-          move_block_down = "<A-S-Down>", -- Alt + Shift + Freccia giù
-        },
+        set_keymaps = false,
       })
+      -- Mappature personalizzate
+      vim.api.nvim_set_keymap("n", "<A-Up>", ":MoveLine(-1)<CR>", { noremap = true, silent = true })
+      vim.api.nvim_set_keymap("n", "<A-Down>", ":MoveLine(1)<CR>", { noremap = true, silent = true })
+      vim.api.nvim_set_keymap("v", "<A-Up>", ":MoveBlock(-1)<CR>", { noremap = true, silent = true })
+      vim.api.nvim_set_keymap("v", "<A-Down>", ":MoveBlock(1)<CR>", { noremap = true, silent = true })
     end,
   },
 }
