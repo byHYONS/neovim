@@ -4,7 +4,7 @@
 >
 > repo: neovim
 
-In poche parole devo definire Neovim?
+Il mio parere su Neovim?
 Amore a prima vista...
 
 ## La mia impostazione e setting di nvim:
@@ -129,13 +129,13 @@ mkdir -p lua/byhyons/core
 Creare una directory plugin (avrà tutte le configurazioni/specs del plugin):
 
 ```
-mkdir -p lua/josean/plugins
+mkdir -p lua/byhyons/plugins
 ```
 
 Creazione del file `lazy.lua` (sarà utilizzato per configurare il gestore del plugin lazy.nvim):
 
 ```
-touch lua/josean/lazy.lua
+touch lua/byhyons/lazy.lua
 ```
 
 ### Impostare le opzioni di base
@@ -157,7 +157,7 @@ Aprire l'esploratore con :Explore e navigare verso il file principale `init.lua`
 Aggiungere le seguenti opzioni per caricare le opzioni di base all'avvio:
 
 ```
-require("josean.core.options")
+require("byhyons.core.options")
 ```
 
 Chiudere Neovim con `:w` e riaprirlo con `nvim .`
@@ -211,7 +211,7 @@ opt.swapfile = false
 
 Fare `:e lua/byhyons/core/init.lua`
 
-Aggiungere di quanto segue:
+Aggiungere quanto segue:
 
 ```
 require("byhyons.core.options")
@@ -340,7 +340,7 @@ return {
 }
 ```
 
-Dopo aver aggiunto questo, salvare il file. Si può installare manualmente facendo `:Lazy` e poi digitando I (maiuscola).
+Dopo aver aggiunto questo, salvare il file. Si può installare manualmente facendo `:Lazy` e poi digitando `I` (maiuscola).
 
 Oppure si può fare: dopo l'installazione, chiudere l'interfaccia utente con `q` e caricare manualmente un plugin con `:Lazy reload vim-tmux-navigator`.
 
@@ -348,7 +348,7 @@ Altro metodo è: uscire con `:q` e rientro in Neovim con `nvim .`, succederà au
 
 ### Installare e configurare tokyonight colorscheme
 
-Fare `:e lua/josean/plugins/colorscheme.lua`
+Fare `:e lua/byhyons/plugins/colorscheme.lua`
 
 In questo file aggiungere quanto segue:
 
@@ -402,7 +402,7 @@ Uscita con `:q` e rientro in Neovim con `nvim .`
 
 ### Configurare nvim-tree file explorer
 
-Fare `:e lua/josean/plugins/nvim-tree.lua`
+Fare `:e lua/byhyons/plugins/nvim-tree.lua`
 
 Aggiungere le seguenti operazioni:
 
@@ -2038,7 +2038,7 @@ return {
   -- order to load the plugin when the command is run for the first time
   keys = {
     { "<leader>lg", "<cmd>LazyGit<cr>", desc = "Open lazy git" },
-    { "<leader>lr", ":lua CreateGitHubRepo()<CR>", desc = "Create GitHub Repository" }, -- aggiungi questa linea
+    { "<leader>lr", ":lua CreateGitHubRepo()<CR>", desc = "Create GitHub Repository" }, -- aggiungi questa linea per il comando dell'inizializzazione repo
   },
 }
 ```
@@ -2063,7 +2063,7 @@ Seguire le istruzioni per l'autenticazione.
 
 Spostarsi nella directory `nvim/lua` con il `a` creare una nuova directory e chiamarla `custom/`
 
-Nella directory `nvim/lua/custom/` aggiungere un nuofo file con `a` e chiamarlo `github.lua`
+Nella directory `nvim/lua/custom/` aggiungere un nuovo file con `a` e chiamarlo `github.lua`
 
 Aggiungere il seguente codice:
 
@@ -2173,4 +2173,4 @@ end
 
 Uscita con `:q` e rientro in Neovim con `nvim`
 
-FINITO! 🚀
+#### FINITO! 🚀
