@@ -10,7 +10,7 @@ function CreateGitHubRepo()
   local visibility = vim.fn.input("Repository pubblica o privata? (pubblica/privata): ")
   local is_public = (visibility == "pubblica")
 
-  -- Step 1: Inizializza Git se necessario
+  -- Inizializza Git se necessario
   Job:new({
     command = "git",
     args = { "rev-parse", "--is-inside-work-tree" },
@@ -23,9 +23,7 @@ function CreateGitHubRepo()
             on_exit = function()
               print("Repository Git locale inizializzata.")
 
-              -- Salta la creazione di README.md, continua con il commit se necessario
-
-              -- Step 4: Crea la repository su GitHub e aggiungi il remote origin
+              -- per creare la repository su GitHub e aggiungiungere il remote origin
               Job
                 :new({
                   command = "gh",
@@ -40,7 +38,7 @@ function CreateGitHubRepo()
                   on_exit = function(j, return_val)
                     if return_val == 0 then
                       print("Repository creata con successo su GitHub con il commit iniziale!")
-                      -- Step 5: Esegue il primo push
+                      -- per eseguire il primo push
                       Job:new({
                         command = "git",
                         args = { "push", "-u", "origin", "main" },
@@ -64,7 +62,7 @@ function CreateGitHubRepo()
           })
           :start()
       else
-        -- Se è già una repository Git, crea la repository su GitHub e aggiunge il remote
+        -- Se c'è già una repository Git, crea la repository su GitHub e aggiunge il remote
         Job:new({
           command = "gh",
           args = {

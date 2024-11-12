@@ -1,6 +1,6 @@
 local M = {}
 
--- Definisci la tua funzione setup per i keymaps
+-- Definisco funzione setup per i keymaps
 M.setup = function()
   local opts = { noremap = true, silent = true }
 
@@ -19,7 +19,6 @@ M.setup = function()
     callback = function()
       vim.api.nvim_buf_set_keymap(0, "n", "<CR>", ":edit<CR>", opts) -- Apri file con Invio
       vim.api.nvim_buf_set_keymap(0, "n", "t", ":tabedit<CR>", opts) -- Apre il file selezionato in una nuova scheda
-      -- vim.api.nvim_buf_set_keymap(0, "n", "o", ":tabedit %<CR>", opts) -- Mappatura per aprire il file selezionato in una nuova tab
     end,
   })
 end

@@ -142,6 +142,7 @@ return {
           },
         })
       end,
+      -- Configurazione server per vue.js
       ["volar"] = function()
         lspconfig["volar"].setup({
           capabilities = capabilities,
