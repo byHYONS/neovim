@@ -22,6 +22,14 @@ map("n", "<leader>zp", ":5TermExec direction=float cmd='python3 %'<CR>", "Esegui
 -- Mappatura per chiudere l'inserimento senza chiudere il terminale
 map("t", "<leader>zx", "<C-\\><C-n>", "Esci dal terminale senza chiuderlo")
 
+-- Terminale per `browser-sync` (ID 6), in modalità flottante
+map(
+  "n",
+  "<leader>zb",
+  ":6TermExec direction=float cmd='browser-sync start --server --files \"**/*.html,**/*.css,**/*.js\"'<CR>",
+  "Avvia Browser Sync"
+)
+
 -- Mappatura per chiudere il terminale specifico dalla modalità normale
 map("n", "<leader>zc", ":q<CR>", "Chiudi il terminale")
 
