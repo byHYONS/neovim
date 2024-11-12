@@ -45,3 +45,6 @@ keymap.set("n", "<leader>io", "<cmd>Lspsaga outgoing_calls<CR>", { desc = "Outgo
 -- Aggiungi le keybindings per la navigazione nelle finestre di anteprima
 keymap.set("n", "<C-e>", "<cmd>Lspsaga scroll_down<CR>", { desc = "Scroll Down" }) -- Scroll Down
 keymap.set("n", "<C-y>", "<cmd>Lspsaga scroll_up<CR>", { desc = "Scroll Up" }) -- Scroll Up
+
+-- Uscire da modalità terminale
+keymap.set("t", "<C-x>", "<C-\\><C-n>", { noremap = true, silent = true })

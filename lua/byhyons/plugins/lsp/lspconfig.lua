@@ -142,21 +142,23 @@ return {
           },
         })
       end,
-      ["vetur-vls"] = function()
-        lspconfig["vuels"].setup({
-          filetypes = { "vue" },
+      ["volar"] = function()
+        lspconfig["volar"].setup({
+          capabilities = capabilities,
+          filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
           settings = {
-            vetur = {
-              completion = { autoImport = true },
-              useWorkspaceDependencies = true,
-              validation = {
-                template = true,
-                script = true,
-                style = true,
-                templateProps = true,
-              },
+            volar = {
+              takeOverMode = true, -- permette a Volar di gestire anche i file TypeScript e JavaScript
             },
           },
+          on_attach = function(client, bufnr)
+            -- Configura i keybind per Volar
+            local opts = { buffer = bufnr, silent = true }
+            vim.keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opts)
+            vim.keymap.set("n", "gD", "<cmd>Lspsaga peek_definition<CR>", opts)
+            vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
+            vim.keymap.set("n", "ca", "<cmd>Lspsaga code_action<CR>", opts)
+          end,
         })
       end,
       -- Configurazione Laravel:
