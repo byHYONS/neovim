@@ -2177,7 +2177,7 @@ Uscita con `:q` e rientro in Neovim con `nvim`
 
 per aggiungere golive in neovim dobbiamo installare a livello globare browser sync
 
-```bash
+```
 npm install -g browser-sync
 ```
 
@@ -2186,7 +2186,7 @@ la mia configurazione prevede anche la possibilità di aprire più terminali, an
 
 Aggiungere il seguente codice:
 
-```nvim
+```
 
 -- Imposta il leader, se non è già impostato
 vim.g.mapleader = " "
