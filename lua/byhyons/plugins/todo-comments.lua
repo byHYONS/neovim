@@ -26,9 +26,10 @@ return {
         HACK = { icon = " ", color = "hack_color" },
         WARN = { icon = " ", color = "warn_color", alt = { "WARNING", "XXX" } },
         PERF = { icon = " ", color = "perf_color", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-        NOTE = { icon = " ", color = "info", alt = { "INFO" } },
+        INFO = { icon = " ", alt = { "INFO" } },
         TEST = { icon = "⏲ ", color = "test_color", alt = { "TESTING", "PASSED", "FAILED" } },
-        INFO = { icon = " ", color = "blue" }, -- Nuova voce INFO
+        CODE = { icon = " ", color = "code_color" },
+        NOTE = { icon = " ", color = "note_color", alt = { "NOTE" } },
       },
       gui_style = {
         fg = "NONE",
@@ -54,9 +55,10 @@ return {
         warn_color = "#FF6B1A", -- Arancione per WARN
         perf_color = "#F20587", -- Fucsia per PERF
         test_color = "#800080", -- Viola scuro per TEST
-        info = { "DiagnosticInfo", "#5F9EA0" }, -- Blu per INFO
+        info_color = { "DiagnosticInfo", "#B48EAD" }, -- Viola per INFO
         hint = { "DiagnosticHint", "#40E0D0" }, -- Turchese per NOTE
-        blue = "#6495ED", -- blue per INFO
+        note_color = "#5F9EA0", -- Verdeacqua per NOTE
+        code_color = "#6495ED", -- blue per INFO
       },
       search = {
         command = "rg",
@@ -74,6 +76,7 @@ return {
 }
 
 -- INFO: Informazioni sul codice
+-- CODE: Codice commentato o info codice
 -- NOTE: Annotazioni in generale
 -- TODO: Cose ancora da fare
 -- HACK: Soluzioni temporanee o non ideali
