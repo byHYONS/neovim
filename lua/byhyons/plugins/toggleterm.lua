@@ -27,7 +27,7 @@ map(
   "n",
   "<leader>zb",
   ":6TermExec direction=float cmd='browser-sync start --server --files \"**/*.html,**/*.css,**/*.js\"'<CR>",
-  "Avvia Browser Sync"
+  "Go Live"
 )
 
 -- Mappatura per chiudere il terminale specifico dalla modalità normale
