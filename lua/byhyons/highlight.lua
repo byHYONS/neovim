@@ -78,6 +78,7 @@ end
 return M
 -- highlight Number guifg=#4DA6FF
 
+-- BIANCO: #e9def2
 -- GIALLO: #FFD847
 -- ROSSO: #FE4363
 -- VIOLA: #9571ED

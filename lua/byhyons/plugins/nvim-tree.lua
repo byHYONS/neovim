@@ -8,6 +8,8 @@ return {
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
 
+    local api = require("nvim-tree.api")
+
     nvimtree.setup({
       view = {
         width = 35,
@@ -51,9 +53,6 @@ return {
           },
         },
       },
-      -- disable window_picker for
-      -- explorer to work well with
-      -- window splits
       actions = {
         open_file = {
           window_picker = {
@@ -67,6 +66,23 @@ return {
       git = {
         ignore = false,
       },
+
+      -- Imposta i keymaps personalizzati usando on_attach
+      on_attach = function(bufnr)
+        local function opts(desc)
+          return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+        end
+
+        -- Mappature personalizzate
+        vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Apri file (stessa finestra)"))
+        vim.keymap.set("n", "s", api.node.open.horizontal, opts("Apri file in split orizzontale"))
+        vim.keymap.set("n", "S", api.node.open.vertical, opts("Apri file in split verticale"))
+        vim.keymap.set("n", "t", api.node.open.tab, opts("Apri file in nuova tab"))
+        vim.keymap.set("n", "<BS>", api.node.navigate.parent_close, opts("Vai alla cartella superiore"))
+        vim.keymap.set("n", "<Tab>", api.node.open.preview, opts("Apri in anteprima"))
+
+        vim.keymap.set("n", "<2-LeftMouse>", api.node.open.edit, opts("Apri file con doppio click"))
+      end,
     })
 
     -- set keymaps
