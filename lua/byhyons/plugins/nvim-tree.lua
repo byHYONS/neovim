@@ -2,20 +2,19 @@ return {
   "nvim-tree/nvim-tree.lua",
   dependencies = "nvim-tree/nvim-web-devicons",
   config = function()
-    local nvimtree = require("nvim-tree")
-
-    -- recommended settings from nvim-tree documentation
+    -- Impedisce il caricamento di netrw
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
 
-    local api = require("nvim-tree.api")
+    local nvimtree = require("nvim-tree")
 
     nvimtree.setup({
+      -- Impostazioni della vista
       view = {
         width = 35,
         relativenumber = true,
       },
-      -- change folder arrow icons
+      -- Renderer per cambiare le icone delle cartelle
       renderer = {
         indent_markers = {
           enable = true,
@@ -66,12 +65,24 @@ return {
       git = {
         ignore = false,
       },
-
-      -- Imposta i keymaps personalizzati usando on_attach
+      -- Definizione della funzione on_attach
       on_attach = function(bufnr)
+        -- Richiede l'API all'interno di on_attach
+        local api = require("nvim-tree.api")
+
+        -- Funzione per impostare le opzioni delle keymap
         local function opts(desc)
-          return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+          return {
+            desc = "nvim-tree: " .. desc,
+            buffer = bufnr,
+            noremap = true,
+            silent = true,
+            nowait = true,
+          }
         end
+
+        -- Applica le mappature di default di nvim-tree
+        api.config.mappings.default_on_attach(bufnr)
 
         -- Mappature personalizzate
         vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Apri file (stessa finestra)"))
@@ -80,13 +91,12 @@ return {
         vim.keymap.set("n", "t", api.node.open.tab, opts("Apri file in nuova tab"))
         vim.keymap.set("n", "<BS>", api.node.navigate.parent_close, opts("Vai alla cartella superiore"))
         vim.keymap.set("n", "<Tab>", api.node.open.preview, opts("Apri in anteprima"))
-
         vim.keymap.set("n", "<2-LeftMouse>", api.node.open.edit, opts("Apri file con doppio click"))
       end,
     })
 
-    -- set keymaps
-    local keymap = vim.keymap -- for conciseness
+    -- Imposta le keymaps globali
+    local keymap = vim.keymap -- per maggiore concisione
 
     keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
     keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file

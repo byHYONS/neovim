@@ -13,6 +13,7 @@ return {
     local fg_dark = "#B4D0E9"
     local fg_gutter = "#627E97"
     local border = "#547998"
+    local cursorline_bg = "#022039" -- Colore leggermente più chiaro del background
 
     require("tokyonight").setup({
       style = "night",
@@ -37,6 +38,9 @@ return {
         colors.fg_float = fg
         colors.fg_gutter = fg_gutter
         colors.fg_sidebar = fg_dark
+      end,
+      on_highlights = function(hl, colors)
+        hl.CursorLine = { bg = cursorline_bg } -- Imposta lo sfondo della cursorline
       end,
     })
 

@@ -16,6 +16,7 @@ return {
         -- Configurazioni opzionali, lasciare vuoto per impostazioni di default
         set_keymaps = false,
       })
+
       -- Mappature personalizzate
       vim.api.nvim_set_keymap("n", "<A-Up>", ":MoveLine(-1)<CR>", { noremap = true, silent = true })
       vim.api.nvim_set_keymap("n", "<A-Down>", ":MoveLine(1)<CR>", { noremap = true, silent = true })
@@ -28,8 +29,14 @@ return {
       vim.api.nvim_set_keymap("v", "<A-S-Up>", "y'>p '<kgv", { noremap = true, silent = true }) -- Copia il blocco selezionato verso l'alto
       vim.api.nvim_set_keymap("v", "<A-S-Down>", "y'>p '>jgv", { noremap = true, silent = true }) -- Copia il blocco selezionato verso il basso
 
-      -- per andare a capo scavalcando i cararatteri
-      vim.api.nvim_set_keymap("i", "<S-CR>", "<esc>o", { noremap = true, silent = true })
+      -- Mappa <C-o> in modalità inserimento per inserire una nuova riga
+      if vim.env.TMUX ~= nil then
+        -- Sei dentro tmux
+        vim.api.nvim_set_keymap("i", "<C-o>", "<Esc>o", { noremap = true, silent = true })
+      else
+        -- Non sei dentro tmux
+        vim.api.nvim_set_keymap("i", "<S-CR>", "<Esc>o", { noremap = true, silent = true })
+      end
       -- per scavalcare caratteri sulla destra
       vim.api.nvim_set_keymap("i", "<C-S-Right>", "<esc>$a", { noremap = true, silent = true })
     end,
