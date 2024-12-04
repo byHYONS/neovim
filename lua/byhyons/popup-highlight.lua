@@ -7,6 +7,8 @@ M.setup = function()
     highlight PmenuSel guibg=#013754 guifg=#ffffff  " Elemento selezionato
     highlight FloatBorder guifg=#009BB2 guibg=#001424 " Bordi arrotondati per il popup con colore della cornice
     highlight VertSplit guifg=#FFFFFF  " Colore del separatore
+    highlight PmenuThumb guibg=#F09837  " Colore della barra di scorrimento
+    highlight PmenuSbar guibg=#001424  " Sfondo della barra di scorrimento
   ]])
 
   -- Aggiungo trasparenza e padding al popup

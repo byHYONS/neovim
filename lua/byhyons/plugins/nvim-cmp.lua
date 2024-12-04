@@ -67,6 +67,7 @@ return {
         }),
         documentation = cmp.config.window.bordered({
           border = "rounded", -- Angoli arrotondati anche per la documentazione
+          winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
         }),
       },
     })
