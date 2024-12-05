@@ -1,0 +1,26 @@
+{
+  "Axios GET": {
+    "prefix": "jaxiosGET",
+    "body": [
+      "axios",
+      "   .get('url', {params,})",
+      "   .then(response => {",
+      "console.log(response);",
+      "}"
+    ],
+    "description": "Axios API Call GET"
+  },
+
+  "Axios POST": {
+    "prefix": "jaxiosPOST",
+    "body": [
+      "axios",
+      "   .post('url', data, {",
+      "   headers: {'Content-Type': 'multipart/form-data'},})",
+      "   .then(response => {",
+      "   console.log(response);",
+      "}"
+    ],
+    "description": "Axios API Call POST"
+  }
+}

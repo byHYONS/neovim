@@ -1,0 +1,49 @@
+{
+  "Open PHP": {
+    "prefix": "pphp",
+    "body": ["<?php $1; ?>$0"],
+    "description": "Open Tag PHP"
+  },
+
+  "Echo PHP": {
+    "prefix": "pecho",
+    "body": ["<?php echo $1; ?>$0"],
+    "description": "Echo PHP"
+  },
+
+  "If PHP": {
+    "prefix": "pif",
+    "body": ["<?php if (${1:expression}): ?>", "   $2", "<?php endif ?>"],
+    "description": "If PHP"
+  },
+
+  "Elseif PHP": {
+    "prefix": "pelsif",
+    "body": ["<?php elseif (${1:expression}): ?>", "   $2"],
+    "description": "Elseif PHP"
+  },
+
+  "Else PHP": {
+    "prefix": "pelse",
+    "body": ["<?php else ?>", "   $2"],
+    "description": "Else PHP"
+  },
+
+  "Foreach PHP": {
+    "prefix": "pforeach",
+    "body": [
+      "<?php foreach (${1:array} as ${2:name}): ?>",
+      "   $2",
+      "<?php endforeach ?>"
+    ],
+    "description": "Foreach PHP"
+  },
+
+  "Nullself Operetor OOP PHP": {
+    "prefix": "pNsOperator",
+    "body": [
+      "<?php echo ${1:veriebile} -> ${2:condizione} ? -> ${3:stampa} ?? $4; ?>$0"
+    ],
+    "description": "Nullself Operetor OOP PHP"
+  }
+}

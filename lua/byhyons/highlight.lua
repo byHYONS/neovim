@@ -34,6 +34,7 @@ M.setup = function()
   highlight @tag.attribute guifg=#FFD847
   highlight @tag guifg=#FE4363
   highlight @markup.heading guifg=#9AC7BC
+  highlight @punctuation.bracket guifg=#4DA6FF
 
   highlight QuestionComment guifg=#0000FF
   highlight TodoComment guifg=#FFA500

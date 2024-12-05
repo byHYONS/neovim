@@ -1,0 +1,16 @@
+{
+  "_comment": "PER LEGGERE GLI SNIPPET IN FORMATO JSON",
+  "name": "my-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/javascript.json"
+      },
+      {
+        "language": "php",
+        "path": "./snippets/php.json"
+      }
+    ]
+  }
+}
