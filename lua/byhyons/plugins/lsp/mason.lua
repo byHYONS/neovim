@@ -45,6 +45,7 @@ return {
         "ast_grep",
         "stimulus_ls",
         "volar",
+        "jsonls",
       },
     })
 
@@ -57,6 +58,10 @@ return {
         "pylint", -- python linter
         "eslint_d", -- js linter
         "blade-formatter", -- Aggiungi blade-formatter qui
+        "mypy",
+        "debugpy",
+        "flake8",
+        "phpcs",
       },
     })
   end,

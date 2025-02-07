@@ -147,6 +147,11 @@ return {
         lspconfig["volar"].setup({
           capabilities = capabilities,
           filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+          init_options = {
+            typescript = {
+              tsdk = "/Users/byhyons/.nvm/versions/node/v20.16.0/lib/node_modules/typescript/lib",
+            },
+          },
           settings = {
             volar = {
               takeOverMode = true, -- permette a Volar di gestire anche i file TypeScript e JavaScript
@@ -179,6 +184,22 @@ return {
       ["phpactor"] = function()
         lspconfig["phpactor"].setup({
           capabilities = capabilities,
+        })
+      end,
+      -- Configurazione per Python (pyright)
+      ["pyright"] = function()
+        lspconfig["pyright"].setup({
+          capabilities = capabilities,
+          settings = {
+            python = {
+              analysis = {
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = "workspace",
+                typeCheckingMode = "off", -- Puoi scegliere "basic" o "strict" in base alle tue esigenze
+              },
+            },
+          },
         })
       end,
     })

@@ -4,7 +4,7 @@ local keymap = vim.keymap -- for conciseness
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+keymap.set("n", ",,", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
@@ -20,15 +20,16 @@ keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- o
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tabrent buffer to new tab
 
+-- Open CHATGPT
+keymap.set("n", "<leader>ic", "<cmd>ChatGPT<CR>", { desc = "Open chatGPT" })
+
 -- Keybindings per lspsaga
 -- Definisci le keybindings di lspsaga sotto <leader>i
 keymap.set("n", "<leader>if", "<cmd>Lspsaga lsp_finder<CR>", { desc = "LSP Finder" }) -- LSP Finder
 keymap.set("n", "<leader>id", "<cmd>Lspsaga peek_definition<CR>", { desc = "Peek Definition" }) -- Peek Definition
 keymap.set("n", "<leader>it", "<cmd>Lspsaga peek_type_definition<CR>", { desc = "Peek Type Definition" }) -- Peek Type Definition
 keymap.set("n", "<leader>ih", "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover Documentation" }) -- Hover Documentation
-keymap.set("n", "<leader>ic", "<cmd>Lspsaga code_action<CR>", { desc = "Code Action" }) -- Code Action
-keymap.set("n", "<leader>ir", "<cmd>Lspsaga rename<CR>", { desc = "Rename" }) -- Rename
-keymap.set("n", "<leader>iR", "<cmd>Lspsaga rename ++project<CR>", { desc = "Rename Project" }) -- Rename Project
+keymap.set("n", "<leader>ia", "<cmd>Lspsaga code_action<CR>", { desc = "Code Action" }) -- Code Action
 keymap.set("n", "<leader>il", "<cmd>Lspsaga outline<CR>", { desc = "Outline" }) -- Outline
 
 -- Aggiungi le nuove keybindings per la diagnostica
@@ -46,3 +47,63 @@ keymap.set("n", "<C-y>", "<cmd>Lspsaga scroll_up<CR>", { desc = "Scroll Up" }) -
 
 -- Uscire da modalità terminale
 keymap.set("t", "<C-x>", "<C-\\><C-n>", { noremap = true, silent = true })
+
+-- INFO: kaymaps for dap:
+
+-- Keymaps nvim-dap
+-- ### Breakpoints ###
+keymap.set("n", "<leader>cb", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", { desc = "Toggle Breakpoint" })
+keymap.set(
+  "n",
+  "<leader>cc",
+  "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>",
+  { desc = "Conditional Breakpoint" }
+)
+keymap.set(
+  "n",
+  "<leader>cl",
+  "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>",
+  { desc = "Log Point" }
+)
+keymap.set("n", "<leader>cx", "<cmd>lua require'dap'.clear_breakpoints()<cr>", { desc = "Clear Breakpoints" })
+keymap.set("n", "<leader>cy", "<cmd>Telescope dap list_breakpoints<cr>", { desc = "List Breakpoints" })
+
+-- ### Esecuzione ###
+keymap.set("n", "<leader>cd", "<cmd>lua require'dap'.continue()<cr>", { desc = "Continue" })
+keymap.set("n", "<leader>cj", "<cmd>lua require'dap'.step_over()<cr>", { desc = "Step Over" })
+keymap.set("n", "<leader>ck", "<cmd>lua require'dap'.step_into()<cr>", { desc = "Step Into" })
+keymap.set("n", "<leader>co", "<cmd>lua require'dap'.step_out()<cr>", { desc = "Step Out" })
+
+-- ### Controllo della sessione ###
+keymap.set(
+  "n",
+  "<leader>cX",
+  "<cmd>lua require('dap').disconnect(); require('dapui').close()<cr>",
+  { desc = "Disconnect" }
+)
+keymap.set(
+  "n",
+  "<leader>ct",
+  "<cmd>lua require('dap').terminate(); require('dapui').close()<cr>",
+  { desc = "Terminate" }
+)
+
+-- ### REPL e Run Last ###
+keymap.set("n", "<leader>cr", "<cmd>lua require'dap'.repl.toggle()<cr>", { desc = "Toggle REPL" })
+keymap.set("n", "<leader>cll", "<cmd>lua require'dap'.run_last()<cr>", { desc = "Run Last" })
+
+-- ### UI Widgets ###
+keymap.set("n", "<leader>ch", function()
+  require("dap.ui.widgets").hover()
+end, { desc = "Hover Widget" })
+keymap.set("n", "<leader>c?", function()
+  local widgets = require("dap.ui.widgets")
+  widgets.centered_float(widgets.scopes)
+end, { desc = "Centered Float Scopes" })
+
+-- ### Integrazione con Telescope ###
+keymap.set("n", "<leader>cf", "<cmd>Telescope dap frames<cr>", { desc = "DAP Frames" })
+keymap.set("n", "<leader>cg", "<cmd>Telescope dap commands<cr>", { desc = "DAP Commands" })
+keymap.set("n", "<leader>ce", function()
+  require("telescope.builtin").diagnostics({ default_text = ":E:" })
+end, { desc = "DAP Diagnostics" })

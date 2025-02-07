@@ -13,8 +13,8 @@ return {
       })
     end,
     keys = {
-      { "<leader>px", "<cmd>PxToRemCursor<CR>", desc = "Converti px a rem sotto il cursore" },
-      { "<leader>pxl", "<cmd>PxToRemLine<CR>", desc = "Converti px a rem in tutta la riga" },
+      { "<leader>ux", "<cmd>PxToRemCursor<CR>", desc = "Converti px a rem sotto il cursore" },
+      { "<leader>uxl", "<cmd>PxToRemLine<CR>", desc = "Converti px a rem in tutta la riga" },
     },
   },
 
