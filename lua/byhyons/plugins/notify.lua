@@ -7,7 +7,7 @@ return {
       level = "info", -- Livello di notifica di default (info, warn, error)
       max_width = 50, -- Larghezza massima della notifica
       max_height = 10, -- Altezza massima della notifica
-      background_colour = "#000000", -- Colore di sfondo per la trasparenza
+      background_colour = "#011423", -- Colore di sfondo per la trasparenza
       icons = {
         ERROR = "",
         WARN = "",
