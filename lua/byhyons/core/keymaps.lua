@@ -7,8 +7,8 @@ keymap.set("n", "<leader>aa", "<cmd>Alpha<CR>", { desc = "ToGo Menu Alpha" })
 keymap.set("n", "<leader>ae", "<cmd>qa<CR>", { desc = "Exit" })
 keymap.set("n", "<leader>aq", "<cmd>qa!<CR>", { desc = "Exit Without Saving" })
 keymap.set("n", "<leader>as", "<cmd>w<CR>", { desc = "Save file" })
-keymap.set("n", "<leader>aL", "<cmd>Lazy<CR>", { desc = "Menu Lazy" })
-keymap.set("n", "<leader>aM", "<cmd>Mason<CR>", { desc = "Menu Mason" })
+keymap.set("n", "<leader>al", "<cmd>Lazy<CR>", { desc = "Menu Lazy" })
+keymap.set("n", "<leader>am", "<cmd>Mason<CR>", { desc = "Menu Mason" })
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
@@ -32,7 +32,7 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tabrent buffer to new tab
 
 -- Open CHATGPT
-keymap.set("n", "<leader>i", "", { desc = " LSP Saga" })
+keymap.set("n", "<leader>i", "", { desc = " Code Info" })
 keymap.set("n", "<leader>ic", "<cmd>ChatGPT<CR>", { desc = "Open chatGPT" })
 
 -- Keybindings per lspsaga

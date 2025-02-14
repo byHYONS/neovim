@@ -62,6 +62,7 @@ return {
         "scss",
         "blade",
         "php_only",
+        "http",
       },
       incremental_selection = {
         enable = true,
