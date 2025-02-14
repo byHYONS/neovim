@@ -64,8 +64,8 @@ return {
           },
           { "filesize" },
           {
-            "location",
-            color = { bg = "#6A48A3", fg = "#FFFFFF", gui = "bold" },
+            "encoding",
+            color = { bg = "#6A48A3", fg = "#FFFFFF" },
             separator = { left = "" },
           },
           {
@@ -78,7 +78,7 @@ return {
           },
           {
             "filetype",
-            color = { bg = "#112638", fg = "#E9DEF2" },
+            color = { bg = "#112638", fg = "#E9DEF2", gui = "bold" },
           },
         },
       },

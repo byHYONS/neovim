@@ -49,6 +49,7 @@ end
 
 -- Mappature per aprire terminali specifici e generici
 
+map("n", "<leader>z", "", " Terminal")
 map("n", "<leader>zt", ":1ToggleTerm direction=horizontal<CR>", "Terminale generico") -- Terminale generico orizzontale (ID 1)
 map("n", "<leader>zf", ":2ToggleTerm direction=float<CR>", "Terminale generico flottante") -- Terminale generico flottante (ID 2)
 

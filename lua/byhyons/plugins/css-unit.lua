@@ -13,8 +13,9 @@ return {
       })
     end,
     keys = {
-      { "<leader>ux", "<cmd>PxToRemCursor<CR>", desc = "Converti px a rem sotto il cursore" },
-      { "<leader>uxl", "<cmd>PxToRemLine<CR>", desc = "Converti px a rem in tutta la riga" },
+      { "<leader>rr", "", desc = " CSS px/rem" },
+      { "<leader>rrx", "<cmd>PxToRemCursor<CR>", desc = " Converti px a rem sotto il cursore" },
+      { "<leader>rrxl", "<cmd>PxToRemLine<CR>", desc = "Converti px a rem in tutta la riga" },
     },
   },
 
@@ -29,9 +30,9 @@ return {
       })
     end,
     keys = {
-      { "<leader>ur", "<cmd>PxToRem<CR>", desc = "Converti px a rem (Unito)" },
-      { "<leader>up", "<cmd>RemToPx<CR>", desc = "Converti rem a px (Unito)" },
-      { "<leader>ut", "<cmd>TogglePxRem<CR>", desc = "Alterna px/rem sotto il cursore (Unito)" },
+      { "<leader>rrr", "<cmd>PxToRem<CR>", desc = "Converti px a rem (Unito)" },
+      { "<leader>rrp", "<cmd>RemToPx<CR>", desc = "Converti rem a px (Unito)" },
+      { "<leader>rrt", "<cmd>TogglePxRem<CR>", desc = "Alterna px/rem sotto il cursore (Unito)" },
     },
   },
 }

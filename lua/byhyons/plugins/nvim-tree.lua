@@ -98,6 +98,7 @@ return {
     -- Imposta le keymaps globali
     local keymap = vim.keymap -- per maggiore concisione
 
+    keymap.set("n", "<leader>e", "", { desc = " Tree Window" })
     keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
     keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
     keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer

@@ -63,6 +63,7 @@ return {
       }),
       -- sources for autocompletion
       sources = cmp.config.sources({
+        { name = "vim-dadbod-completion" },
         { name = "nvim_lsp" },
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
@@ -88,6 +89,13 @@ return {
           winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
         }),
       },
+    })
+    -- Abilita il completamento per i file SQL
+    cmp.setup.filetype("sql", {
+      sources = cmp.config.sources({
+        { name = "vim-dadbod-completion" },
+        { name = "buffer" },
+      }),
     })
   end,
 }

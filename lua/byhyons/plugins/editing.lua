@@ -28,6 +28,7 @@ return {
       vim.api.nvim_set_keymap("n", "<A-S-Down>", "yypk", { noremap = true, silent = true }) -- Copia la riga corrente verso il basso
       vim.api.nvim_set_keymap("v", "<A-S-Up>", "y'>p '<kgv", { noremap = true, silent = true }) -- Copia il blocco selezionato verso l'alto
       vim.api.nvim_set_keymap("v", "<A-S-Down>", "y'>p '>jgv", { noremap = true, silent = true }) -- Copia il blocco selezionato verso il basso
+      vim.api.nvim_set_keymap("i", "<C-,>", "<Esc>la", { noremap = true, silent = true })
 
       -- Mappa <C-o> in modalità inserimento per inserire una nuova riga
       if vim.env.TMUX ~= nil then
@@ -38,7 +39,7 @@ return {
         vim.api.nvim_set_keymap("i", "<C-CR>", "<Esc>o", { noremap = true, silent = true })
       end
       -- per scavalcare caratteri sulla destra
-      vim.api.nvim_set_keymap("i", "<C-S-Right>", "<esc>$a", { noremap = true, silent = true })
+      vim.api.nvim_set_keymap("i", "<C-.>", "<esc>$a", { noremap = true, silent = true })
     end,
   },
 }

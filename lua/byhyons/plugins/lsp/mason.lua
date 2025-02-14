@@ -46,6 +46,7 @@ return {
         "stimulus_ls",
         "volar",
         "jsonls",
+        "sqls",
       },
     })
 
@@ -62,6 +63,7 @@ return {
         "debugpy",
         "flake8",
         "phpcs",
+        "sqlfmt",
       },
     })
   end,

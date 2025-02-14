@@ -38,8 +38,8 @@ return {
         colors.bg_highlight = bg_highlight -- Background per evidenziazione (es.: evidenziazioni di testo selezionato o di ricerca)
         colors.bg_popup = bg_dark -- Background per i popup
         colors.bg_search = bg_search -- Background per la ricerca
-        colors.bg_sidebar = transparent and colors.none or bg_dark -- Background per le sidebar (pannelli laterali)
-        colors.bg_statusline = transparent and colors.none or bg_dark -- Background della statusline
+        colors.bg_sidebar = transparent and "none" or bg_dark -- Background per le sidebar (pannelli laterali)
+        colors.bg_statusline = transparent and "none" or bg_dark -- Background della statusline
         colors.bg_visual = bg_visual -- Background per la modalità visual
         colors.border = border -- Colore dei bordi
         colors.fg = fg -- Colore del testo principale
@@ -74,6 +74,14 @@ return {
           hl.NotifyERRORBorder = { bg = bg_dark, fg = border_error }
           hl.NotifyDEBUGBorder = { bg = bg_dark, fg = border_debug }
           hl.NotifyTRACEBorder = { bg = bg_dark, fg = border_trace }
+
+          hl.NormalFloat = { bg = bg_dark, fg = fg }
+          hl.TelescopeNormal = { bg = "none" }
+          hl.TelescopeBorder = { bg = "none", fg = popup_border }
+
+          hl.WhichKeyGroup = { fg = fg_gutter }
+          hl.WhichKeyDesc = { fg = fg_dark }
+          hl.WhichKeySeparator = { fg = popup_border }
         end
 
         vim.opt.pumblend = 10

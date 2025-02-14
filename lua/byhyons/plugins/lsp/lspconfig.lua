@@ -202,6 +202,30 @@ return {
           },
         })
       end,
+      -- Configurazione per SQL
+      ["sqls"] = function()
+        lspconfig["sqls"].setup({
+          capabilities = capabilities,
+          settings = {
+            sqls = {
+              connections = {
+                {
+                  driver = "mysql",
+                  dataSourceName = "root:root@tcp(127.0.0.1:8889)/mysql",
+                },
+                {
+                  driver = "sqlite3",
+                  dataSourceName = "/path/to/your/sqlite.db",
+                },
+                {
+                  driver = "postgresql",
+                  dataSourceName = "postgres://user:password@localhost:5432/",
+                },
+              },
+            },
+          },
+        })
+      end,
     })
   end,
 }

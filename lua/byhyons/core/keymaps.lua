@@ -2,25 +2,37 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
 
+keymap.set("n", "<leader>a", "", { desc = " Menu Neovim" })
+keymap.set("n", "<leader>aa", "<cmd>Alpha<CR>", { desc = "ToGo Menu Alpha" })
+keymap.set("n", "<leader>ae", "<cmd>qa<CR>", { desc = "Exit" })
+keymap.set("n", "<leader>aq", "<cmd>qa!<CR>", { desc = "Exit Without Saving" })
+keymap.set("n", "<leader>as", "<cmd>w<CR>", { desc = "Save file" })
+keymap.set("n", "<leader>aL", "<cmd>Lazy<CR>", { desc = "Menu Lazy" })
+keymap.set("n", "<leader>aM", "<cmd>Mason<CR>", { desc = "Menu Mason" })
+
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
-keymap.set("n", ",,", ":nohl<CR>", { desc = "Clear search highlights" })
+keymap.set("n", "<leader><leader>", ":nohl<CR>", { desc = "Clear search highlights" })
 
--- increment/decrement numbers
+-- i-crement/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
 
 -- window management
+keymap.set("n", "<leader>s", "", { desc = " Split Window" })
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
+-- Open new tab
+keymap.set("n", "<leader>t", "", { desc = " Menu Tab" })
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tabrent buffer to new tab
 
 -- Open CHATGPT
+keymap.set("n", "<leader>i", "", { desc = " LSP Saga" })
 keymap.set("n", "<leader>ic", "<cmd>ChatGPT<CR>", { desc = "Open chatGPT" })
 
 -- Keybindings per lspsaga
@@ -52,6 +64,7 @@ keymap.set("t", "<C-x>", "<C-\\><C-n>", { noremap = true, silent = true })
 
 -- Keymaps nvim-dap
 -- ### Breakpoints ###
+keymap.set("n", "<leader>c", "", { desc = " Debug" })
 keymap.set("n", "<leader>cb", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", { desc = "Toggle Breakpoint" })
 keymap.set(
   "n",
@@ -107,3 +120,9 @@ keymap.set("n", "<leader>cg", "<cmd>Telescope dap commands<cr>", { desc = "DAP C
 keymap.set("n", "<leader>ce", function()
   require("telescope.builtin").diagnostics({ default_text = ":E:" })
 end, { desc = "DAP Diagnostics" })
+
+-- Integrazione mySQL
+keymap.set("n", "<leader>m", "", { desc = " Database" })
+keymap.set("n", "<leader>mq", "<cmd>w<CR>", { desc = "Esegui query nel buffer SQL" })
+keymap.set("n", "<leader>mc", "<cmd>DBUIAddConnection<CR>", { desc = "Aggiungi database" })
+keymap.set("n", "<leader>md", "<cmd>bdelete<CR>", { desc = "Cancella buffer" })
