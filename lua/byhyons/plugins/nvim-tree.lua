@@ -11,7 +11,7 @@ return {
     nvimtree.setup({
       -- Impostazioni della vista
       view = {
-        width = 35,
+        width = 38,
         relativenumber = true,
       },
       -- Renderer per cambiare le icone delle cartelle

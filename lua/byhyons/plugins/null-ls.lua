@@ -5,8 +5,11 @@ return {
     local null_ls = require("null-ls")
     null_ls.setup({
       sources = {
+        -- Formatter per SQL
+        null_ls.builtins.formatting.sqlfmt,
+        -- Formatter per JSON e XML
         null_ls.builtins.formatting.prettier.with({
-          filetypes = { "svg", "xml" }, -- Formatta SVG e XML
+          filetypes = { "svg", "xml", "json" }, -- Formatta SVG e XML
         }),
       },
     })
@@ -16,7 +19,7 @@ return {
     end, {})
 
     vim.api.nvim_create_autocmd("BufWritePre", {
-      pattern = { "*.svg", "*.xml" },
+      pattern = { "*.svg", "*.xml", "*.json", "*.sql" },
       callback = function()
         vim.lsp.buf.format({ async = false })
       end,

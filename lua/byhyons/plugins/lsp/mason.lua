@@ -64,7 +64,6 @@ return {
         "flake8",
         "phpcs",
         "sqlfmt",
-        "prettier", -- Per formattare JSON nelle API
         "jq", -- Per manipolare dati JSON
       },
     })

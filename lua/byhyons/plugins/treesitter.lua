@@ -6,7 +6,8 @@ return {
     "windwp/nvim-ts-autotag",
   },
   config = function()
-    -- Aggiungi la configurazione del parser Blade
+    -- Configurazione del parser Blade
+    ---@class ParserInfo
     local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
     parser_config.blade = {
       install_info = {
@@ -16,6 +17,7 @@ return {
       },
       filetype = "blade",
     }
+
     -- import nvim-treesitter plugin
     local treesitter = require("nvim-treesitter.configs")
 
@@ -62,6 +64,7 @@ return {
         "scss",
         "blade",
         "php_only",
+        "sql",
         "http",
       },
       incremental_selection = {
