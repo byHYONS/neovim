@@ -4,12 +4,32 @@
   "contributes": {
     "snippets": [
       {
+        "language": "html",
+        "path": "./snippets/html.json"
+      },
+      {
+        "language": "css",
+        "path": "./snippets/css.json"
+      },
+      {
         "language": "javascript",
         "path": "./snippets/javascript.json"
       },
       {
         "language": "php",
         "path": "./snippets/php.json"
+      },
+      {
+        "language": "python",
+        "path": "./snippets/python.json"
+      },
+      {
+        "language": "vue",
+        "path": "./snippets/vue.json"
+      },
+      {
+        "language": "blade",
+        "path": "./snippets/blade.json"
       }
     ]
   }

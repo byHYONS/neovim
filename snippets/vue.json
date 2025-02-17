@@ -1,0 +1,91 @@
+{
+  "Axios GET": {
+    "prefix": "jaxiosGET",
+    "body": [
+      "axios",
+      "  .get('url', {params,})",
+      "  .then(response => {",
+      "console.log(response);",
+      "}"
+    ],
+    "description": "Axios API Call GET"
+  },
+  "Axios POST": {
+    "prefix": "J-axiosPOST",
+    "body": [
+      "axios",
+      "  .post('url', data, {",
+      "  headers: {'Content-Type': 'multipart/form-data'},})",
+      "  .then(response => {",
+      "  console.log(response);",
+      "}"
+    ],
+    "description": "Axios API Call POST"
+  },
+  "Template Script VUE": {
+    "prefix": "vtemScript",
+    "body": [
+      "export default {",
+      "  nome: 'NameComponent',",
+      "  components: {",
+      "    NameComponet,",
+      "  },",
+      "  emits: [\"closeModale\"],",
+      "  data() {",
+      "    return {",
+      "      store,",
+      "    };",
+      "  },",
+      "  methods: {",
+      "    ",
+      "  },",
+      "  mounted() {",
+      "    ",
+      "  },",
+      "},"
+    ],
+    "description": "Template Script Vue.js"
+  },
+  "Template VUE.JS": {
+    "prefix": "vtemplate",
+    "body": [
+      "<script>",
+      "import { store } from '../store.js';",
+      "",
+      "export default {",
+      "  nome: 'NameComponent',",
+      "  components: {",
+      "    NameComponet,",
+      "  },",
+      "  emits: [\"closeModale\"],",
+      "  data() {",
+      "    return {",
+      "      store,",
+      "    };",
+      "  },",
+      "  methods: {",
+      "    ",
+      "  },",
+      "  mounted() {",
+      "    ",
+      "  },",
+      "}",
+      "",
+      "<script/>",
+      "",
+      "",
+      "<template>",
+      "  <section>",
+      "    ",
+      "  <section/>",
+      "<template/>",
+      "",
+      "",
+      "<style lang=\"scss\" scoped>",
+      "@use '../assets/scss/partials/variables' as *;",
+      "  ",
+      "<style/>"
+    ],
+    "description": "Template Vue.js"
+  }
+}

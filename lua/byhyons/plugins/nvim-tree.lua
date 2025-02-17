@@ -11,7 +11,7 @@ return {
     nvimtree.setup({
       -- Impostazioni della vista
       view = {
-        width = 38,
+        width = 40,
         relativenumber = true,
       },
       -- Renderer per cambiare le icone delle cartelle
@@ -94,6 +94,15 @@ return {
         vim.keymap.set("n", "<2-LeftMouse>", api.node.open.edit, opts("Apri file con doppio click"))
       end,
     })
+
+    --  Colori per le icone Git
+    vim.api.nvim_set_hl(0, "NvimTreeGitDeleted", { fg = "#E52E2E" })
+    vim.api.nvim_set_hl(0, "NvimTreeGitNew", { fg = "#44FFB1" })
+    vim.api.nvim_set_hl(0, "NvimTreeGitDirty", { fg = "#F09837" })
+    vim.api.nvim_set_hl(0, "NvimTreeGitStaged", { fg = "#77C0FC" })
+    vim.api.nvim_set_hl(0, "NvimTreeGitRenamed", { fg = "#FFD847" })
+    vim.api.nvim_set_hl(0, "NvimTreeGitUntracked", { fg = "#9571ED" })
+    vim.api.nvim_set_hl(0, "NvimTreeGitIgnored", { fg = "#800080" })
 
     -- Imposta le keymaps globali
     local keymap = vim.keymap -- per maggiore concisione

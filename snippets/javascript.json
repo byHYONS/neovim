@@ -1,4 +1,40 @@
 {
+  "Consol Log": {
+    "prefix": "jlog",
+    "body": ["console.log(\"${1:text}\");"],
+    "description": "Console log"
+  },
+  "Condizione IF": {
+    "prefix": "jif",
+    "body": ["if(${1:condizione}) {", "  $2", "};"],
+    "descriptio": "Condizione if"
+  },
+  "Condizione ELSE": {
+    "prefix": "jelse",
+    "body": ["if(${1:condizione}) {", "  $2", "} else {", "  $3", "};"],
+    "descriptio": "Condizione else "
+  },
+  "Condizione ELSE IF": {
+    "prefix": "jelseif",
+    "body": [
+      "if(${1:condizione}) {",
+      "  $2",
+      "} else if (${3:condizione elseif}){",
+      "  $4",
+      "};"
+    ],
+    "descriptio": "Condizione else if"
+  },
+  "For Loop": {
+    "prefix": "jfor",
+    "body": ["for ( let = i, i < ${1:numero}, i++) {", "  $2", "};"],
+    "description": "Iterazione con ciclo for"
+  },
+  "While Loop": {
+    "prefix": "jwhile",
+    "body": ["while (${1:condizione}) {", "  $2", "};"],
+    "description": "Iterazione con ciclo while"
+  },
   "Axios GET": {
     "prefix": "jaxiosGET",
     "body": [
@@ -10,7 +46,6 @@
     ],
     "description": "Axios API Call GET"
   },
-
   "Axios POST": {
     "prefix": "jaxiosPOST",
     "body": [
