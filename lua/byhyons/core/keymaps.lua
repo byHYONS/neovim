@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 local keymap = vim.keymap -- for conciseness
 
 keymap.set("n", "<leader>a", "", { desc = " Menu Neovim" })
-keymap.set("n", "<leader>aa", "<cmd>Alpha<CR>", { desc = "ToGo Menu Alpha" })
+keymap.set("n", "<leader>aa", "<cmd>Alpha<CR> <cmd>NvimTreeClose<CR>", { desc = "ToGo Menu Alpha" })
 keymap.set("n", "<leader>ae", "<cmd>qa<CR>", { desc = "Exit" })
 keymap.set("n", "<leader>aq", "<cmd>qa!<CR>", { desc = "Exit Without Saving" })
 keymap.set("n", "<leader>as", "<cmd>w<CR>", { desc = "Save file" })

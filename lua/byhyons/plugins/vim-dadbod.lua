@@ -35,6 +35,12 @@ return {
     vim.g.db_ui_execute_on_save = 1 -- Non eseguire automaticamente le query
     vim.g.db_ui_winwidth = 55 -- Imposta la larghezza del pannello database
 
+    vim.g.db_ui_table_helpers = {
+      mysql = {
+        Columns = "USE `{dbname}`; DESCRIBE `{table}`;",
+      },
+    }
+
     -- Imposta gli autocmd per la gestione delle finestre
     vim.cmd([[
       augroup DadbodUISettings
