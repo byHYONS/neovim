@@ -146,15 +146,32 @@ return {
       ["volar"] = function()
         lspconfig["volar"].setup({
           capabilities = capabilities,
-          filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+          filetypes = { "vue", "typescript", "javascript", "javascriptreact", "typescriptreact" },
           init_options = {
+            vue = {
+              hybridMode = false, --  Disabilita Hybrid Mode (ora Volar gestirà TypeScript nei file Vue)
+            },
             typescript = {
               tsdk = "/Users/byhyons/.nvm/versions/node/v20.16.0/lib/node_modules/typescript/lib",
             },
           },
           settings = {
             volar = {
-              takeOverMode = true, -- permette a Volar di gestire anche i file TypeScript e JavaScript
+              takeOverMode = true, --  Fa gestire tutto a Volar, compreso TypeScript
+              experimental = {
+                templateInterpolationService = false,
+                styleInterpolationService = false,
+              },
+            },
+          },
+        })
+        -- Configurazione JSON Language Server
+        lspconfig.jsonls.setup({
+          capabilities = capabilities,
+          filetypes = { "json", "jsonc" }, -- Supporta JSON standard e con commenti (JSONC)
+          settings = {
+            json = {
+              validate = { enable = true },
             },
           },
         })
@@ -163,7 +180,7 @@ return {
       ["html"] = function()
         lspconfig["html"].setup({
           capabilities = capabilities,
-          filetypes = { "html", "blade" }, -- Includi blade qui
+          filetypes = { "html", "blade" },
         })
       end,
       ["intelephense"] = function()
