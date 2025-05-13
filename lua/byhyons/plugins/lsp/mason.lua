@@ -1,20 +1,13 @@
 return {
   "williamboman/mason.nvim",
   dependencies = {
+    "neovim/nvim-lspconfig",
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   config = function()
-    -- import mason
-    local mason = require("mason")
-
-    -- import mason-lspconfig
-    local mason_lspconfig = require("mason-lspconfig")
-
-    local mason_tool_installer = require("mason-tool-installer")
-
-    -- enable mason and configure icons
-    mason.setup({
+    -- 1) mason core
+    require("mason").setup({
       ui = {
         icons = {
           package_installed = "✓",
@@ -24,8 +17,7 @@ return {
       },
     })
 
-    mason_lspconfig.setup({
-      -- list of servers for mason to install
+    require("mason-lspconfig").setup({
       ensure_installed = {
         "ts_ls",
         "html",
@@ -42,15 +34,21 @@ return {
         "ast_grep",
         "clangd",
         "harper_ls",
-        "ast_grep",
         "stimulus_ls",
         "volar",
         "jsonls",
         "sqls",
       },
+      automatic_enable = false,
+      handlers = {
+        -- default handler per ogni LSP installato
+        function(server_name)
+          require("lspconfig")[server_name].setup({})
+        end,
+      },
     })
 
-    mason_tool_installer.setup({
+    require("mason-tool-installer").setup({
       ensure_installed = {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
@@ -65,6 +63,9 @@ return {
         "phpcs",
         "sqlfmt",
         "jq", -- Per manipolare dati JSON
+      },
+      integrations = {
+        ["mason-lspconfig"] = false,
       },
     })
   end,
