@@ -1,6 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
-  after = "mason-lspconfig",
+  after = "mason-org/mason-lspconfig.nvim",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
@@ -53,6 +53,21 @@ return {
 
     -- === CONFIGURAZIONE MANUALE DEI SERVER ===
 
+    -- 1) TypeScript / ts_ls
+    local mason_ts = vim.fn.stdpath("data") .. "/mason/packages/typescript-language-server/node_modules/typescript/lib"
+
+    lspconfig.ts_ls.setup({
+      capabilities = capabilities,
+      filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+      init_options = {
+        typescript = { tsdk = mason_ts },
+      },
+      on_attach = function(client)
+        client.server_capabilities.documentFormattingProvider = false
+      end,
+    })
+
+    -- 2) Svelte
     lspconfig.svelte.setup({
       capabilities = capabilities,
       on_attach = function(client, bufnr)
@@ -65,11 +80,13 @@ return {
       end,
     })
 
+    -- 3) GraphQL
     lspconfig.graphql.setup({
       capabilities = capabilities,
       filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
     })
 
+    -- 4) Emmet
     lspconfig.emmet_ls.setup({
       capabilities = capabilities,
       filetypes = {
@@ -85,6 +102,7 @@ return {
       },
     })
 
+    -- 5) Lua
     lspconfig.lua_ls.setup({
       capabilities = capabilities,
       settings = {
@@ -95,10 +113,14 @@ return {
       },
     })
 
+    -- 6) Volar (Vue 3)
     lspconfig.volar.setup({
       capabilities = capabilities,
       filetypes = { "vue", "typescript", "javascript", "javascriptreact", "typescriptreact" },
-      init_options = { vue = { hybridMode = false } },
+      init_options = {
+        typescript = { tsdk = mason_ts },
+        vue = { hybridMode = false },
+      },
       settings = {
         volar = {
           takeOverMode = true,
@@ -107,17 +129,20 @@ return {
       },
     })
 
+    -- 7) JSON
     lspconfig.jsonls.setup({
       capabilities = capabilities,
       filetypes = { "json", "jsonc" },
       settings = { json = { validate = { enable = true } } },
     })
 
+    -- 8) html
     lspconfig.html.setup({
       capabilities = capabilities,
       filetypes = { "html", "blade" },
     })
 
+    -- 9) PHP
     lspconfig.intelephense.setup({
       capabilities = capabilities,
       settings = {
@@ -130,6 +155,7 @@ return {
 
     lspconfig.phpactor.setup({ capabilities = capabilities })
 
+    -- 10) python
     lspconfig.pyright.setup({
       capabilities = capabilities,
       settings = {
@@ -144,6 +170,7 @@ return {
       },
     })
 
+    -- 11) sql
     lspconfig.sqls.setup({
       capabilities = capabilities,
       settings = {

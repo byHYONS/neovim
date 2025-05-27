@@ -2,7 +2,8 @@ return {
   "williamboman/mason.nvim",
   dependencies = {
     "neovim/nvim-lspconfig",
-    "williamboman/mason-lspconfig.nvim",
+    -- "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   config = function()
@@ -20,6 +21,7 @@ return {
     require("mason-lspconfig").setup({
       ensure_installed = {
         "ts_ls",
+        "vue_ls",
         "html",
         "cssls",
         "tailwindcss",
@@ -35,17 +37,10 @@ return {
         "clangd",
         "harper_ls",
         "stimulus_ls",
-        "volar",
         "jsonls",
         "sqls",
       },
       automatic_enable = false,
-      handlers = {
-        -- default handler per ogni LSP installato
-        function(server_name)
-          require("lspconfig")[server_name].setup({})
-        end,
-      },
     })
 
     require("mason-tool-installer").setup({
