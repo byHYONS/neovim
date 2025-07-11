@@ -10,9 +10,18 @@ return {
   config = function()
     local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
-    local keymap = vim.keymap
+
+    -- js ts vuejs
+    local mason_path = vim.fn.stdpath("data") .. "/mason/packages"
+    local ts_path = mason_path .. "/typescript-language-server/node_modules/typescript/lib"
+    local vue_ts_plugin = "/Users/byhyons/.nvm/versions/node/v20.19.3/lib/node_modules/@vue/typescript-plugin"
+
+    -- php laravel blade
+    local util = require("lspconfig").util
+    local php_root = util.root_pattern("artisan", "composer.json", ".git")
 
     -- Keymaps e segni diagnostici
+    local keymap = vim.keymap
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
@@ -54,20 +63,49 @@ return {
     -- === CONFIGURAZIONE MANUALE DEI SERVER ===
 
     -- 1) TypeScript / ts_ls
-    local mason_ts = vim.fn.stdpath("data") .. "/mason/packages/typescript-language-server/node_modules/typescript/lib"
-
     lspconfig.ts_ls.setup({
       capabilities = capabilities,
-      filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-      init_options = {
-        typescript = { tsdk = mason_ts },
+      filetypes = {
+        "typescript",
+        "typescriptreact",
+        "javascript",
+        "javascriptreact",
+        "vue",
       },
-      on_attach = function(client)
-        client.server_capabilities.documentFormattingProvider = false
-      end,
+      init_options = {
+        typescript = {
+          tsdk = ts_path,
+        },
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            location = vue_ts_plugin,
+            languages = { "vue" },
+          },
+        },
+      },
     })
 
-    -- 2) Svelte
+    -- 2) Volar (Vue 3)
+    lspconfig.volar.setup({
+      capabilities = capabilities,
+      filetypes = { "vue" },
+      init_options = {
+        typescript = { tsdk = ts_path },
+        vue = { hybridMode = false },
+      },
+      settings = {
+        volar = {
+          takeOverMode = false,
+          experimental = {
+            templateInterpolationService = true,
+            styleInterpolationService = true,
+          },
+        },
+      },
+    })
+
+    -- 3) Svelte
     lspconfig.svelte.setup({
       capabilities = capabilities,
       on_attach = function(client, bufnr)
@@ -80,51 +118,38 @@ return {
       end,
     })
 
-    -- 3) GraphQL
+    -- 4) GraphQL
     lspconfig.graphql.setup({
       capabilities = capabilities,
       filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
     })
 
-    -- 4) Emmet
+    -- 5) Emmet
     lspconfig.emmet_ls.setup({
       capabilities = capabilities,
       filetypes = {
         "html",
         "typescriptreact",
         "javascriptreact",
+        "vue",
+        "php",
+        "blade",
+        "python",
         "css",
         "sass",
         "scss",
         "less",
         "svelte",
-        "blade",
       },
     })
 
-    -- 5) Lua
+    -- 6) Lua
     lspconfig.lua_ls.setup({
       capabilities = capabilities,
       settings = {
         Lua = {
           diagnostics = { globals = { "vim" }, disable = { "missing-fields" } },
           completion = { callSnippet = "Replace" },
-        },
-      },
-    })
-
-    -- 6) Volar (Vue 3)
-    lspconfig.volar.setup({
-      capabilities = capabilities,
-      filetypes = { "vue", "typescript", "javascript", "javascriptreact", "typescriptreact" },
-      init_options = {
-        typescript = { tsdk = mason_ts },
-        vue = { hybridMode = false },
-      },
-      settings = {
-        volar = {
-          takeOverMode = true,
-          experimental = { templateInterpolationService = false, styleInterpolationService = false },
         },
       },
     })
@@ -139,10 +164,33 @@ return {
     -- 8) html
     lspconfig.html.setup({
       capabilities = capabilities,
-      filetypes = { "html", "blade" },
+      filetypes = { "html", "blade", "vue" },
     })
 
-    -- 9) PHP
+    -- 9) cssls
+    lspconfig.cssls.setup({
+      capabilities = capabilities,
+      filetypes = {
+        "css",
+        "scss",
+        "less",
+        "vue",
+      },
+    })
+
+    -- 10) tailwindcss
+    lspconfig.tailwindcss.setup({
+      capabilities = capabilities,
+      filetypes = {
+        "html",
+        "css",
+        "typescript",
+        "javascript",
+        "vue",
+      },
+    })
+
+    -- 11) PHP
     lspconfig.intelephense.setup({
       capabilities = capabilities,
       settings = {
@@ -155,7 +203,7 @@ return {
 
     lspconfig.phpactor.setup({ capabilities = capabilities })
 
-    -- 10) python
+    -- 12) python
     lspconfig.pyright.setup({
       capabilities = capabilities,
       settings = {
@@ -170,7 +218,7 @@ return {
       },
     })
 
-    -- 11) sql
+    -- 13) sql
     lspconfig.sqls.setup({
       capabilities = capabilities,
       settings = {
