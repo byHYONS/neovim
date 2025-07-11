@@ -70,7 +70,7 @@ map("t", "<leader>zx", "<C-\\><C-n><C-w>k <C-w>l", "Focus Codice")
 -- Terminale per `browser-sync` (ID 6), in modalità flottante
 map(
   "n",
-  "<leader>zb",
+  "<leader>zg",
   ":6TermExec direction=float cmd='browser-sync start --server --files \"**/*.html,**/*.css,**/*.js\"'<CR>",
   "Go Live"
 )
