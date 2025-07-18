@@ -8,7 +8,7 @@ lint.linters_by_ft = {
   typescriptreact = { "eslint_d" },
   svelte = { "eslint_d" },
   python = { "pylint", "mypy", "flake8" },
-  php = { "phpcs" },
+  php = { "phpstan" },
 }
 
 local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
@@ -20,6 +20,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
   end,
 })
 
-vim.keymap.set("n", "<leader>g", function()
+vim.keymap.set("n", "<leader>ll", function()
   lint.try_lint()
 end, { desc = "Trigger linting for current file" })

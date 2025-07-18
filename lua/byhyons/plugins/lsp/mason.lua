@@ -20,25 +20,22 @@ return {
 
     require("mason-lspconfig").setup({
       ensure_installed = {
-        "ts_ls",
-        "vue_ls",
         "html",
+        "emmet_ls",
         "cssls",
         "tailwindcss",
-        "svelte",
         "lua_ls",
+        "ts_ls",
         "graphql",
-        "emmet_ls",
-        "prismals",
-        "pyright",
+        "svelte",
         "intelephense",
         "phpactor",
-        "ast_grep",
+        "prismals",
+        "pyright",
         "clangd",
-        "harper_ls",
-        "stimulus_ls",
         "jsonls",
         "sqls",
+        "ast_grep",
       },
       automatic_enable = false,
     })
@@ -46,16 +43,18 @@ return {
     require("mason-tool-installer").setup({
       ensure_installed = {
         "prettier", -- prettier formatter
+        "biome",
         "stylua", -- lua formatter
         "isort", -- python formatter
         "black", -- python formatter
         "pylint", -- python linter
         "eslint_d", -- js linter
-        "blade-formatter", -- Aggiungi blade-formatter qui
+        "blade-formatter",
         "mypy",
         "debugpy",
         "flake8",
-        "phpcs",
+        "php-cs-fixer",
+        "phpstan",
         "sqlfmt",
         "jq", -- Per manipolare dati JSON
       },

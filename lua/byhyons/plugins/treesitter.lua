@@ -26,10 +26,6 @@ return {
       highlight = {
         enable = true,
         priority = 80,
-        -- disabilito query treesitter:
-        disable = { "blade" },
-        -- abilito vim-blade:
-        additional_vim_regex_highlighting = { "blade" },
       },
       -- enable indentation
       indent = { enable = true },

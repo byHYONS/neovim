@@ -1,8 +1,6 @@
 -- Riconosci i file .blade.php come tipo di file blade
 vim.filetype.add({
-  extension = {
-    ["blade.php"] = "blade",
-  },
+  pattern = { ["*.blade.php"] = "blade" },
 })
 
 -- comando per creare query Blade:

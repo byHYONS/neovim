@@ -28,7 +28,8 @@ return {
         lua = { "stylua" },
         python = { "isort", "black" },
         blade = { "blade_formatter" },
-        php = { "blade_formatter" },
+        php = { "php-cs-fixer" },
+        -- php = { "blade_formatter" },
       },
       format_on_save = {
         lsp_fallback = true,
