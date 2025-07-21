@@ -17,7 +17,7 @@ return {
       delay = 500,
       ignore_whitespace = false,
     },
-    current_line_blame_formatter = "   <author>, <author_time:%R>",
+    current_line_blame_formatter = "   <author>, <author_time:%R>",
 
     on_attach = function(bufnr)
       local gs = package.loaded.gitsigns
@@ -26,7 +26,7 @@ return {
         vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
       end
 
-      -- Navigation
+      -- Navigation  
       map("n", "]h", gs.next_hunk, "Next Hunk")
       map("n", "[h", gs.prev_hunk, "Prev Hunk")
 

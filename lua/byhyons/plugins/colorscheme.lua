@@ -82,6 +82,7 @@ return {
           hl.WhichKeyGroup = { fg = fg_gutter }
           hl.WhichKeyDesc = { fg = fg_dark }
           hl.WhichKeySeparator = { fg = popup_border }
+          hl.Folded = { bg = bg_visual, fg = border }
         end
 
         vim.opt.pumblend = 10

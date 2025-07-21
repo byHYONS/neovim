@@ -2,19 +2,25 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
 
+keymap.set("n", "<leader>", "", { desc = " Menu" })
+
 keymap.set("n", "gs", "<cmd>w<CR>", { desc = "Save File" })
 keymap.set("n", "gS", "<cmd>noautocmd w<CR>", { desc = "Save File Without Formatting" })
 
-keymap.set("n", "<leader>a", "", { desc = " Menu Neovim" })
+keymap.set("n", "<leader>a", "", { desc = " Menu Neovim Lazy" })
 keymap.set("n", "<leader>aa", "<cmd>Alpha<CR> <cmd>NvimTreeClose<CR>", { desc = "ToGo Menu Alpha" })
 keymap.set("n", "<leader>ae", "<cmd>qa<CR>", { desc = "Exit" })
 keymap.set("n", "<leader>aq", "<cmd>qa!<CR>", { desc = "Exit Without Saving" })
 keymap.set("n", "<leader>al", "<cmd>Lazy<CR>", { desc = "Menu Lazy" })
 keymap.set("n", "<leader>am", "<cmd>Mason<CR>", { desc = "Menu Mason" })
+-- NEORG
+keymap.set("n", "<leader>an", ":Neorg<CR>", { desc = "Neorg" })
 
+-- Insert exit
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
-keymap.set("n", "<leader><leader>", ":nohl<CR>", { desc = "Clear search highlights" })
+keymap.set("n", "|", "", { desc = " Tab Jump" })
+keymap.set("n", "||", ":nohl<CR>", { desc = "Cancel Selection" })
 
 -- i-crement/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
@@ -28,15 +34,12 @@ keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- 
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
 -- Open new tab
-keymap.set("n", "<leader>t", "", { desc = " Menu Tab" })
-keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
-keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
-keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tabrent buffer to new tab
+keymap.set("n", "<leader>sn", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
+keymap.set("n", "<leader>sf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tabrent buffer to new tab
 
 -- Open CHATGPT
 keymap.set("n", "<leader>i", "", { desc = " Code Info" })
 keymap.set("n", "<leader>ic", "<cmd>ChatGPT<CR>", { desc = "Open chatGPT" })
-
 -- Keybindings per lspsaga
 -- Definisci le keybindings di lspsaga sotto <leader>i
 keymap.set("n", "<leader>if", "<cmd>Lspsaga lsp_finder<CR>", { desc = "LSP Finder" }) -- LSP Finder
@@ -63,63 +66,62 @@ keymap.set("n", "<C-y>", "<cmd>Lspsaga scroll_up<CR>", { desc = "Scroll Up" }) -
 keymap.set("t", "<C-x>", "<C-\\><C-n>", { noremap = true, silent = true })
 
 -- INFO: kaymaps for dap:
-
 -- Keymaps nvim-dap
 -- ### Breakpoints ###
-keymap.set("n", "<leader>c", "", { desc = " Debug" })
-keymap.set("n", "<leader>cb", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", { desc = "Toggle Breakpoint" })
+keymap.set("n", "<leader>d", "", { desc = " Debug" })
+keymap.set("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", { desc = "Toggle Breakpoint" })
 keymap.set(
   "n",
-  "<leader>cc",
+  "<leader>dc",
   "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>",
   { desc = "Conditional Breakpoint" }
 )
 keymap.set(
   "n",
-  "<leader>cl",
+  "<leader>dl",
   "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>",
   { desc = "Log Point" }
 )
-keymap.set("n", "<leader>cx", "<cmd>lua require'dap'.clear_breakpoints()<cr>", { desc = "Clear Breakpoints" })
-keymap.set("n", "<leader>cy", "<cmd>Telescope dap list_breakpoints<cr>", { desc = "List Breakpoints" })
+keymap.set("n", "<leader>dx", "<cmd>lua require'dap'.clear_breakpoints()<cr>", { desc = "Clear Breakpoints" })
+keymap.set("n", "<leader>dy", "<cmd>Telescope dap list_breakpoints<cr>", { desc = "List Breakpoints" })
 
 -- ### Esecuzione ###
-keymap.set("n", "<leader>cd", "<cmd>lua require'dap'.continue()<cr>", { desc = "Continue" })
-keymap.set("n", "<leader>cj", "<cmd>lua require'dap'.step_over()<cr>", { desc = "Step Over" })
-keymap.set("n", "<leader>ck", "<cmd>lua require'dap'.step_into()<cr>", { desc = "Step Into" })
-keymap.set("n", "<leader>co", "<cmd>lua require'dap'.step_out()<cr>", { desc = "Step Out" })
+keymap.set("n", "<leader>dd", "<cmd>lua require'dap'.continue()<cr>", { desc = "Continue" })
+keymap.set("n", "<leader>dj", "<cmd>lua require'dap'.step_over()<cr>", { desc = "Step Over" })
+keymap.set("n", "<leader>dk", "<cmd>lua require'dap'.step_into()<cr>", { desc = "Step Into" })
+keymap.set("n", "<leader>do", "<cmd>lua require'dap'.step_out()<cr>", { desc = "Step Out" })
 
 -- ### Controllo della sessione ###
 keymap.set(
   "n",
-  "<leader>cX",
+  "<leader>dX",
   "<cmd>lua require('dap').disconnect(); require('dapui').close()<cr>",
   { desc = "Disconnect" }
 )
 keymap.set(
   "n",
-  "<leader>ct",
+  "<leader>dt",
   "<cmd>lua require('dap').terminate(); require('dapui').close()<cr>",
   { desc = "Terminate" }
 )
 
 -- ### REPL e Run Last ###
-keymap.set("n", "<leader>cr", "<cmd>lua require'dap'.repl.toggle()<cr>", { desc = "Toggle REPL" })
-keymap.set("n", "<leader>cll", "<cmd>lua require'dap'.run_last()<cr>", { desc = "Run Last" })
+keymap.set("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", { desc = "Toggle REPL" })
+keymap.set("n", "<leader>dll", "<cmd>lua require'dap'.run_last()<cr>", { desc = "Run Last" })
 
 -- ### UI Widgets ###
-keymap.set("n", "<leader>ch", function()
+keymap.set("n", "<leader>dh", function()
   require("dap.ui.widgets").hover()
 end, { desc = "Hover Widget" })
-keymap.set("n", "<leader>c?", function()
+keymap.set("n", "<leader>d?", function()
   local widgets = require("dap.ui.widgets")
   widgets.centered_float(widgets.scopes)
 end, { desc = "Centered Float Scopes" })
 
 -- ### Integrazione con Telescope ###
-keymap.set("n", "<leader>cf", "<cmd>Telescope dap frames<cr>", { desc = "DAP Frames" })
-keymap.set("n", "<leader>cg", "<cmd>Telescope dap commands<cr>", { desc = "DAP Commands" })
-keymap.set("n", "<leader>ce", function()
+keymap.set("n", "<leader>df", "<cmd>Telescope dap frames<cr>", { desc = "DAP Frames" })
+keymap.set("n", "<leader>dg", "<cmd>Telescope dap commands<cr>", { desc = "DAP Commands" })
+keymap.set("n", "<leader>de", function()
   require("telescope.builtin").diagnostics({ default_text = ":E:" })
 end, { desc = "DAP Diagnostics" })
 
@@ -128,3 +130,23 @@ keymap.set("n", "<leader>m", "", { desc = " Database" })
 keymap.set("n", "<leader>mq", "<cmd>w<CR>", { desc = "Esegui query nel buffer SQL" })
 keymap.set("n", "<leader>mc", "<cmd>DBUIAddConnection<CR>", { desc = "Aggiungi database" })
 keymap.set("n", "<leader>md", "<cmd>bdelete<CR>", { desc = "Cancella buffer" })
+
+-- Laravel Neovim
+keymap.set("n", "<leader>t", "", { desc = " Code Tools" })
+keymap.set("n", "<leader>ta", "<cmd>Laravel artisan<CR>", { desc = "Laravel: Artisan" })
+keymap.set("n", "<leader>tr", "<cmd>Laravel routes<CR>", { desc = "Laravel: Routes" })
+
+-- CHAT COPILOT
+-- Copilot Chat sotto <leader>c
+keymap.set("n", "<leader>c", "", { desc = " Copilot Chat" })
+keymap.set("n", "<leader>co", "<cmd>CopilotChat<CR>", { desc = "Open Chat" })
+keymap.set("n", "<leader>cc", "<cmd>CopilotChatClose<CR>", { desc = "Close Chat" })
+keymap.set("n", "<leader>cs", "<cmd>CopilotChatSave<CR>", { desc = "Save History" })
+-- Code-related actions
+keymap.set("n", "<leader>ce", "<cmd>CopilotChatExplain<CR>", { desc = "Explain Code" })
+keymap.set("n", "<leader>cr", "<cmd>CopilotChatReview<CR>", { desc = "Review Code" })
+keymap.set("n", "<leader>ct", "<cmd>CopilotChatTests<CR>", { desc = "Gen Tests" })
+keymap.set("n", "<leader>cm", "<cmd>CopilotChatCommit<CR>", { desc = "Commit Message" })
+-- Settings & helpers
+keymap.set("n", "<leader>c?", "<cmd>CopilotChatModels<CR>", { desc = "Select Model" })
+keymap.set("n", "<leader>c!", "<cmd>CopilotChatAgents<CR>", { desc = "Select Agent" })

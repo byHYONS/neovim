@@ -1,3 +1,5 @@
+" -- WARNING: disabilitato in treesitter
+
 " nuovo gruppo di sintassi per le parentesi
 syntax match bladeParentheses /[(){}[\]]/
 

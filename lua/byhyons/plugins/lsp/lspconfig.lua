@@ -26,39 +26,47 @@ return {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
         local opts = { buffer = ev.buf, silent = true }
+        opts.desc = "Smart rename"
+        keymap.set("n", "gI", vim.lsp.buf.rename, opts)
         opts.desc = "Show LSP references"
         keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
-        opts.desc = "Go to declaration"
-        keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
         opts.desc = "Show definitions"
         keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+        opts.desc = "Go to declaration"
+        keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
         opts.desc = "Show implementations"
         keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
         opts.desc = "Show type definitions"
-        keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+        keymap.set("n", "gy", "<cmd>Telescope lsp_type_definitions<CR>", opts)
         opts.desc = "Code actions"
         keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-        opts.desc = "Smart rename"
-        keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
         opts.desc = "Buffer diagnostics"
-        keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
+        keymap.set("n", "gL", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
         opts.desc = "Line diagnostics"
-        keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+        keymap.set("n", "gl", vim.diagnostic.open_float, opts)
         opts.desc = "Prev diagnostic"
         keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
         opts.desc = "Next diagnostic"
         keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
         opts.desc = "Hover doc"
         keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        opts.desc = " Lazy LSP"
+        keymap.set("n", "<leader>l", "", opts)
         opts.desc = "Restart LSP"
-        keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
+        keymap.set("n", "<leader>ls", ":LspRestart<CR>", opts)
       end,
     })
 
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    for type, icon in pairs(signs) do
-      vim.fn.sign_define("DiagnosticSign" .. type, { text = icon, texthl = "DiagnosticSign" .. type })
-    end
+    vim.diagnostic.config({
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = " ",
+          [vim.diagnostic.severity.WARN] = " ",
+          [vim.diagnostic.severity.HINT] = "󰠠 ",
+          [vim.diagnostic.severity.INFO] = " ",
+        },
+      },
+    })
 
     -- === CONFIGURAZIONE MANUALE DEI SERVER ===
 
@@ -190,18 +198,65 @@ return {
       },
     })
 
-    -- 11) PHP
+    -- 11) php + laravel con intelephense pro
     lspconfig.intelephense.setup({
+      cmd = { vim.fn.expand("~/.nvm/versions/node/v20.19.3/bin/intelephense"), "--stdio" },
       capabilities = capabilities,
+      filetypes = { "php", "blade" },
+      root_dir = php_root,
       settings = {
         intelephense = {
-          files = { maxSize = 5000000 },
-          environment = { shortOpenTag = true },
+          environment = {
+            includepaths = { "vendor/laravel/framework/src" },
+            shortopentag = true,
+          },
+          files = {
+            maxsize = 5000000,
+            associations = { "*.php", "*.phtml", "*.blade.php" },
+          },
+          diagnostics = {
+            undefinedfunctions = false,
+            enable = true,
+          },
+          format = {
+            enable = true,
+          },
+          telemetry = {
+            enabled = false,
+          },
         },
+      },
+      flags = {
+        debounce_text_changes = 150,
       },
     })
 
-    lspconfig.phpactor.setup({ capabilities = capabilities })
+    -- 11) PHP + Laravel via Phpactor
+    lspconfig.phpactor.setup({
+      capabilities = capabilities,
+      root_dir = php_root,
+      filetypes = { "php", "blade" },
+      settings = {
+        phpactor = {
+          language_server = {
+            memory_limit = "512M",
+            psalm_enable = false,
+            diagnostics_phpstan = false,
+            completion = {
+              fuzzy = true,
+              deep = true,
+            },
+            navigation = {
+              enableGotoDefinition = true,
+              enableGotoImplementation = true,
+            },
+            reflect = {
+              signature = { enable = true, length = 40 },
+            },
+          },
+        },
+      },
+    })
 
     -- 12) python
     lspconfig.pyright.setup({
