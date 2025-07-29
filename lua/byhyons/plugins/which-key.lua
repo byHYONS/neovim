@@ -5,7 +5,6 @@ return {
     vim.o.timeout = true
     vim.o.timeoutlen = 1000
   end,
-  dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {
     icons = {
       mappings = true,

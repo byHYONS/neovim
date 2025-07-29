@@ -1,10 +1,7 @@
 return {
   "nvimdev/lspsaga.nvim",
   event = "LspAttach", -- Carica il plugin quando un server LSP si attacca
-  dependencies = {
-    "nvim-tree/nvim-web-devicons", -- Dipendenza per le icone
-    "nvim-treesitter/nvim-treesitter", -- Dipendenza per l'analisi del codice
-  },
+  dependencies = { "nvim-treesitter/nvim-treesitter" },
   config = function()
     require("lspsaga").setup({
       -- Configurazione UI

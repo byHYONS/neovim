@@ -1,6 +1,6 @@
 return {
   "nvim-tree/nvim-tree.lua",
-  dependencies = "nvim-tree/nvim-web-devicons",
+  version = "*",
   config = function()
     -- Impedisce il caricamento di netrw
     vim.g.loaded_netrw = 1
