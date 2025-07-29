@@ -261,13 +261,19 @@ return {
     -- 12) python
     lspconfig.pyright.setup({
       capabilities = capabilities,
+
+      root_dir = function(fname)
+        return vim.fs.dirname(fname)
+      end,
+
       settings = {
         python = {
           analysis = {
             autoSearchPaths = true,
             useLibraryCodeForTypes = true,
-            diagnosticMode = "workspace",
+            diagnosticMode = "openFilesOnly",
             typeCheckingMode = "off",
+            -- venvPath / venv se ti servono…
           },
         },
       },
