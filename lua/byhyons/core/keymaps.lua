@@ -6,6 +6,7 @@ keymap.set("n", "<leader>", "", { desc = " Menu" })
 
 keymap.set("n", "gs", "<cmd>w<CR>", { desc = "Save File" })
 keymap.set("n", "gS", "<cmd>noautocmd w<CR>", { desc = "Save File Without Formatting" })
+keymap.set("n", "go", "<cmd>Oil --float<CR>", { desc = "Open Oil File Manager" })
 
 keymap.set("n", "<leader>a", "", { desc = " Menu Neovim Lazy" })
 keymap.set("n", "<leader>aa", "<cmd>Alpha<CR> <cmd>NvimTreeClose<CR>", { desc = "ToGo Menu Alpha" })
