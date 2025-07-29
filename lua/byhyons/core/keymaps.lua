@@ -8,7 +8,7 @@ keymap.set("n", "gs", "<cmd>w<CR>", { desc = "Save File" })
 keymap.set("n", "gS", "<cmd>noautocmd w<CR>", { desc = "Save File Without Formatting" })
 keymap.set("n", "go", "<cmd>Oil --float<CR>", { desc = "Open Oil File Manager" })
 
-keymap.set("n", "<leader>a", "", { desc = " Menu Neovim Lazy" })
+keymap.set("n", "<leader>a", "", { desc = " Menu Neovim UI" })
 keymap.set("n", "<leader>aa", "<cmd>Alpha<CR> <cmd>NvimTreeClose<CR>", { desc = "ToGo Menu Alpha" })
 keymap.set("n", "<leader>ae", "<cmd>qa<CR>", { desc = "Exit" })
 keymap.set("n", "<leader>aq", "<cmd>qa!<CR>", { desc = "Exit Without Saving" })
@@ -139,7 +139,7 @@ keymap.set("n", "<leader>tr", "<cmd>Laravel routes<CR>", { desc = "Laravel: Rout
 
 -- CHAT COPILOT
 -- Copilot Chat sotto <leader>c
-keymap.set("n", "<leader>c", "", { desc = " Copilot Chat" })
+keymap.set("n", "<leader>c", "", { desc = " AI Copilot Chat" })
 keymap.set("n", "<leader>co", "<cmd>CopilotChat<CR>", { desc = "Open Chat" })
 keymap.set("n", "<leader>cc", "<cmd>CopilotChatClose<CR>", { desc = "Close Chat" })
 keymap.set("n", "<leader>cs", "<cmd>CopilotChatSave<CR>", { desc = "Save History" })

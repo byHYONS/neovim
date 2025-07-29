@@ -2,7 +2,7 @@ return {
   "mistweaverco/kulala.nvim",
   event = "VimEnter", -- carica all'avvio (puoi usare un altro evento se preferisci)
   keys = {
-    { "<leader>k", "", desc = " Esegui API" },
+    { "<leader>k", "", desc = " Test API" },
     {
       "<leader>kr",
       function()
