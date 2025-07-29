@@ -36,3 +36,13 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- Block lampeggiante in normal/visual/command, cursor a barra lampeggiante in insert
+vim.opt.guicursor = table.concat({
+  -- Normal, Visual, Command: block che lampeggerà
+  "n-v-c:block-blinkon1-blinkoff500-blinkwait200",
+  -- Insert: cursore verticale (25% width) lampeggiante
+  "i:ver25-blinkon1-blinkoff500-blinkwait200",
+  -- Replace: barra orizzontale (20% height) lampeggiante
+  "r:hor20-blinkon1-blinkoff500-blinkwait200",
+}, ",")
