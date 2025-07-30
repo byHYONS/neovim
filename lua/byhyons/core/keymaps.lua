@@ -14,6 +14,7 @@ keymap.set("n", "<leader>ae", "<cmd>qa<CR>", { desc = "Exit" })
 keymap.set("n", "<leader>aq", "<cmd>qa!<CR>", { desc = "Exit Without Saving" })
 keymap.set("n", "<leader>al", "<cmd>Lazy<CR>", { desc = "Menu Lazy" })
 keymap.set("n", "<leader>am", "<cmd>Mason<CR>", { desc = "Menu Mason" })
+keymap.set("n", "<leader>as", "<cmd>ShowkeysToggle<CR>", { desc = "Showkeys Toggle" })
 -- NEORG
 keymap.set("n", "<leader>an", ":Neorg<CR>", { desc = "Neorg" })
 
@@ -28,15 +29,14 @@ keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- incremen
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
 
 -- window management
-keymap.set("n", "<leader>s", "", { desc = " Split Window" })
-keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
-keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
-keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
-keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
+keymap.set("n", "<leader>wv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
+keymap.set("n", "<leader>wh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
+keymap.set("n", "<leader>we", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
+keymap.set("n", "<leader>wx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
 -- Open new tab
-keymap.set("n", "<leader>sn", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
-keymap.set("n", "<leader>sf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tabrent buffer to new tab
+keymap.set("n", "<leader>wn", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
+keymap.set("n", "<leader>wf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tabrent buffer to new tab
 
 -- Open CHATGPT
 keymap.set("n", "<leader>i", "", { desc = " Code Info" })
@@ -151,3 +151,24 @@ keymap.set("n", "<leader>cm", "<cmd>CopilotChatCommit<CR>", { desc = "Commit Mes
 -- Settings & helpers
 keymap.set("n", "<leader>c?", "<cmd>CopilotChatModels<CR>", { desc = "Select Model" })
 keymap.set("n", "<leader>c!", "<cmd>CopilotChatAgents<CR>", { desc = "Select Agent" })
+
+-- FZF
+keymap.set("n", "<leader>s", "", { desc = " Search FZF" })
+keymap.set("n", "<leader>sp", "<cmd>FzfLua files<cr>", { desc = " Search in Project" })
+keymap.set("n", "<leader>sh", "<cmd>lua require('fzf-lua').files({ cwd = '~' })<cr>", { desc = " Search in Home" })
+keymap.set(
+  "n",
+  "<leader>sd",
+  "<cmd>lua local path=vim.fn.input('Cerca in cartella: ', vim.loop.cwd(), 'dir') if vim.fn.isdirectory(path)==1 then require('fzf-lua').files({cwd=path}) else vim.notify('Cartella non valida: '..path, vim.log.levels.ERROR) end<cr>",
+  { desc = " Search in Folder" }
+)
+keymap.set("n", "<leader>sl", "<cmd>FzfLua live_grep_native<cr>", { desc = " Live Grep Project" })
+keymap.set(
+  "n",
+  "<leader>sL",
+  "<cmd>lua require('fzf-lua').live_grep_native({ cwd = '/' })<cr>",
+  { desc = " Live Grep in Systems" }
+)
+keymap.set("n", "<leader>su", "<cmd>FzfLua undo<cr>", { desc = " Undo Tree" })
+keymap.set("n", "<leader>sg", "<cmd>FzfLua git_status<cr>", { desc = " Git Status" })
+keymap.set("n", "<leader>sb", "<cmd>FzfLua buffers<cr>", { desc = " Open Buffers" })
