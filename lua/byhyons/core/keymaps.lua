@@ -154,21 +154,30 @@ keymap.set("n", "<leader>c!", "<cmd>CopilotChatAgents<CR>", { desc = "Select Age
 
 -- FZF
 keymap.set("n", "<leader>s", "", { desc = " Search FZF" })
-keymap.set("n", "<leader>sp", "<cmd>FzfLua files<cr>", { desc = " Search in Project" })
-keymap.set("n", "<leader>sh", "<cmd>lua require('fzf-lua').files({ cwd = '~' })<cr>", { desc = " Search in Home" })
+keymap.set("n", "<leader>sp", "<cmd>FzfLua files<cr>", { desc = "Search in Project" })
+keymap.set("n", "<leader>sh", "<cmd>lua require('fzf-lua').files({ cwd = '~' })<cr>", { desc = "Search in Home" })
 keymap.set(
   "n",
   "<leader>sd",
   "<cmd>lua local path=vim.fn.input('Cerca in cartella: ', vim.loop.cwd(), 'dir') if vim.fn.isdirectory(path)==1 then require('fzf-lua').files({cwd=path}) else vim.notify('Cartella non valida: '..path, vim.log.levels.ERROR) end<cr>",
-  { desc = " Search in Folder" }
+  { desc = "Search in Folder" }
 )
-keymap.set("n", "<leader>sl", "<cmd>FzfLua live_grep_native<cr>", { desc = " Live Grep Project" })
+keymap.set("n", "<leader>sl", "<cmd>FzfLua live_grep_native<cr>", { desc = "Live Grep Project" })
 keymap.set(
   "n",
   "<leader>sL",
   "<cmd>lua require('fzf-lua').live_grep_native({ cwd = '/' })<cr>",
-  { desc = " Live Grep in Systems" }
+  { desc = "Live Grep in Systems" }
 )
-keymap.set("n", "<leader>su", "<cmd>FzfLua undo<cr>", { desc = " Undo Tree" })
-keymap.set("n", "<leader>sg", "<cmd>FzfLua git_status<cr>", { desc = " Git Status" })
-keymap.set("n", "<leader>sb", "<cmd>FzfLua buffers<cr>", { desc = " Open Buffers" })
+keymap.set("n", "<leader>su", "<cmd>FzfLua undo<cr>", { desc = "Undo Tree" })
+keymap.set("n", "<leader>sg", "<cmd>FzfLua git_status<cr>", { desc = "Git Status" })
+keymap.set("n", "<leader>sb", "<cmd>FzfLua buffers<cr>", { desc = "Open Buffers" })
+keymap.set("n", "<leader>sy", "<cmd>FzfLua registers<cr>", { desc = "Registers Yank" })
+keymap.set(
+  "n",
+  "<leader>sc",
+  "<cmd>lua require('fzf-lua').combine({ pickers = 'oldfiles;git_files' })<CR>",
+  { desc = "Combine Files" }
+)
+keymap.set("n", "<leader>sP", "<cmd>FzfLua global<CR>", { desc = "Global Picker" })
+keymap.set("n", "<leader>ss", "<cmd>FzfLua resume<CR>", { desc = "Resume Search" })
