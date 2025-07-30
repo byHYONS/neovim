@@ -6,7 +6,7 @@ keymap.set("n", "<leader>", "", { desc = " Menu" })
 
 keymap.set("n", "gs", "<cmd>w<CR>", { desc = "Save File" })
 keymap.set("n", "gS", "<cmd>noautocmd w<CR>", { desc = "Save File Without Formatting" })
-keymap.set("n", "go", "<cmd>Oil --float<CR>", { desc = "Open Oil File Manager" })
+keymap.set("n", "gf", "<cmd>Oil --float<CR>", { desc = "Find File Oil Manager" })
 
 keymap.set("n", "<leader>a", "", { desc = " Menu Neovim UI" })
 keymap.set("n", "<leader>aa", "<cmd>Alpha<CR> <cmd>NvimTreeClose<CR>", { desc = "ToGo Menu Alpha" })
@@ -38,10 +38,8 @@ keymap.set("n", "<leader>wx", "<cmd>close<CR>", { desc = "Close current split" }
 keymap.set("n", "<leader>wn", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 keymap.set("n", "<leader>wf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tabrent buffer to new tab
 
--- Open CHATGPT
-keymap.set("n", "<leader>i", "", { desc = " Code Info" })
-keymap.set("n", "<leader>ic", "<cmd>ChatGPT<CR>", { desc = "Open chatGPT" })
 -- Keybindings per lspsaga
+keymap.set("n", "<leader>i", "", { desc = " Code Info" })
 -- Definisci le keybindings di lspsaga sotto <leader>i
 keymap.set("n", "<leader>if", "<cmd>Lspsaga lsp_finder<CR>", { desc = "LSP Finder" }) -- LSP Finder
 keymap.set("n", "<leader>id", "<cmd>Lspsaga peek_definition<CR>", { desc = "Peek Definition" }) -- Peek Definition

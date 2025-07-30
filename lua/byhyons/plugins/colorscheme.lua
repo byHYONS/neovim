@@ -78,6 +78,7 @@ return {
           hl.NormalFloat = { bg = bg_dark, fg = fg }
           hl.TelescopeNormal = { bg = "none" }
           hl.TelescopeBorder = { bg = "none", fg = popup_border }
+          hl.FloatShadow = { bg = bg_dark }
 
           hl.WhichKeyGroup = { fg = fg_gutter }
           hl.WhichKeyDesc = { fg = fg_dark }
