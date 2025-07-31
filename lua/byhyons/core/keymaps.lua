@@ -149,6 +149,17 @@ keymap.set("n", "<leader>cm", "<cmd>CopilotChatCommit<CR>", { desc = "Commit Mes
 -- Settings & helpers
 keymap.set("n", "<leader>c?", "<cmd>CopilotChatModels<CR>", { desc = "Select Model" })
 keymap.set("n", "<leader>c!", "<cmd>CopilotChatAgents<CR>", { desc = "Select Agent" })
+keymap.set("i", "<S-Tab>", "<Plug>(copilot-dismiss)", { desc = "Cancella Suggerimento" })
+keymap.set("n", "<leader>cx", function()
+  copilot_enabled = not copilot_enabled
+  if copilot_enabled then
+    vim.cmd("Copilot enable")
+    print("Copilot abilitato")
+  else
+    vim.cmd("Copilot disable")
+    print("Copilot disabilitato")
+  end
+end, { desc = "Copilot Toggle" })
 
 -- FZF
 keymap.set("n", "<leader>s", "", { desc = " Search FZF" })
@@ -179,3 +190,11 @@ keymap.set(
 )
 keymap.set("n", "<leader>sP", "<cmd>FzfLua global<CR>", { desc = "Global Picker" })
 keymap.set("n", "<leader>ss", "<cmd>FzfLua resume<CR>", { desc = "Resume Search" })
+
+-- Terminale
+keymap.set("n", "<leader>zX", function()
+  vim.cmd("wincmd j")
+  vim.defer_fn(function()
+    vim.cmd("startinsert")
+  end, 30)
+end, { desc = "Focus Terminale" })
