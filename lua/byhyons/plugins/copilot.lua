@@ -11,7 +11,7 @@ return {
     vim.api.nvim_set_keymap(
       "i",
       "<Tab>",
-      'copilot#Accept("<Tab>")',
+      'copilot#Accept("<CR>")',
       { silent = true, expr = true, replace_keycodes = false }
     )
     vim.cmd("Copilot setup")

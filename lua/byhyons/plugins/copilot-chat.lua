@@ -17,14 +17,14 @@ return {
       layout = "float",
       border = "rounded",
       -- dimensioni relative alla finestra corrente
-      width = 0.5,
-      height = 0.6,
+      width = 0.8,
+      height = 0.7,
     },
     question_header = "## byHYONS™ ",
     answer_header = "## Copilot  ",
     error_header = "## Error ",
     mappings = {
-      complete = { detail = "Use @<Tab> or /<Tab> for options.", insert = "<Tab>" },
+      complete = { detail = "Use @<Tab> or /<Tab> for options.", insert = "<C-j>" },
       close = { normal = "q", insert = "<C-c>" },
       reset = { normal = "<C-x>", insert = "<C-x>" },
       submit_prompt = { normal = "<CR>", insert = "<C-CR>" },
@@ -36,5 +36,4 @@ return {
     local chat = require("CopilotChat")
     chat.setup(opts)
   end,
-  event = "VeryLazy",
 }

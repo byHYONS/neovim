@@ -138,7 +138,8 @@ keymap.set("n", "<leader>tr", "<cmd>Laravel routes<CR>", { desc = "Laravel: Rout
 -- CHAT COPILOT
 -- Copilot Chat sotto <leader>c
 keymap.set("n", "<leader>c", "", { desc = " AI Copilot Chat" })
-keymap.set("n", "<leader>co", "<cmd>CopilotChat<CR>", { desc = "Open Chat" })
+keymap.set("n", "<leader>co", "<cmd>Copilot<CR>", { desc = "Open Copilot" })
+keymap.set("n", "<leader>cO", "<cmd>CopilotChat<CR>", { desc = "Open Chat" })
 keymap.set("n", "<leader>cc", "<cmd>CopilotChatClose<CR>", { desc = "Close Chat" })
 keymap.set("n", "<leader>cs", "<cmd>CopilotChatSave<CR>", { desc = "Save History" })
 -- Code-related actions
@@ -153,11 +154,11 @@ keymap.set("i", "<S-Tab>", "<Plug>(copilot-dismiss)", { desc = "Cancella Suggeri
 keymap.set("n", "<leader>cx", function()
   copilot_enabled = not copilot_enabled
   if copilot_enabled then
-    vim.cmd("Copilot enable")
-    print("Copilot abilitato")
-  else
     vim.cmd("Copilot disable")
     print("Copilot disabilitato")
+  else
+    vim.cmd("Copilot enable")
+    print("Copilot abilitato")
   end
 end, { desc = "Copilot Toggle" })
 
