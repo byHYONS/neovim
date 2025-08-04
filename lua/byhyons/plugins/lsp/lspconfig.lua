@@ -70,6 +70,12 @@ return {
 
     -- === CONFIGURAZIONE MANUALE DEI SERVER ===
 
+    -- 0) bash / sh LSP
+    lspconfig.bashls.setup({
+      capabilities = capabilities,
+      filetypes = { "sh", "bash", "zsh" },
+    })
+
     -- 1) TypeScript / ts_ls
     lspconfig.ts_ls.setup({
       capabilities = capabilities,
@@ -273,7 +279,7 @@ return {
             useLibraryCodeForTypes = true,
             diagnosticMode = "openFilesOnly",
             typeCheckingMode = "off",
-            -- venvPath / venv se ti servono…
+            -- venvPath / venv se servono…
           },
         },
       },

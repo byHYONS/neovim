@@ -8,6 +8,10 @@ return {
 
     null_ls.setup({
       sources = {
+        formatting.shfmt.with({
+          filetypes = { "sh", "bash", "zsh" },
+          extra_args = { "-ci" }, -- indentazione consistente
+        }),
         formatting.blade_formatter,
         formatting.phpcsfixer,
         diagnostics.phpstan,

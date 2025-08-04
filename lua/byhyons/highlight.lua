@@ -36,6 +36,22 @@ M.setup = function()
   highlight @markup.heading guifg=#9AC7BC
   highlight @punctuation.bracket guifg=#4DA6FF
 
+  highlight zshFunction cterm=bold, gui=bold, guifg=#3498DB
+  highlight zshCommand guifg=#DA70D6
+  highlight zshVariable guifg=#FE4363
+  highlight zshBrackets guifg=#9AC7BC
+  highlight zshOption cterm=italic, gui=italic, guifg=#9AC7BC
+  highlight zshParameter guifg=#FF7B24
+  highlight zshOperator cterm=bold, gui=bold, guifg=#77C0FC
+  highlight zshConditional cterm=bold,italic gui=bold,italic guifg=#DA70D6
+  highlight zshKeyword cterm=bold gui=bold guifg=#9571ED
+  highlight zshString guifg=#06EE8C
+  highlight zshNumber guifg=#FFD747
+  highlight zshType cterm=bold, guifg=#4DA6FF
+  highlight zshBuiltin guifg=#FF7B24
+  highlight zshParentheses guifg=#77C0fc
+  
+
   highlight QuestionComment guifg=#0000FF
   highlight TodoComment guifg=#FFA500
   ]])
@@ -88,5 +104,6 @@ return M
 -- AZZURRO: #77C0FC
 -- AZZURRO: CHIARO: #9AC7BC
 -- VIOLA CHIARO: #DA70D6
+-- VIOLA SCURO: #F20587
 -- ARANCIONE: #FF8C00
 -- VERDE: #06EE8C

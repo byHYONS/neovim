@@ -20,6 +20,7 @@ return {
 
     require("mason-lspconfig").setup({
       ensure_installed = {
+        "bashls",
         "html",
         "emmet_ls",
         "cssls",
@@ -42,6 +43,7 @@ return {
 
     require("mason-tool-installer").setup({
       ensure_installed = {
+        "shfmt", -- bash formatter
         "prettier", -- prettier formatter
         "biome",
         "stylua", -- lua formatter
