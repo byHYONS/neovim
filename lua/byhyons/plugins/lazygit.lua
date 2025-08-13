@@ -23,5 +23,13 @@ return {
       ":lua require('custom.clone-github').CloneRepoFromList()<CR>",
       desc = "Clone Repository from List",
     },
+    {
+      "<leader>gi",
+      function()
+        local output = vim.fn.system("git init " .. vim.fn.getcwd())
+        print(output)
+      end,
+      desc = "Git Init",
+    },
   },
 }
