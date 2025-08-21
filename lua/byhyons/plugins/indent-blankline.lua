@@ -1,31 +1,113 @@
 -- IdentBlankLine
 return {
-  "lukas-reineke/indent-blankline.nvim",
-  main = "ibl",
-  opts = {
-    indent = {
-      char = "│", -- il carattere per le linee verticali
-      highlight = { "IndentBlanklineChar" }, -- gruppo per tutti gli indent non attivi
+  -- Guide d'indentazione statiche - scope disattivato
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    event = "VeryLazy",
+    opts = {
+      indent = { char = "│", highlight = { "IblIndent" } },
+      scope = { enabled = false }, -- lo scope lo fa mini.indentscope
+      exclude = {
+        filetypes = {
+          "help",
+          "alpha",
+          "dashboard",
+          "starter",
+          "neo-tree",
+          "NvimTree",
+          "oil",
+          "Trouble",
+          "lazy",
+          "mason",
+          "notify",
+          "toggleterm",
+          "terminal",
+          "spectre_panel",
+          "TelescopePrompt",
+          "TelescopeResults",
+          "noice",
+          "Outline",
+          "qf",
+          "checkhealth",
+          "dap-repl",
+          "dapui_scopes",
+          "dapui_stacks",
+          "dapui_watches",
+          "dapui_breakpoints",
+          "gitcommit",
+        },
+        buftypes = { "terminal", "nofile", "prompt", "quickfix" },
+      },
     },
-    scope = {
-      enabled = true, -- abilita il context highlighting per il blocco corrente
-      show_start = false, -- non mostra il marker all'inizio del blocco (evita linee orizzontali)
-      show_end = false, -- non mostra il marker alla fine del blocco
-      highlight = "IndentBlanklineContextChar", -- gruppo per la linea del contesto corrente
-    },
+    config = function(_, opts)
+      local hooks = require("ibl.hooks")
+      -- colore guide normali (grigio scuro)
+      hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+        vim.api.nvim_set_hl(0, "IblIndent", { fg = "#0C4869", nocombine = true })
+      end)
+      require("ibl").setup(opts)
+    end,
   },
-  config = function()
-    require("ibl").setup({
-      indent = {
-        char = "│",
-        highlight = { "IndentBlanklineChar" },
-      },
-      scope = {
-        enabled = true,
-        show_start = false,
-        show_end = false,
-        highlight = "IndentBlanklineContextChar",
-      },
-    })
-  end,
+
+  -- Linea di scope animata
+  {
+    "echasnovski/mini.indentscope",
+    version = "*",
+    event = "VeryLazy",
+    init = function()
+      -- disabilita l’animazione nei buffer UI
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "help",
+          "alpha",
+          "dashboard",
+          "starter",
+          "neo-tree",
+          "NvimTree",
+          "oil",
+          "Trouble",
+          "lazy",
+          "mason",
+          "notify",
+          "toggleterm",
+          "terminal",
+          "spectre_panel",
+          "TelescopePrompt",
+          "TelescopeResults",
+          "noice",
+          "Outline",
+          "qf",
+          "checkhealth",
+          "dap-repl",
+          "dapui_scopes",
+          "dapui_stacks",
+          "dapui_watches",
+          "dapui_breakpoints",
+          "gitcommit",
+        },
+        callback = function()
+          vim.b.miniindentscope_disable = true
+        end,
+      })
+    end,
+    config = function()
+      -- colore della linea scope
+      vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = "#A3B6C9", nocombine = true })
+
+      local mis = require("mini.indentscope")
+      mis.setup({
+        symbol = "┃",
+        options = { try_as_border = true },
+        draw = {
+          delay = 35,
+          animation = mis.gen_animation.quadratic({
+            easing = "out",
+            duration = 45,
+            unit = "step",
+          }),
+        },
+      })
+    end,
+  },
 }
