@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ { import = "byhyons.plugins" }, { import = "byhyons.plugins.lsp" } }, {
+  -- defaults = { version = "*" }, -- NOTE: blocca gli upgrade alle versioni più stabili
   checker = {
     enabled = true,
     notify = false,
