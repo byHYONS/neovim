@@ -8,3 +8,5 @@ require("byhyons.keymaps").setup()
 require("filetype")
 
 require("custom.github")
+
+require("custom.neorg-exporter")
