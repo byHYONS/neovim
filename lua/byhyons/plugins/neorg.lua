@@ -22,6 +22,7 @@ return {
         },
         ["core.qol.todo_items"] = {}, -- Migliora la gestione delle liste di cose da fare
         ["core.integrations.treesitter"] = {}, -- Integrazione con Tree-sitter
+        ["core.export"] = {}, -- abilita l'export in Neorg
       },
     })
   end,
