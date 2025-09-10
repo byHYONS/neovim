@@ -74,6 +74,13 @@ return {
     lspconfig.bashls.setup({
       capabilities = capabilities,
       filetypes = { "sh", "bash", "zsh" },
+      -- disabilita su file .env
+      on_attach = function(client, bufnr)
+        local filename = vim.api.nvim_buf_get_name(bufnr)
+        if filename:match("%.env") then
+          client.stop()
+        end
+      end,
     })
 
     -- 1) TypeScript / ts_ls
