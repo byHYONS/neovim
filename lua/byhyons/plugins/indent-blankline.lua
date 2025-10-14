@@ -44,7 +44,7 @@ return {
       local hooks = require("ibl.hooks")
       -- colore guide normali (grigio scuro)
       hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-        vim.api.nvim_set_hl(0, "IblIndent", { fg = "#0C4869", nocombine = true })
+        vim.api.nvim_set_hl(0, "IblIndent", { fg = "#384161", nocombine = true })
       end)
       require("ibl").setup(opts)
     end,
@@ -92,8 +92,8 @@ return {
       })
     end,
     config = function()
-      -- colore della linea scope
-      vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = "#A3B6C9", nocombine = true })
+      -- colore della linea scope #547998 #0C4869 #A3B6C9 #009BB2 #384161
+      vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = "#009BB2", nocombine = true })
 
       local mis = require("mini.indentscope")
       mis.setup({
