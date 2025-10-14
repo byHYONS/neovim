@@ -38,7 +38,6 @@ return {
         "sqls",
         "ast_grep",
       },
-      automatic_enable = false,
     })
 
     require("mason-tool-installer").setup({
