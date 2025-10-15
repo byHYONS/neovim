@@ -1,28 +1,33 @@
 -- Neorg
 return {
   "nvim-neorg/neorg",
-  lazy = false,
-  version = "*", -- Pin all'ultima release stabile
-  build = ":Neorg sync-parsers", -- Attiva Tree-sitter
+  version = "*",
+  ft = { "norg" }, -- carica aprendo .norg
+  cmd = { "Neorg" }, -- chiamando :Neorg
+  build = ":Neorg sync-parsers",
+  dependencies = {
+    "nvim-neorg/lua-utils.nvim",
+    "nvim-lua/plenary.nvim",
+    "MunifTanjim/nui.nvim",
+    "nvim-neotest/nvim-nio",
+    "pysan3/pathlib.nvim",
+    "nvim-treesitter/nvim-treesitter",
+  },
   config = function()
     require("neorg").setup({
       load = {
-        ["core.defaults"] = {}, -- Carica i moduli di base per un'esperienza completa
-        ["core.concealer"] = {}, -- Migliora la leggibilità nascondendo il markup
-        ["core.dirman"] = { -- Gestione delle aree di lavoro (workspaces)
+        ["core.defaults"] = {},
+        ["core.concealer"] = {},
+        ["core.dirman"] = {
           config = {
-            workspaces = {
-              notes = "~/neorg", -- Il workspace principale
-            },
+            workspaces = { notes = "~/neorg" },
             default_workspace = "notes",
           },
         },
-        ["core.completion"] = { -- Abilita l'autocompletamento con nvim-cmp
-          config = { engine = "nvim-cmp" },
-        },
-        ["core.qol.todo_items"] = {}, -- Migliora la gestione delle liste di cose da fare
-        ["core.integrations.treesitter"] = {}, -- Integrazione con Tree-sitter
-        ["core.export"] = {}, -- abilita l'export in Neorg
+        ["core.completion"] = { config = { engine = "nvim-cmp" } },
+        ["core.qol.todo_items"] = {},
+        ["core.integrations.treesitter"] = {},
+        ["core.export"] = {},
       },
     })
   end,
