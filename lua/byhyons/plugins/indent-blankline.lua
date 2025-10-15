@@ -93,7 +93,7 @@ return {
     end,
     config = function()
       -- colore della linea scope #547998 #0C4869 #A3B6C9 #009BB2 #384161
-      vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = "#009BB2", nocombine = true })
+      vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = "#547998", nocombine = true })
 
       local mis = require("mini.indentscope")
       mis.setup({

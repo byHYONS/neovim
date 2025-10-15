@@ -2,22 +2,26 @@ return {
   "RRethy/vim-illuminate",
   event = { "BufReadPost", "BufNewFile" },
   config = function()
+    -- definisci gli highlight (fuori da configure)
+    vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#334477", fg = "NONE" })
+    vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#334477", fg = "NONE" })
+    vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#334477", fg = "NONE" })
+
     require("illuminate").configure({
-      -- vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#122355", fg = "NONE" }),
-      -- vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#122355", fg = "NONE" }),
-      -- vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#122355", fg = "NONE" }),
-      providers = {
-        "lsp", -- usa il supporto LSP  #033259
-        "treesitter", -- Treesitter per una migliore accuratezza
-        "regex", -- fallback a regex
-      },
-      delay = 100, -- ritardo in millisecondi
-      under_cursor = true, -- evidenzia anche la parola sotto il cursore
-      filetypes_denylist = { -- filetypes per cui non abilitare l'illuminazione
+      providers = { "lsp", "treesitter", "regex" },
+      delay = 150,
+      under_cursor = false, -- evita il “flash” sotto al cursore
+      filetypes_denylist = {
         "NvimTree",
-        "dashboard",
         "alpha",
+        "dashboard",
+        "lazy",
+        "mason",
+        "TelescopePrompt",
+        "help",
       },
+      large_file_cutoff = 2000,
+      large_file_overrides = { providers = { "treesitter" } },
     })
   end,
 }
