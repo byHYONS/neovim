@@ -29,7 +29,8 @@ return {
     keymaps = {
       ["<Esc>"] = { "actions.close", mode = "n" }, -- Chiude Oil (come :q)
       ["<CR>"] = "actions.select", -- Apre file o entra nella cartella
-      ["<C-s>"] = { "actions.select", opts = { vertical = true } }, -- Apre in split verticale
+      ["<Tab>"] = "actions.select",
+      ["<C-v>"] = { "actions.select", opts = { vertical = true } }, -- Apre in split verticale
       ["<C-h>"] = { "actions.select", opts = { horizontal = true } }, -- Apre in split orizzontale
       ["<C-t>"] = { "actions.select", opts = { tab = true } }, -- Apre in nuovo tab
       ["<C-p>"] = "actions.preview", -- Mostra un'anteprima del file (split temporaneo)
