@@ -11,9 +11,8 @@ return {
       yellow = "#FFC569",
       red = "#FF6B7C",
       fg = "#ADFF2F",
-      -- fg = "#3EFFDC"
       fg_inactive = "#FF9E64",
-      bg = "#112638",
+      bg = "#1E2031",
       inactive_bg = "#2C3043",
       alternative_fg = "#E9DEF2",
       alternative_bg = "#394263",
