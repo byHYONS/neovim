@@ -5,8 +5,8 @@ return {
     signs = {
       add = { hl = "GitSignsAdd", text = "▍", numhl = "" },
       change = { hl = "GitSignsChange", text = "▍", numhl = "" },
-      delete = { hl = "GitSignsDelete", text = "▸", numhl = "" },
-      topdelete = { hl = "GitSignsDelete", text = "▾", numhl = "" },
+      delete = { hl = "GitSignsDelete", text = "", numhl = "" }, -- ▸
+      topdelete = { hl = "GitSignsDelete", text = "", numhl = "" }, -- ▾
       changedelete = { hl = "GitSignsChange", text = "▍", numhl = "" },
       untracked = { hl = "GitSignsAdd", text = "▍", numhl = "" },
     },
@@ -68,6 +68,6 @@ return {
     vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#009BB2" }) -- verde
     vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#547998" }) -- arancione
     vim.api.nvim_set_hl(0, "GitSignsChangeDelete", { fg = "#547998" }) -- arancione
-    vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#E52E2E" }) -- rosso
+    vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#FE4363" }) -- rosso
   end,
 }
