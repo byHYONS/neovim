@@ -9,7 +9,8 @@ return {
         enable = true,
       },
       char = {
-        jump_labels = true,
+        enabled = false,
+        jump_labels = false,
       },
     },
   },
