@@ -17,7 +17,7 @@ return {
       layout = "float",
       border = "rounded",
       -- dimensioni relative alla finestra corrente
-      width = 0.8,
+      width = 0.7,
       height = 0.7,
     },
     question_header = "## byHYONS™ ",
