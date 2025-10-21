@@ -44,9 +44,9 @@ return {
               unstaged = "✗",
               staged = "✓",
               unmerged = "",
-              renamed = "➜",
-              untracked = "★",
-              deleted = "",
+              renamed = "",
+              untracked = "", --        ★ ➜
+              deleted = "",
               ignored = "◌",
             },
           },
@@ -96,9 +96,9 @@ return {
     })
 
     --  Colori per le icone Git
-    vim.api.nvim_set_hl(0, "NvimTreeGitDeleted", { fg = "#E52E2E" })
-    vim.api.nvim_set_hl(0, "NvimTreeGitNew", { fg = "#44FFB1" })
-    vim.api.nvim_set_hl(0, "NvimTreeGitDirty", { fg = "#F09837" })
+    vim.api.nvim_set_hl(0, "NvimTreeGitDeleted", { fg = "#FE4363" })
+    vim.api.nvim_set_hl(0, "NvimTreeGitNew", { fg = "#A8FFB3" })
+    vim.api.nvim_set_hl(0, "NvimTreeGitDirty", { fg = "#FF8C00" })
     vim.api.nvim_set_hl(0, "NvimTreeGitStaged", { fg = "#77C0FC" })
     vim.api.nvim_set_hl(0, "NvimTreeGitRenamed", { fg = "#FFD847" })
     vim.api.nvim_set_hl(0, "NvimTreeGitUntracked", { fg = "#9571ED" })
