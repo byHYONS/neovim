@@ -50,7 +50,7 @@ end
 -- Mappature per aprire terminali specifici e generici
 
 map("n", "<leader>z", "", " Terminal")
-map("n", "<leader>zo", ":terminal<CR><Cmd>startinsert<CR>", "Open Terminal") -- Terminale generico (ID 0)
+map("n", "<leader>zo", "<cmd>tabnew<CR>:terminal<CR><Cmd>startinsert<CR>", "Open Wide Terminal") -- Terminale generico (ID 0)
 map("n", "<leader>zt", ":1ToggleTerm direction=horizontal<CR>", "Terminale generico") -- Terminale generico orizzontale (ID 1)
 map("n", "<leader>zf", ":2ToggleTerm direction=float<CR>", "Terminale generico flottante") -- Terminale generico flottante (ID 2)
 
@@ -66,7 +66,18 @@ map("n", "<leader>zp", ":5TermExec direction=float cmd='python3 %'<CR>", "TermFl
 map("t", "<leader>zq", "<C-\\><C-n>:lua close_python_terminal()<CR>", "Chiudi OutPut")
 
 -- Mappatura per chiudere l'inserimento senza chiudere il terminale
-map("t", "<leader>zx", "<C-\\><C-n><C-w>k <C-w>l", "Focus Codice")
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  callback = function()
+    local bufname = vim.api.nvim_buf_get_name(0)
+    -- Evita di mappare se il terminale appartiene a LazyGit o altri plugin
+    if bufname:match("lazygit") or bufname:match("fzf") or bufname:match("git") then
+      return
+    end
+    -- Applica la mappatura locale al buffer terminale
+    vim.keymap.set("t", "<Esc>", "<C-\\><C-n><C-w>k<C-w>k", { buffer = true, desc = "Focus Codice" })
+  end,
+})
 
 -- Terminale per `browser-sync` (ID 6), in modalità flottante
 map(
@@ -82,20 +93,21 @@ map("n", "<leader>zd", ":lua reset_all_terminals()<CR>", "Resetta tutto")
 
 -- Configurazione di ToggleTerm come plugin
 return {
-  {
-    "akinsho/toggleterm.nvim",
-    lazy = true,
-    cmd = { "ToggleTerm", "TermExec" },
-    config = function()
-      require("toggleterm").setup({
-        size = 15,
-        open_mapping = [[<leader>t]], -- Tasto rapido per aprire/chiudere un terminale generico
-        direction = "horizontal", -- Direzione predefinita per il terminale generico
-        shading_factor = 2, -- Ombreggiatura
-        close_on_exit = false, -- Chiudi il terminale al termine del processo
-        start_in_insert = true,
-        float_opts = { border = "curved" }, -- Stile della finestra flottante per terminali specifici
-      })
-    end,
-  },
+  "akinsho/toggleterm.nvim",
+  lazy = true,
+  cmd = { "ToggleTerm", "TermExec" },
+  config = function()
+    require("toggleterm").setup({
+      size = 15,
+      open_mapping = [[<leader>zz]],
+      direction = "horizontal",
+      shading_factor = 2,
+      close_on_exit = false,
+      start_in_insert = true,
+      persist_mode = false,
+      persist_size = true,
+      shade_terminals = true,
+      float_opts = { border = "curved" },
+    })
+  end,
 }

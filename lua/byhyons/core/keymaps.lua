@@ -15,6 +15,7 @@ keymap.set("n", "<leader>aq", "<cmd>qa!<CR>", { desc = "Exit Without Saving" })
 keymap.set("n", "<leader>al", "<cmd>Lazy<CR>", { desc = "Menu Lazy" })
 keymap.set("n", "<leader>am", "<cmd>Mason<CR>", { desc = "Menu Mason" })
 keymap.set("n", "<leader>as", "<cmd>ShowkeysToggle<CR>", { desc = "Showkeys Toggle" })
+keymap.set("n", "<leader>aw", "<cmd>MarkdownPreviewToggle<CR>", { desc = "Veiw Markdown" })
 -- NEORG
 keymap.set("n", "<leader>an", ":Neorg<CR>", { desc = "Neorg" })
 
@@ -193,7 +194,7 @@ keymap.set("n", "<leader>sP", "<cmd>FzfLua global<CR>", { desc = "Global Picker"
 keymap.set("n", "<leader>ss", "<cmd>FzfLua resume<CR>", { desc = "Resume Search" })
 
 -- Terminale
-keymap.set("n", "<leader>zX", function()
+keymap.set("n", "<leader>zx", function()
   vim.cmd("wincmd j")
   vim.defer_fn(function()
     vim.cmd("startinsert")
