@@ -1,32 +1,18 @@
+-- MASON SERVER LSP
 return {
-  "williamboman/mason.nvim",
-  dependencies = {
-    "neovim/nvim-lspconfig",
-    -- "williamboman/mason-lspconfig.nvim",
-    "mason-org/mason-lspconfig.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-  },
-  config = function()
-    -- 1) mason core
-    require("mason").setup({
-      ui = {
-        icons = {
-          package_installed = "✓",
-          package_pending = "➜",
-          package_uninstalled = "✗",
-        },
-      },
-    })
-
-    require("mason-lspconfig").setup({
+  {
+    "williamboman/mason-lspconfig.nvim",
+    opts = {
       ensure_installed = {
+        "vtsls",
+        "vue_ls",
+        "ts_ls",
         "bashls",
         "html",
         "emmet_ls",
         "cssls",
         "tailwindcss",
         "lua_ls",
-        "ts_ls",
         "graphql",
         "svelte",
         "intelephense",
@@ -38,13 +24,29 @@ return {
         "sqls",
         "ast_grep",
       },
-    })
-
-    require("mason-tool-installer").setup({
+    },
+    dependencies = {
+      {
+        "williamboman/mason.nvim",
+        opts = {
+          ui = {
+            icons = {
+              package_installed = "✓",
+              package_pending = "➜",
+              package_uninstalled = "✗",
+            },
+          },
+        },
+      },
+      "neovim/nvim-lspconfig",
+    },
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    opts = {
       ensure_installed = {
         "shfmt", -- bash formatter
         "prettier", -- prettier formatter
-        "biome",
         "stylua", -- lua formatter
         "isort", -- python formatter
         "black", -- python formatter
@@ -59,9 +61,9 @@ return {
         "sqlfmt",
         "jq", -- Per manipolare dati JSON
       },
-      integrations = {
-        ["mason-lspconfig"] = false,
-      },
-    })
-  end,
+    },
+    dependencies = {
+      "williamboman/mason.nvim",
+    },
+  },
 }
