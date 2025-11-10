@@ -4,8 +4,8 @@ local keymap = vim.keymap -- for conciseness
 
 keymap.set("n", "<leader>", "", { desc = " Menu" })
 
-keymap.set("n", "gs", "<cmd>w<CR>", { desc = "Save File" })
-keymap.set("n", "gS", "<cmd>noautocmd w<CR>", { desc = "Save File Without Formatting" })
+keymap.set("n", "gS", "<cmd>w<CR>", { desc = "Save File & Formatting" })
+keymap.set("n", "gs", "<cmd>noautocmd w<CR>", { desc = "Save File No Formatting" })
 keymap.set("n", "gf", "<cmd>Oil --float<CR>", { desc = "Find File Oil Manager" })
 
 keymap.set("n", "<leader>a", "", { desc = " Menu Neovim UI" })
