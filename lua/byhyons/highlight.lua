@@ -21,7 +21,7 @@ M.setup = function()
   " highlight @constant.parameter.builtin guifg=#72009F
   " highlight @type cterm=bold gui=bold guifg=#FFD847
   " highlight @property cterm=bold gui=bold guifg=#3498DB
-  " highlight @module guifg=#FFD847
+  highlight @module cterm=bold gui=bold guifg=#A8FFB3
   " highlight @keyword.conditional cterm=bold gui=bold guifg=#9571ED
   " highlight @function.call cterm=bold gui=italic guifg=#FE4363
   " highlight @function.method.call cterm=bold,italic gui=bold,italic guifg=#9571ED
