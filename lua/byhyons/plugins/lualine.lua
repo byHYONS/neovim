@@ -8,6 +8,7 @@ return {
       blue = "#8DD3FA",
       green = "#B7E880",
       violet = "#C796FF",
+      purple = "#9571ED",
       yellow = "#FFC569",
       red = "#FF6B7C",
       fg = "#ADFF2F",
@@ -35,6 +36,9 @@ return {
       end
       if m:find("^c") then
         return colors.yellow
+      end
+      if m:find("^t") then
+        return colors.purple
       end
       return colors.blue
     end
@@ -64,6 +68,11 @@ return {
         a = { bg = colors.red, fg = colors.bg, gui = "bold" },
         b = { bg = colors.bg, fg = colors.red },
         c = { bg = colors.bg, fg = colors.red },
+      },
+      terminal = {
+        a = { bg = colors.purple, fg = colors.bg, gui = "bold" },
+        b = { bg = colors.bg, fg = colors.purple },
+        c = { bg = colors.bg, fg = colors.purple },
       },
       inactive = {
         a = { bg = colors.inactive_bg, fg = colors.fg_inactive, gui = "bold" },
