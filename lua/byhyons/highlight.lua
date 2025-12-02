@@ -19,9 +19,11 @@ M.setup = function()
   " highlight @constant.builtin guifg=#EB3F5C
   " highlight @Variable.parameter guifg=#FF7B24
   " highlight @constant.parameter.builtin guifg=#72009F
-  " highlight @type cterm=bold gui=bold guifg=#FFD847
+  " highlight @type guifg=#ADD8E6
+  highlight @type cterm=bold gui=bold guifg=#A8FFB3 
   " highlight @property cterm=bold gui=bold guifg=#3498DB
-  highlight @module cterm=bold gui=bold guifg=#A8FFB3
+  highlight @module cterm=bold,italic gui=bold,italic guifg=#FFC569
+  " highlight @module cterm=bold gui=bold guifg=#A8FFB3
   " highlight @keyword.conditional cterm=bold gui=bold guifg=#9571ED
   " highlight @function.call cterm=bold gui=italic guifg=#FE4363
   " highlight @function.method.call cterm=bold,italic gui=bold,italic guifg=#9571ED
@@ -38,7 +40,7 @@ M.setup = function()
   " highlight @markup.heading guifg=#9AC7BC
   " highlight @punctuation.bracket guifg=#4DA6FF
 
-  highlight zshFunction cterm=bold, gui=bold, guifg=#3498DB
+  highlight zshFunction cterm=bold gui=bold guifg=#3498DB
   " highlight zshCommand guifg=#DA70D6
   highlight zshVariable guifg=#FF6B7C
   highlight zshBrackets guifg=#9AC7BC
