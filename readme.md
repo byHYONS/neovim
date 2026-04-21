@@ -11,32 +11,32 @@ Amore a prima vista...
 
 Ecco alcuni screenshot che mostrano la configurazione in azione:
 
-| # | Descrizione |
-|---|-------------|
-| **01** | Tree dei file e popup del menu con scorciatoie |
-| **02** | Suggerimenti del codice con Copilot e autocompletamento |
-| **03** | Inserimento automatico dei parametri nelle funzioni (`function(string, number, ...)`) |
-| **04** | Suggerimenti delle directory con navigazione avanzata |
-| **05** | Telescope in azione con due buffer affiancati |
-| **06** | Oil in azione con due buffer aperti e affiancati |
-
-![Screenshot 01](./assets/nvim01.png)
-*Tree dei file e popup del menu con scorciatoie*
-
-![Screenshot 02](./assets/nvim02.png)
-*Suggerimenti del codice con Copilot e autocompletamento*
-
-![Screenshot 03](./assets/nvim03.png)
-*Inserimento automatico dei parametri nelle funzioni*
-
-![Screenshot 04](./assets/nvim04.png)
-*Suggerimenti delle directory*
-
-![Screenshot 05](./assets/nvim05.png)
-*Telescope in azione*
-
-![Screenshot 06](./assets/nvim06.png)
-*Oil in azione*
+<table>
+  <tr>
+    <td><img src="./assets/nvim01.png" width="400"/></td>
+    <td><img src="./assets/nvim02.png" width="400"/></td>
+  </tr>
+  <tr>
+    <td align="center"><em>Tree dei file e popup del menu</em></td>
+    <td align="center"><em>Suggerimenti del codice con Copilot</em></td>
+  </tr>
+  <tr>
+    <td><img src="./assets/nvim03.png" width="400"/></td>
+    <td><img src="./assets/nvim04.png" width="400"/></td>
+  </tr>
+  <tr>
+    <td align="center"><em>Inserimento parametri nelle funzioni</em></td>
+    <td align="center"><em>Suggerimenti delle directory</em></td>
+  </tr>
+  <tr>
+    <td><img src="./assets/nvim05.png" width="400"/></td>
+    <td><img src="./assets/nvim06.png" width="400"/></td>
+  </tr>
+  <tr>
+    <td align="center"><em>Telescope in azione con 2 buffer affiancati</em></td>
+    <td align="center"><em>Oil in azione con 2 buffer affiancati</em></td>
+  </tr>
+</table>
 
 ---
 
@@ -55,15 +55,15 @@ Ecco alcuni screenshot che mostrano la configurazione in azione:
 
 Prima di iniziare, assicurati di avere installato quanto segue sul tuo Mac:
 
-| Strumento | Installazione |
-|-----------|---------------|
-| **Homebrew** | `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` |
-| **Git** | `brew install git` |
-| **Ripgrep** | `brew install ripgrep` |
-| **Node.js** | `brew install node` |
-| **Python** | `brew install python` |
-| **WezTerm** (consigliato) | `brew install --cask wezterm` |
-| **Font Nerd** | `brew tap homebrew/cask-fonts && brew install font-meslo-lg-nerd-font` |
+| Strumento                 | Installazione                                                                                     |
+| ------------------------- | ------------------------------------------------------------------------------------------------- |
+| **Homebrew**              | `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` |
+| **Git**                   | `brew install git`                                                                                |
+| **Ripgrep**               | `brew install ripgrep`                                                                            |
+| **Node.js**               | `brew install node`                                                                               |
+| **Python**                | `brew install python`                                                                             |
+| **WezTerm** (consigliato) | `brew install --cask wezterm`                                                                     |
+| **Font Nerd**             | `brew tap homebrew/cask-fonts && brew install font-meslo-lg-nerd-font`                            |
 
 ---
 
@@ -3335,123 +3335,123 @@ Ecco una panoramica delle principali scorciatoie da tastiera utilizzate in quest
 
 ### Leader
 
-| Tasto | Funzione |
-|-------|----------|
+| Tasto      | Funzione                         |
+| ---------- | -------------------------------- |
 | `<leader>` | Spazio - tasto leader principale |
 
 ### Navigazione File
 
-| Tasto | Funzione |
-|-------|----------|
-| `<leader>ee` | Toggle NvimTree (file explorer) |
+| Tasto        | Funzione                          |
+| ------------ | --------------------------------- |
+| `<leader>ee` | Toggle NvimTree (file explorer)   |
 | `<leader>ef` | Toggle NvimTree sul file corrente |
-| `<leader>ec` | Collapse NvimTree |
-| `<leader>er` | Refresh NvimTree |
+| `<leader>ec` | Collapse NvimTree                 |
+| `<leader>er` | Refresh NvimTree                  |
 
 ### Ricerca (Telescope)
 
-| Tasto | Funzione |
-|-------|----------|
-| `<leader>ff` | Trova file |
-| `<leader>fr` | Trova file recenti |
-| `<leader>fs` | Trova stringa nel progetto |
+| Tasto        | Funzione                       |
+| ------------ | ------------------------------ |
+| `<leader>ff` | Trova file                     |
+| `<leader>fr` | Trova file recenti             |
+| `<leader>fs` | Trova stringa nel progetto     |
 | `<leader>fc` | Trova stringa sotto il cursore |
-| `<leader>ft` | Trova todo comments |
-| `<leader>fb` | File browser (Telescope) |
+| `<leader>ft` | Trova todo comments            |
+| `<leader>fb` | File browser (Telescope)       |
 
 ### Git
 
-| Tasto | Funzione |
-|-------|----------|
-| `<leader>gg` | Apri LazyGit |
-| `<leader>gr` | Crea repository GitHub |
-| `<leader>gc` | Clona repository da link |
+| Tasto        | Funzione                                |
+| ------------ | --------------------------------------- |
+| `<leader>gg` | Apri LazyGit                            |
+| `<leader>gr` | Crea repository GitHub                  |
+| `<leader>gc` | Clona repository da link                |
 | `<leader>gm` | Clona repository dalla tua lista GitHub |
-| `<leader>gi` | Inizializza Git nel progetto |
+| `<leader>gi` | Inizializza Git nel progetto            |
 
 ### Git (Gitsigns)
 
-| Tasto | Funzione |
-|-------|----------|
-| `<leader>hs` | Stage hunk |
-| `<leader>hr` | Reset hunk |
-| `<leader>hS` | Stage buffer |
-| `<leader>hR` | Reset buffer |
-| `<leader>hp` | Preview hunk |
-| `<leader>hb` | Blame line |
+| Tasto        | Funzione                         |
+| ------------ | -------------------------------- |
+| `<leader>hs` | Stage hunk                       |
+| `<leader>hr` | Reset hunk                       |
+| `<leader>hS` | Stage buffer                     |
+| `<leader>hR` | Reset buffer                     |
+| `<leader>hp` | Preview hunk                     |
+| `<leader>hb` | Blame line                       |
 | `<leader>hB` | Toggle blame sulla riga corrente |
-| `]h` | Prossimo hunk |
-| `[h` | Hunk precedente |
+| `]h`         | Prossimo hunk                    |
+| `[h`         | Hunk precedente                  |
 
 ### LSP
 
-| Tasto | Funzione |
-|-------|----------|
-| `gd` | Vai alle definizioni |
-| `gD` | Vai alla dichiarazione |
-| `gR` | Mostra riferimenti LSP |
-| `gi` | Mostra implementazioni |
-| `gy` | Mostra type definitions |
-| `gI` | Smart rename |
-| `gL` | Diagnostici del buffer |
-| `gl` | Diagnostici della riga |
-| `<leader>ca` | Code actions |
-| `K` | Hover documentation |
-| `[d` | Diagnostico precedente |
-| `]d` | Prossimo diagnostico |
-| `<leader>ls` | Restart LSP |
+| Tasto        | Funzione                |
+| ------------ | ----------------------- |
+| `gd`         | Vai alle definizioni    |
+| `gD`         | Vai alla dichiarazione  |
+| `gR`         | Mostra riferimenti LSP  |
+| `gi`         | Mostra implementazioni  |
+| `gy`         | Mostra type definitions |
+| `gI`         | Smart rename            |
+| `gL`         | Diagnostici del buffer  |
+| `gl`         | Diagnostici della riga  |
+| `<leader>ca` | Code actions            |
+| `K`          | Hover documentation     |
+| `[d`         | Diagnostico precedente  |
+| `]d`         | Prossimo diagnostico    |
+| `<leader>ls` | Restart LSP             |
 
 ### Terminale (ToggleTerm)
 
-| Tasto | Funzione |
-|-------|----------|
-| `<leader>zt` | Terminale orizzontale |
-| `<leader>zf` | Terminale flottante |
+| Tasto        | Funzione                             |
+| ------------ | ------------------------------------ |
+| `<leader>zt` | Terminale orizzontale                |
+| `<leader>zf` | Terminale flottante                  |
 | `<leader>zl` | Server Laravel (`php artisan serve`) |
-| `<leader>zn` | Server Node (`npm run dev`) |
-| `<leader>zp` | Esegui file Python |
-| `<leader>zb` | Browser Sync |
-| `<leader>zx` | Esci dal terminale senza chiuderlo |
+| `<leader>zn` | Server Node (`npm run dev`)          |
+| `<leader>zp` | Esegui file Python                   |
+| `<leader>zb` | Browser Sync                         |
+| `<leader>zx` | Esci dal terminale senza chiuderlo   |
 
 ### Window Management
 
-| Tasto | Funzione |
-|-------|----------|
-| `<leader>sv` | Split verticale |
-| `<leader>sh` | Split orizzontale |
-| `<leader>se` | Equalizza split |
-| `<leader>sx` | Chiudi split |
+| Tasto        | Funzione                |
+| ------------ | ----------------------- |
+| `<leader>sv` | Split verticale         |
+| `<leader>sh` | Split orizzontale       |
+| `<leader>se` | Equalizza split         |
+| `<leader>sx` | Chiudi split            |
 | `<leader>sm` | Maximize/minimize split |
 
 ### Tab
 
-| Tasto | Funzione |
-|-------|----------|
-| `<leader>to` | Nuova tab |
-| `<leader>tx` | Chiudi tab |
-| `<leader>tn` | Prossima tab |
-| `<leader>tp` | Tab precedente |
+| Tasto        | Funzione                          |
+| ------------ | --------------------------------- |
+| `<leader>to` | Nuova tab                         |
+| `<leader>tx` | Chiudi tab                        |
+| `<leader>tn` | Prossima tab                      |
+| `<leader>tp` | Tab precedente                    |
 | `<leader>tf` | Apri buffer corrente in nuova tab |
 
 ### Varie
 
-| Tasto | Funzione |
-|-------|----------|
-| `<leader>nh` | Clear search highlights |
-| `<leader>+` | Incrementa numero |
-| `<leader>-` | Decrementa numero |
-| `<leader>aN` | Esporta file Neorg |
-| `jk` | Esci da insert mode |
-| `s` | Substitute (con plugin substitute.nvim) |
+| Tasto        | Funzione                                |
+| ------------ | --------------------------------------- |
+| `<leader>nh` | Clear search highlights                 |
+| `<leader>+`  | Incrementa numero                       |
+| `<leader>-`  | Decrementa numero                       |
+| `<leader>aN` | Esporta file Neorg                      |
+| `jk`         | Esci da insert mode                     |
+| `s`          | Substitute (con plugin substitute.nvim) |
 
 ### Flash.nvim
 
-| Tasto | Funzione |
-|-------|----------|
-| `\s` | Flash jump |
-| `\S` | Flash Treesitter |
-| `\r` | Remote Flash |
-| `\R` | Treesitter Search |
+| Tasto | Funzione          |
+| ----- | ----------------- |
+| `\s`  | Flash jump        |
+| `\S`  | Flash Treesitter  |
+| `\r`  | Remote Flash      |
+| `\R`  | Treesitter Search |
 
 ---
 
