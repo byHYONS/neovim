@@ -1,21 +1,4 @@
--- return {
---   "folke/which-key.nvim",
---   event = "VeryLazy",
---   init = function()
---     vim.o.timeout = true
---     vim.o.timeoutlen = 1500
---   end,
---   opts = {
---     icons = {
---       mappings = true,
---       colors = true,
---     },
---     -- your configuration comes here
---     -- or leave it empty to use the default settings
---     -- refer to the configuration section below
---   },
--- }
-
+-- Popup menu
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
@@ -64,7 +47,6 @@ return {
         { "<leader>t", group = " Code Tools" },
         { "<leader>w", group = " Session" },
         { "<leader>x", group = " Diagnostics" },
-        { "<leader>t", group = " Terminals" },
         { "[", group = " Prev" },
         { "]", group = " Next" },
         { "\\", group = " Other" },
