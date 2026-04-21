@@ -1,5 +1,9 @@
 # NEOVIM ❤️
 
+[![Neovim](https://img.shields.io/badge/Neovim-0.10%2B-blue?style=flat-square&logo=neovim)](https://github.com/neovim/neovim/releases)
+[![Lua](https://img.shields.io/badge/Lua-5.1%20%7C%205.4-green?style=flat-square&logo=lua)](https://www.lua.org)
+[![Commits](https://img.shields.io/github/commit-activity/y/byHYONS/neovim?style=flat-square)](https://github.com/byHYONS/neovim/commits/main)
+
 > [!NOTE]
 >
 > repo: neovim
@@ -13,24 +17,24 @@ Ecco alcuni screenshot che mostrano la configurazione in azione:
 
 <table>
   <tr>
-    <td><img src="./assets/nvim01.png" width="400"/></td>
-    <td><img src="./assets/nvim02.png" width="400"/></td>
+    <td><img src="https://raw.githubusercontent.com/byHYONS/neovim/main/assets/nvim01.png" width="400"/></td>
+    <td><img src="https://raw.githubusercontent.com/byHYONS/neovim/main/assets/nvim02.png" width="400"/></td>
   </tr>
   <tr>
     <td align="center"><em>Tree dei file e popup del menu</em></td>
     <td align="center"><em>Suggerimenti del codice con Copilot</em></td>
   </tr>
   <tr>
-    <td><img src="./assets/nvim03.png" width="400"/></td>
-    <td><img src="./assets/nvim04.png" width="400"/></td>
+    <td><img src="https://raw.githubusercontent.com/byHYONS/neovim/main/assets/nvim03.png" width="400"/></td>
+    <td><img src="https://raw.githubusercontent.com/byHYONS/neovim/main/assets/nvim04.png" width="400"/></td>
   </tr>
   <tr>
     <td align="center"><em>Inserimento parametri nelle funzioni</em></td>
     <td align="center"><em>Suggerimenti delle directory</em></td>
   </tr>
   <tr>
-    <td><img src="./assets/nvim05.png" width="400"/></td>
-    <td><img src="./assets/nvim06.png" width="400"/></td>
+    <td><img src="https://raw.githubusercontent.com/byHYONS/neovim/main/assets/nvim05.png" width="400"/></td>
+    <td><img src="https://raw.githubusercontent.com/byHYONS/neovim/main/assets/nvim06.png" width="400"/></td>
   </tr>
   <tr>
     <td align="center"><em>Telescope in azione con 2 buffer affiancati</em></td>
