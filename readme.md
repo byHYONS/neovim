@@ -1,8 +1,10 @@
 # NEOVIM ❤️
 
 [![Neovim](https://img.shields.io/badge/Neovim-0.10%2B-blue?style=flat-square&logo=neovim)](https://github.com/neovim/neovim/releases)
-[![Lua](https://img.shields.io/badge/Lua-5.1%20%7C%205.4-green?style=flat-square&logo=lua)](https://www.lua.org)
-[![Commits](https://img.shields.io/github/commit-count/byHYONS/neovim?style=flat-square)](https://github.com/byHYONS/neovim/commits/main)
+[![Lua](https://img.shields.io/badge/Lua-5.1-green?style=flat-square&logo=lua)](https://www.lua.org)
+![Commit Activity](https://img.shields.io/github/commit-activity/t/byhyons/neovim?style=flat-square&logo=git&logoColor=white)
+![Last Commit](https://img.shields.io/github/last-commit/byhyons/neovim?style=flat-square&logo=git)
+![Stars](https://img.shields.io/github/stars/byhyons/neovim?style=flat-square&logo=github)
 
 > [!NOTE]
 >
