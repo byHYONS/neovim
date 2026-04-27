@@ -1,9 +1,14 @@
+-- Debug del codice in tempo reale
 return {
   "mfussenegger/nvim-dap",
+  dependencies = {
+    "mfussenegger/nvim-dap-python",
+  },
   event = "VeryLazy",
   config = function()
-    require("custom.configs.dap_python") -- configurazione per Python
-    -- eventualmente qui puoi caricare altre configurazioni per altri linguaggi
-    require("byhyons.core.keymaps") -- se hai mappature dedicate al debug
+    -- configurazione per Python
+    require("configs.dap_python")
+    --  caricare qui altre configurazioni per altri linguaggi
+    require("byhyons.core.keymaps")
   end,
 }

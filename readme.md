@@ -81,33 +81,40 @@ La configurazione di Neovim è organizzata in questo modo:
 ~/.config/nvim/
 ├── assets/                    --> Screenshot e immagini per il README
 ├── after/
-│   └── lsp/                   --> Configurazioni LSP individuali
-│       ├── html.lua           --> HTML + Blade
-│       ├── lua_ls.lua         --> Lua
-│       ├── ts_ls.lua          --> TypeScript
-│       ├── pyright.lua        --> Python
-│       ├── svelte.lua         --> Svelte
-│       ├── vue_ls.lua         --> Vue.js
-│       ├── cssls.lua          --> CSS
-│       ├── tailwindcss.lua    --> Tailwind CSS
-│       ├── jsonls.lua         --> JSON
-│       ├── graphql.lua        --> GraphQL
-│       ├── bashls.lua         --> Bash
-│       ├── intelephense.lua   --> PHP
-│       ├── phpactor.lua       --> PHP Actor
-│       ├── sqls.lua           --> SQL
-│       └── emmet_ls.lua       --> Emmet
+│   ├── lsp/                   --> Configurazioni LSP individuali
+│   │   ├── html.lua           --> HTML + Blade
+│   │   ├── lua_ls.lua         --> Lua
+│   │   ├── ts_ls.lua          --> TypeScript
+│   │   ├── pyright.lua        --> Python
+│   │   ├── svelte.lua         --> Svelte
+│   │   ├── vue_ls.lua         --> Vue.js
+│   │   ├── cssls.lua          --> CSS
+│   │   ├── tailwindcss.lua    --> Tailwind CSS
+│   │   ├── jsonls.lua         --> JSON
+│   │   ├── graphql.lua        --> GraphQL
+│   │   ├── bashls.lua         --> Bash
+│   │   ├── intelephense.lua   --> PHP
+│   │   ├── phpactor.lua       --> PHP Actor
+│   │   ├── sqls.lua           --> SQL
+│   │   └── emmet_ls.lua       --> Emmet
+│   └── queries/               --> Query Treesitter custom (blade, html, ecma)
 ├── lua/
+│   ├── configs/               --> Configurazioni generali
+│   │   ├── highlight.lua      --> Highlight personalizzati
+│   │   ├── keymaps.lua        --> Keymaps personalizzati
+│   │   ├── filetype.lua       --> Rilevamento tipi di file
+│   │   ├── lint.lua           --> Configurazione linting
+│   │   └── dap_python.lua     --> Configurazione DAP Python
 │   ├── byhyons/
-│   │   ├── core/              --> Opzioni e keymaps base
-│   │   │   ├── init.lua      --> Entry point core
-│   │   │   ├── options.lua   --> Opzioni Neovim
-│   │   │   └── keymaps.lua   --> Scorciatoie tastiera
-│   │   ├── plugins/          --> Configurazione plugin
-│   │   │   ├── init.lua      --> Plugin base (plenary, vim-tmux-navigator)
-│   │   │   ├── lsp/          --> LSP e Mason
-│   │   │   │   ├── lsp.lua   --> Configurazione base LSP
-│   │   │   │   └── mason.lua --> Solo installazione server
+│   │   ├── core/              --> Opzioni e setup base
+│   │   │   ├── init.lua       --> Entry point core
+│   │   │   ├── options.lua    --> Opzioni Neovim
+│   │   │   └── keymaps.lua    --> Scorciatoie tastiera base
+│   │   ├── plugins/           --> Configurazione plugin
+│   │   │   ├── init.lua       --> Plugin base
+│   │   │   ├── lsp/           --> LSP e Mason
+│   │   │   │   ├── lsp.lua    --> Configurazione base LSP
+│   │   │   │   └── mason.lua  --> Installazione server LSP
 │   │   │   ├── colorscheme.lua
 │   │   │   ├── nvim-tree.lua
 │   │   │   ├── telescope.lua
@@ -116,33 +123,30 @@ La configurazione di Neovim è organizzata in questo modo:
 │   │   │   ├── gitsigns.lua
 │   │   │   ├── lazygit.lua
 │   │   │   ├── copilot.lua
+│   │   │   ├── copilot-cmp.lua
 │   │   │   ├── noice.lua
 │   │   │   ├── oil.lua
 │   │   │   └── ... (altri plugin)
-│   │   ├── highlight.lua     --> Highlight personalizzati
-│   │   └── lazy.lua          --> Configurazione Lazy.nvim
-│   └── custom/
-│       ├── configs/          --> Configurazioni custom
-│       │   └── dap_python.lua
-│       ├── clone-github.lua  --> Script per clonare repo
-│       ├── github.lua        --> Script per creare repo GitHub
+│   │   └── lazy.lua           --> Configurazione Lazy.nvim
+│   └── custom/                --> Script personali
+│       ├── github.lua         --> Script per creare repo GitHub
+│       ├── clone-github.lua   --> Script per clonare repo
 │       └── neorg-exporter.lua --> Script export Neorg
 ├── snippets/                  --> Snippet personali
-├── after/
-│   └── queries/              --> Query Treesitter custom
-├── init.lua                  --> Entry point principale
-└── README.md                 --> Questo file
+├── init.lua                   --> Entry point principale
+└── README.md                  --> Questo file
 ```
 
 ### Spiegazione delle directory principali
 
+- **`lua/configs/`** - Configurazioni generali (highlight, keymaps, filetype, lint, dap)
 - **`lua/byhyons/core/`** - Opzioni base di Neovim e keymaps generali
 - **`lua/byhyons/plugins/`** - Configurazione di tutti i plugin
 - **`lua/byhyons/plugins/lsp/`** - Configurazione LSP e Mason
 - **`after/lsp/`** - File di configurazione per ogni singolo server LSP
+- **`after/queries/`** - Query Treesitter custom (es. per Blade, HTML, etc.)
 - **`lua/custom/`** - Script personali (non inclusi nel README per proteggere il lavoro)
 - **`snippets/`** - Snippet personalizzati per vari linguaggi
-- **`after/queries/`** - Query Treesitter custom (es. per Blade, HTML, etc.)
 
 ---
 
@@ -3462,3 +3466,7 @@ Ecco una panoramica delle principali scorciatoie da tastiera utilizzate in quest
 ---
 
 #### FINITO! 🚀
+
+---
+
+###### _byHYONS™_

@@ -1,11 +1,15 @@
+-- =============================================
+-- -- Configurazione Neovim
+-- =============================================
+
 require("byhyons.core")
 require("byhyons.lazy")
 -- gestione colori sintassi:
-require("byhyons.highlight").setup()
+require("configs.highlight").setup()
 -- gestione keymaps:
-require("byhyons.keymaps").setup()
-
-require("filetype")
+require("configs.keymaps").setup()
+-- Rileva il tipo di file e applica configurazioni specifiche
+require("configs.filetype")
 
 require("custom.github")
 
