@@ -1,5 +1,5 @@
+-- Plugin per cursori multipli
 return {
-  -- Plugin per cursori multipli
   -- per attivare più cursori: CRTL + N
   {
     "mg979/vim-visual-multi",
@@ -17,17 +17,19 @@ return {
         set_keymaps = false,
       })
 
-      -- Mappature personalizzate
+      -- Trascina la riga sul cursore in alto o in basso
       vim.api.nvim_set_keymap("n", "<A-Up>", ":MoveLine(-1)<CR>", { noremap = true, silent = true })
       vim.api.nvim_set_keymap("n", "<A-Down>", ":MoveLine(1)<CR>", { noremap = true, silent = true })
       vim.api.nvim_set_keymap("v", "<A-Up>", ":MoveBlock(-1)<CR>", { noremap = true, silent = true })
       vim.api.nvim_set_keymap("v", "<A-Down>", ":MoveBlock(1)<CR>", { noremap = true, silent = true })
 
-      -- Mappature per copiare una riga o blocco selezionato verso l'alto o il basso
+      -- Duplica riga sul cursore in alo o in basso
       vim.api.nvim_set_keymap("n", "<A-S-Up>", "yypk", { noremap = true, silent = true }) -- Copia la riga corrente verso l'alto
       vim.api.nvim_set_keymap("n", "<A-S-Down>", "yypk", { noremap = true, silent = true }) -- Copia la riga corrente verso il basso
       vim.api.nvim_set_keymap("v", "<A-S-Up>", "y'>p '<kgv", { noremap = true, silent = true }) -- Copia il blocco selezionato verso l'alto
       vim.api.nvim_set_keymap("v", "<A-S-Down>", "y'>p '>jgv", { noremap = true, silent = true }) -- Copia il blocco selezionato verso il basso
+
+      -- Mandare direttamente il cursore sulla dx
       vim.api.nvim_set_keymap("i", "<C-,>", "<Esc>%%a", { noremap = true, silent = true })
       vim.api.nvim_set_keymap("i", "<C-.>", "<esc>$a", { noremap = true, silent = true })
       -- OR, for layout IT
