@@ -36,6 +36,16 @@ return {
       ["<C-p>"] = "actions.preview", -- Mostra un'anteprima del file (split temporaneo)
       ["<C-c>"] = { "actions.close", mode = "n" }, -- Chiude Oil (alternativa a Esc)
       ["<C-l>"] = "actions.refresh", -- Ricarica la lista dei file/cartelle
+      ["<C-f>"] = function()
+        require("fzf-lua").files({
+          cwd = require("oil").get_current_dir(),
+        })
+      end, -- Ricerca file con FZF
+      ["<C-g>"] = function()
+        require("fzf-lua").live_grep({
+          cwd = require("oil").get_current_dir(),
+        })
+      end, -- Ricerca Grep con FZF
       ["-"] = { "actions.parent", mode = "n" }, -- Torna alla cartella superiore
       ["_"] = { "actions.open_cwd", mode = "n" }, -- Apre la directory corrente (cwd)
       ["`"] = { "actions.cd", mode = "n" }, -- Cambia directory in quella attuale
