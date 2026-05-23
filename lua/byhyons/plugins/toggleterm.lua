@@ -65,20 +65,6 @@ map("n", "<leader>zr", ":lua save_and_run_python()<CR>", "OutPut Python")
 map("n", "<leader>zp", ":5TermExec direction=float cmd='python3 %'<CR>", "TermFlot Python")
 map("t", "<leader>zq", "<C-\\><C-n>:lua close_python_terminal()<CR>", "Chiudi OutPut")
 
--- Mappatura per chiudere l'inserimento senza chiudere il terminale
-vim.api.nvim_create_autocmd("TermOpen", {
-  pattern = "*",
-  callback = function()
-    local bufname = vim.api.nvim_buf_get_name(0)
-    -- Evita di mappare se il terminale appartiene a LazyGit o altri plugin
-    if bufname:match("lazygit") or bufname:match("fzf") or bufname:match("git") then
-      return
-    end
-    -- Applica la mappatura locale al buffer terminale
-    vim.keymap.set("t", "<Esc>", "<C-\\><C-n><C-w>k<C-w>k", { buffer = true, desc = "Focus Codice" })
-  end,
-})
-
 -- Terminale per `browser-sync` (ID 6), in modalità flottante
 map(
   "n",
@@ -108,6 +94,13 @@ return {
       persist_size = true,
       shade_terminals = true,
       float_opts = { border = "curved" },
+
+      on_open = function(term)
+        vim.keymap.set("t", "<Esc>", "<C-\\><C-n><C-w>k<C-w>k", {
+          buffer = term.bufnr,
+          desc = "Focus Codice",
+        })
+      end,
     })
   end,
 }
