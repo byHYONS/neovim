@@ -65,9 +65,9 @@ return {
   config = function(_, opts)
     require("gitsigns").setup(opts)
     -- override highlight colors
-    vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#009BB2" }) -- verde
-    vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#547998" }) -- arancione
-    vim.api.nvim_set_hl(0, "GitSignsChangeDelete", { fg = "#547998" }) -- arancione
-    vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#FE4363" }) -- rosso
+    vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#00A89D" })
+    vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#FFB167" })
+    vim.api.nvim_set_hl(0, "GitSignsChangeDelete", { fg = "#F20587" })
+    vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#F20587" })
   end,
 }
