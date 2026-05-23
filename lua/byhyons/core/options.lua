@@ -1,3 +1,4 @@
+-- Options nvim
 vim.cmd("let g:netrw_liststyle = 3")
 
 local opt = vim.opt
@@ -8,10 +9,13 @@ opt.number = true
 -- tabs & indentation
 opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
 opt.shiftwidth = 2 -- 2 spaces for indent width
+opt.softtabstop = 2 -- Insert mode tab width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
 opt.wrap = false
+opt.laststatus = 3 -- 0 nessuna Barra Stato, 1 BS solo con più finestre, 2 BS per ogni split, 3 unica BS
+vim.opt.isfname:append("@-@") -- unisce parole separate da simbili
 
 -- search settings
 opt.ignorecase = true -- ignore case when searching
@@ -46,3 +50,11 @@ vim.opt.guicursor = table.concat({
   -- Replace: barra orizzontale (20% height) lampeggiante
   "r:hor20-blinkon1-blinkoff500-blinkwait200",
 }, ",")
+
+-- Feedback visivo per yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking (copying) text",
+  callback = function()
+    vim.hl.on_yank()
+  end,
+})
