@@ -200,3 +200,17 @@ keymap.set("n", "<leader>zx", function()
     vim.cmd("startinsert")
   end, 30)
 end, { desc = "Focus Terminale" })
+
+-- Delete without yanking
+keymap.set("v", "X", [["_d]], { desc = "Delete without yanking" })
+
+-- Join lines without moving cursor
+keymap.set("n", "J", "mzJ`z", { desc = "Join lines keep cursor" })
+
+-- Keep search results centered
+keymap.set("n", "n", "nzzzv", { desc = "Next search result centered" })
+keymap.set("n", "N", "Nzzzv", { desc = "Previous search result centered" })
+
+-- Keep selection when indenting
+keymap.set("v", "<", "<gv", { desc = "Unindent and keep selection" })
+keymap.set("v", ">", ">gv", { desc = "Indent and keep selection" })
