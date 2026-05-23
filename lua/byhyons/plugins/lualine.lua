@@ -18,6 +18,9 @@ return {
       alternative_fg = "#E9DEF2",
       alternative_bg = "#394263",
       package = "#FF77FF",
+      added = "#00A89D",
+      modified = "#FFB167",
+      removed = "#F20587",
     }
 
     local function mode_color()
@@ -87,6 +90,28 @@ return {
         theme = my_lualine_theme,
       },
       sections = {
+        lualine_b = {
+          {
+            "branch",
+            icon = "",
+            color = function()
+              return { fg = mode_color(), gui = "bold" }
+            end,
+          },
+          {
+            "diff",
+            symbols = {
+              added = " ",
+              modified = " ",
+              removed = " ",
+            },
+            diff_color = {
+              added = { fg = colors.added },
+              modified = { fg = colors.modified },
+              removed = { fg = colors.removed },
+            },
+          },
+        },
         lualine_c = {
           {
             "filename",
