@@ -18,6 +18,9 @@ return {
         winblend = 10,
       },
     },
+    keymaps_help = {
+      border = "rounded",
+    },
     constrain_cursor = "editable",
     cleanup_delay_ms = 2000,
     prompt_save_on_select_new_entry = true,
