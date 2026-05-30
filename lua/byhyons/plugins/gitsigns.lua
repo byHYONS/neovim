@@ -2,6 +2,9 @@ return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPre", "BufNewFile" },
   opts = {
+    preview_config = {
+      border = "rounded",
+    },
     signs = {
       add = { hl = "GitSignsAdd", text = "▍", numhl = "" },
       change = { hl = "GitSignsChange", text = "▍", numhl = "" },
