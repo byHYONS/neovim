@@ -7,6 +7,8 @@ keymap.set("n", "<leader>", "", { desc = " Menu" })
 keymap.set("n", "gS", "<cmd>w<CR>", { desc = "Save File & Formatting" })
 keymap.set("n", "gs", "<cmd>noautocmd w<CR>", { desc = "Save File No Formatting" })
 keymap.set("n", "gf", "<cmd>Oil --float<CR>", { desc = "Find File Oil Manager" })
+keymap.set("n", "g<", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
+keymap.set("n", "g>", "<cmd>MaximizerToggle<CR>", { desc = "Maximize/minimize a split" })
 
 keymap.set("n", "<leader>a", "", { desc = " Menu Neovim UI" })
 keymap.set("n", "<leader>aa", "<cmd>Alpha<CR> <cmd>NvimTreeClose<CR>", { desc = "ToGo Menu Alpha" })
