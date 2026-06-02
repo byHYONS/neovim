@@ -7,9 +7,9 @@ return {
     },
     signs = {
       add = { hl = "GitSignsAdd", text = "▍", numhl = "" },
-      change = { hl = "GitSignsChange", text = "▍", numhl = "" },
-      delete = { hl = "GitSignsDelete", text = "", numhl = "" }, -- ▸
-      topdelete = { hl = "GitSignsDelete", text = "", numhl = "" }, -- ▾
+      change = { hl = "GitSignsChange", text = "~", numhl = "" },
+      delete = { hl = "GitSignsDelete", text = "", numhl = "" },
+      topdelete = { hl = "GitSignsDelete", text = "", numhl = "" },
       changedelete = { hl = "GitSignsChange", text = "▍", numhl = "" },
       untracked = { hl = "GitSignsAdd", text = "▍", numhl = "" },
     },
@@ -34,7 +34,6 @@ return {
       map("n", "[h", gs.prev_hunk, "Prev Hunk")
 
       -- Actions
-      map("n", "<leader>h", "", " Git View")
       map("n", "<leader>hs", gs.stage_hunk, "Stage hunk")
       map("n", "<leader>hr", gs.reset_hunk, "Reset hunk")
       map("v", "<leader>hs", function()
@@ -69,7 +68,7 @@ return {
     require("gitsigns").setup(opts)
     -- override highlight colors
     vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#00A89D" })
-    vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#FFB167" })
+    vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#FF8C00" })
     vim.api.nvim_set_hl(0, "GitSignsChangeDelete", { fg = "#F20587" })
     vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#F20587" })
   end,

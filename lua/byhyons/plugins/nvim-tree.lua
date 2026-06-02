@@ -82,7 +82,7 @@ return {
         end
 
         -- Applica le mappature di default di nvim-tree
-        api.config.mappings.default_on_attach(bufnr)
+        --[[ api.config.mappings.default_on_attach(bufnr) ]]
 
         -- Mappature personalizzate
         vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Apri file (stessa finestra)"))
@@ -96,8 +96,8 @@ return {
     })
 
     --  Colori per le icone Git
-    vim.api.nvim_set_hl(0, "NvimTreeGitDeleted", { fg = "#FE4363" })
-    vim.api.nvim_set_hl(0, "NvimTreeGitNew", { fg = "#A8FFB3" })
+    vim.api.nvim_set_hl(0, "NvimTreeGitDeleted", { fg = "#F20587" })
+    vim.api.nvim_set_hl(0, "NvimTreeGitNew", { fg = "#00A89D" })
     vim.api.nvim_set_hl(0, "NvimTreeGitDirty", { fg = "#FF8C00" })
     vim.api.nvim_set_hl(0, "NvimTreeGitStaged", { fg = "#77C0FC" })
     vim.api.nvim_set_hl(0, "NvimTreeGitRenamed", { fg = "#FFD847" })

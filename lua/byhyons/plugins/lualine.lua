@@ -19,7 +19,7 @@ return {
       alternative_bg = "#394263",
       package = "#FF77FF",
       added = "#00A89D",
-      modified = "#FFB167",
+      modified = "#FF8C00",
       removed = "#F20587",
     }
 
