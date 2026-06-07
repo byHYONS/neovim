@@ -18,9 +18,14 @@ return {
       alternative_fg = "#E9DEF2",
       alternative_bg = "#394263",
       package = "#FF77FF",
-      added = "#00A89D",
+      added = "#009BB2",
       modified = "#FF8C00",
       removed = "#F20587",
+      action = "#A8FFB3",
+      diagn_error = "#FF6B7C",
+      diagn_warn = "#FFC569",
+      diagn_info = "#4DA6FF",
+      diagn_hint = "#A0A0FF",
     }
 
     local function mode_color()
@@ -44,6 +49,10 @@ return {
         return colors.purple
       end
       return colors.blue
+    end
+
+    local function lsp_lightbulb()
+      return require("nvim-lightbulb").get_status_text()
     end
 
     local my_lualine_theme = {
@@ -95,8 +104,11 @@ return {
             "branch",
             icon = "",
             color = function()
-              return { fg = mode_color(), gui = "bold" }
+              return { bg = colors.alternative_bg, fg = mode_color(), gui = "bold" }
             end,
+            separator = {
+              right = "",
+            },
           },
           {
             "diff",
@@ -110,6 +122,30 @@ return {
               modified = { fg = colors.modified },
               removed = { fg = colors.removed },
             },
+          },
+          {
+            lsp_lightbulb,
+            color = { fg = colors.action, gui = "bold" },
+            separator = "",
+          },
+          {
+            "diagnostics",
+            sources = { "nvim_diagnostic" },
+            sections = { "error", "warn", "info", "hint" },
+            diagnostics_color = {
+              error = { fg = colors.diagn_error },
+              warn = { fg = colors.diagn_warn },
+              info = { fg = colors.diagn_info },
+              hint = { fg = colors.diagn_hint },
+            },
+            symbols = {
+              error = " ",
+              warn = " ",
+              info = " ",
+              hint = "󰠠 ",
+            },
+            colored = true,
+            update_in_insert = false,
           },
         },
         lualine_c = {
