@@ -1,28 +1,52 @@
--- COPILOR GITHUB CHAT
+-- COPILOT GITHUB CHAT
 return {
   "CopilotC-Nvim/CopilotChat.nvim",
+
   dependencies = {
     "nvim-lua/plenary.nvim",
     "github/copilot.vim",
+    {
+      "MeanderingProgrammer/render-markdown.nvim",
+      ft = { "markdown", "copilot-chat" },
+      opts = {
+        file_types = { "markdown", "copilot-chat" },
+      },
+    },
   },
+
   build = "make tiktoken",
+
   cmd = {
     "CopilotChat",
     "CopilotChatClose",
     "CopilotChatNew",
     "CopilotChatSave",
   },
+
   opts = {
+    system_prompt = [[
+Sei un assistente di programmazione.
+
+Regole:
+- Rispondi SEMPRE in italiano.
+- Mantieni le spiegazioni concise.
+- Quando analizzi codice, mostra prima il problema e poi la soluzione.
+- Quando proponi modifiche, fornisci esempi concreti.
+- Non usare inglese salvo nomi tecnici o codice.
+]],
+
     window = {
-      layout = "float",
-      border = "rounded",
-      -- dimensioni relative alla finestra corrente
-      width = 0.7,
-      height = 0.7,
+      layout = "vertical",
+      width = 0.38,
+      border = "single",
     },
-    question_header = "## byHYONS™ ",
-    answer_header = "## Copilot  ",
-    error_header = "## Error ",
+
+    headers = {
+      user = "~ Tu  ",
+      assistant = "~ Copilot  ",
+      tool = "~ Tool 󰊳 ",
+    },
+
     mappings = {
       complete = { detail = "Use @<Tab> or /<Tab> for options.", insert = "<C-j>" },
       close = { normal = "q", insert = "<C-c>" },
@@ -32,8 +56,21 @@ return {
       show_help = { normal = "g?" },
     },
   },
+
   config = function(_, opts)
-    local chat = require("CopilotChat")
-    chat.setup(opts)
+    require("CopilotChat").setup(opts)
+
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "copilot-chat",
+      callback = function()
+        vim.opt_local.number = false
+        vim.opt_local.relativenumber = false
+        vim.opt_local.signcolumn = "no"
+        vim.opt_local.foldcolumn = "0"
+        vim.opt_local.wrap = true
+        vim.opt_local.linebreak = true
+        vim.opt_local.conceallevel = 2
+      end,
+    })
   end,
 }
