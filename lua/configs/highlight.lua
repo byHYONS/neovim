@@ -14,7 +14,8 @@ M.setup = function()
   " highlight DiagnosticHint guifg=#ADD8E6
   " highlight DiagnosticVirtualTextInfo guifg=#40E0D0
   " highlight DiagnosticVirtualTextHint guifg=#ADD8E6
-   highlight @Variable guifg=#FF6B7C
+  highlight @Variable guifg=#FF6B7C
+  highlight @variable.parameter cterm=bold,italic gui=bold,italic, guifg=#FF6B7C
   " highlight @constant guifg=#FF7B24
   " highlight @constant.builtin guifg=#EB3F5C
   " highlight @Variable.parameter guifg=#FF7B24

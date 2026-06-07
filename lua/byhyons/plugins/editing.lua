@@ -25,9 +25,17 @@ return {
 
       -- Duplica riga sul cursore in alo o in basso
       vim.api.nvim_set_keymap("n", "<A-S-Up>", "yypk", { noremap = true, silent = true }) -- Copia la riga corrente verso l'alto
-      vim.api.nvim_set_keymap("n", "<A-S-Down>", "yypk", { noremap = true, silent = true }) -- Copia la riga corrente verso il basso
+      vim.api.nvim_set_keymap("n", "<A-S-Down>", "yyp", { noremap = true, silent = true }) -- Copia la riga corrente verso il basso
       vim.api.nvim_set_keymap("v", "<A-S-Up>", "y'>p '<kgv", { noremap = true, silent = true }) -- Copia il blocco selezionato verso l'alto
-      vim.api.nvim_set_keymap("v", "<A-S-Down>", "y'>p '>jgv", { noremap = true, silent = true }) -- Copia il blocco selezionato verso il basso
+      vim.api.nvim_set_keymap("v", "<A-S-Down>", "y'>p`[V`]", { noremap = true, silent = true }) -- Copia il blocco selezionato verso il basso
+
+      -- Sposta carattere sotto il cursore a destra/sinistra
+      vim.keymap.set("n", "<A-Right>", "xp", { noremap = true, silent = true })
+      vim.keymap.set("n", "<A-Left>", "Xph", { noremap = true, silent = true })
+
+      -- Sposta selezione visuale a destra/sinistra
+      vim.keymap.set("v", "<A-Right>", "d`]p`[v`]", { noremap = true, silent = true })
+      vim.keymap.set("v", "<A-Left>", "d`[hP`[v`]", { noremap = true, silent = true })
 
       -- Mandare direttamente il cursore sulla dx
       vim.api.nvim_set_keymap("i", "<C-,>", "<Esc>%%a", { noremap = true, silent = true })

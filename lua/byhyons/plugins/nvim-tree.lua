@@ -1,3 +1,4 @@
+-- Tree Window
 return {
   "nvim-tree/nvim-tree.lua",
   version = "*",
@@ -45,9 +46,9 @@ return {
               staged = "✓",
               unmerged = "",
               renamed = "",
-              untracked = "", --        ★ ➜
-              deleted = "",
-              ignored = "◌",
+              untracked = "", --        ★ ➜ ◌
+              deleted = "",
+              ignored = "",
             },
           },
         },
@@ -81,8 +82,8 @@ return {
           }
         end
 
-        -- Applica le mappature di default di nvim-tree
-        --[[ api.config.mappings.default_on_attach(bufnr) ]]
+        -- Keymap standard di NvimTree: a, d, r, x, c, p, y, ecc.
+        require("nvim-tree.api").map.on_attach.default(bufnr)
 
         -- Mappature personalizzate
         vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Apri file (stessa finestra)"))
@@ -99,18 +100,12 @@ return {
     vim.api.nvim_set_hl(0, "NvimTreeGitDeleted", { fg = "#F20587" })
     vim.api.nvim_set_hl(0, "NvimTreeGitNew", { fg = "#00A89D" })
     vim.api.nvim_set_hl(0, "NvimTreeGitDirty", { fg = "#FF8C00" })
-    vim.api.nvim_set_hl(0, "NvimTreeGitStaged", { fg = "#77C0FC" })
-    vim.api.nvim_set_hl(0, "NvimTreeGitRenamed", { fg = "#FFD847" })
-    vim.api.nvim_set_hl(0, "NvimTreeGitUntracked", { fg = "#9571ED" })
-    vim.api.nvim_set_hl(0, "NvimTreeGitIgnored", { fg = "#800080" })
+    -- Alcuni gruppi Git colorano già le icone,
 
-    -- Imposta le keymaps globali
-    local keymap = vim.keymap -- per maggiore concisione
-
-    keymap.set("n", "<leader>e", "", { desc = " Tree Window" })
-    keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
-    keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
-    keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
-    keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
+    -- altri richiedono esplicitamente il gruppo Icon.
+    vim.api.nvim_set_hl(0, "NvimTreeGitStagedIcon", { fg = "#A8FFB3" })
+    vim.api.nvim_set_hl(0, "NvimTreeGitRenamedIcon", { fg = "#FFD847" })
+    vim.api.nvim_set_hl(0, "NvimTreeGitUntrackedIcon", { fg = "#9571ED" })
+    vim.api.nvim_set_hl(0, "NvimTreeGitIgnoredIcon", { fg = "#800080" })
   end,
 }

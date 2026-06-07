@@ -1,3 +1,4 @@
+-- Autosession/Session
 return {
   "rmagatti/auto-session",
   version = "*",
@@ -14,12 +15,5 @@ return {
         previewer = false,
       },
     })
-
-    local keymap = vim.keymap
-
-    keymap.set("n", "<leader>w", "", { desc = " Session" })
-    keymap.set("n", "<leader>wr", "<cmd>SessionRestore<CR>", { desc = "Restore Session" }) -- restore last workspace session for current directory
-    keymap.set("n", "<leader>ws", "<cmd>SessionSave<CR>", { desc = "Save Session" }) -- save workspace session for current working directory
-    keymap.set("n", "<leader>wt", require("auto-session.session-lens").search_session, { desc = "Search Session" })
   end,
 }

@@ -1,3 +1,4 @@
+-- Formatting File
 return {
   "stevearc/conform.nvim",
   event = { "BufReadPre", "BufNewFile" },
@@ -40,14 +41,5 @@ return {
         timeout_ms = 1000,
       },
     })
-
-    vim.keymap.set("n", "<leader>r", "", { desc = " Formatting" })
-    vim.keymap.set({ "n", "v" }, "<leader>rf", function()
-      conform.format({
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 1000,
-      })
-    end, { desc = "Format file or range (in visual mode)" })
   end,
 }

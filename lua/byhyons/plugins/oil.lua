@@ -49,6 +49,7 @@ return {
           cwd = require("oil").get_current_dir(),
         })
       end, -- Ricerca Grep con FZF
+      ["<BS>"] = { "actions.parent", mode = "n" }, -- Torna alla cartella superiore
       ["-"] = { "actions.parent", mode = "n" }, -- Torna alla cartella superiore
       ["_"] = { "actions.open_cwd", mode = "n" }, -- Apre la directory corrente (cwd)
       ["`"] = { "actions.cd", mode = "n" }, -- Cambia directory in quella attuale

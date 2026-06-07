@@ -6,27 +6,6 @@ return {
     "kristijanhusak/vim-dadbod-completion",
   },
   cmd = { "DB", "DBUI", "DBUIToggle", "DBUIAddConnection" },
-  keys = {
-    {
-      "<leader>mu",
-      function()
-        vim.cmd("tabnew") -- Crea una nuova tab
-        vim.defer_fn(function()
-          vim.cmd("DBUIToggle") -- Avvia DBUI con un leggero ritardo
-        end, 300) -- Delay di 200ms
-      end,
-      desc = "Open Database UI",
-    },
-    {
-      "<leader>ma",
-      function()
-        vim.cmd("wincmd j") -- Sposta il cursore nella finestra dbout
-        vim.cmd("normal! j") -- Scendi di una riga
-        vim.cmd("normal! za") -- Apri/chiudi la cartella con za
-      end,
-      desc = "Apri tabella",
-    },
-  },
   config = function()
     vim.g.db_ui_auto_execute_table_helpers = 1
     vim.g.db_ui_use_nerd_fonts = 1

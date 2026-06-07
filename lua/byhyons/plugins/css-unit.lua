@@ -8,15 +8,9 @@ return {
         decimal_count = 4, -- Numero di decimali da mantenere
         show_virtual_text = true, -- Mostra il valore rem convertito come testo virtuale
         add_cmp_source = true, -- Aggiunge una fonte a nvim-cmp per la conversione
-        disable_keymaps = false, -- Mantiene le mappature di tasti predefinite
         filetypes = { "css", "scss", "sass" }, -- Tipi di file su cui abilitare il plugin
       })
     end,
-    keys = {
-      { "<leader>rr", "", desc = " CSS px/rem" },
-      { "<leader>rrx", "<cmd>PxToRemCursor<CR>", desc = " Converti px a rem sotto il cursore" },
-      { "<leader>rrxl", "<cmd>PxToRemLine<CR>", desc = "Converti px a rem in tutta la riga" },
-    },
   },
 
   -- Plugin per la conversione bidirezionale tra px e rem
@@ -29,10 +23,5 @@ return {
         max_decimals = 4, -- Numero massimo di decimali per i valori float
       })
     end,
-    keys = {
-      { "<leader>rrr", "<cmd>PxToRem<CR>", desc = "Converti px a rem (Unito)" },
-      { "<leader>rrp", "<cmd>RemToPx<CR>", desc = "Converti rem a px (Unito)" },
-      { "<leader>rrt", "<cmd>TogglePxRem<CR>", desc = "Alterna px/rem sotto il cursore (Unito)" },
-    },
   },
 }

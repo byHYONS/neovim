@@ -3,6 +3,14 @@ return {
   event = "VeryLazy",
   config = function()
     require("noice").setup({
+      -- navigare i suggerimenti della cmdline con frecce su/giù
+      vim.keymap.set("c", "<Down>", function()
+        return vim.fn.wildmenumode() == 1 and "<C-n>" or "<Down>"
+      end, { expr = true, silent = true, replace_keycodes = true }),
+      vim.keymap.set("c", "<Up>", function()
+        return vim.fn.wildmenumode() == 1 and "<C-p>" or "<Up>"
+      end, { expr = true, silent = true, replace_keycodes = true }),
+
       lsp = {
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
