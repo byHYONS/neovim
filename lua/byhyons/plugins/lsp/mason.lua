@@ -55,7 +55,9 @@ return {
         "eslint_d", -- js linter
         "blade-formatter",
         "mypy",
-        "debugpy",
+        "debugpy", -- DAP python
+        "php-debug-adapter", -- DAP php
+        "js-debug-adapter", -- DAP javascript
         "flake8",
         "php-cs-fixer",
         "phpstan",

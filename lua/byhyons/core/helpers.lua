@@ -137,6 +137,98 @@ function M.gitsigns_preview_hunk_inline()
 end
 
 -- =====================================
+--      HELPER FOR  TERMINAL APPS
+-- =====================================
+-- SQLite
+function M.open_sqlit()
+  vim.cmd("tabnew")
+  vim.cmd("terminal sqlit")
+  vim.cmd("startinsert")
+
+  vim.keymap.set("t", "<Esc>", "<Esc>", {
+    buffer = true,
+    noremap = true,
+    silent = true,
+    desc = "SQLite: keep Esc inside app",
+  })
+
+  vim.keymap.set("t", "<C-x>", "<C-\\><C-n>", {
+    buffer = true,
+    noremap = true,
+    silent = true,
+    desc = "Exit Terminal Mode",
+  })
+end
+-- Posting
+function M.open_posting()
+  vim.cmd("tabnew")
+  vim.cmd("terminal posting")
+  vim.cmd("startinsert")
+
+  vim.keymap.set("t", "<Esc>", "<Esc>", {
+    buffer = true,
+    noremap = true,
+    silent = true,
+    desc = "Posting: keep Esc inside app",
+  })
+
+  vim.keymap.set("t", "<C-x>", "<C-\\><C-n>", {
+    buffer = true,
+    noremap = true,
+    silent = true,
+    desc = "Exit Terminal Mode",
+  })
+end
+
+-- =====================================
+--      HELPER FOR GEMINI TERMINAL
+-- =====================================
+local gemini_term = nil
+
+function M.open_gemini_terminal()
+  local Terminal = require("toggleterm.terminal").Terminal
+
+  if not gemini_term then
+    gemini_term = Terminal:new({
+      cmd = "gemini",
+      dir = vim.fn.getcwd(),
+      direction = "float",
+      hidden = true,
+      close_on_exit = false,
+      start_in_insert = true,
+      float_opts = {
+        border = "curved",
+      },
+    })
+  end
+
+  gemini_term:toggle()
+end
+
+-- =====================================
+--      HELPER FOR DEBBUGER
+-- =====================================
+function M.dap_toggle_breakpoint()
+  require("dap").toggle_breakpoint()
+end
+
+function M.dap_continue()
+  require("dap").continue()
+end
+
+function M.dap_ui_toggle()
+  require("dapui").toggle()
+end
+
+function M.dap_terminate()
+  require("dap").terminate()
+
+  pcall(function()
+    require("dapui").close()
+  end)
+end
+
+-- =====================================
 --      HELPER FOR SEARCH FZF
 -- =====================================
 function M.fzf_search_in_folder()
@@ -203,15 +295,15 @@ function M.telescope_document_symbols()
     Operator = { icon = "󰆕", hl = "TelescopeSymbolOperator" },
   }
 
-  vim.api.nvim_set_hl(0, "TelescopeSymbolClass", { fg = "#77C0FC" })
+  vim.api.nvim_set_hl(0, "TelescopeSymbolClass", { fg = "#FFD847" })
   vim.api.nvim_set_hl(0, "TelescopeSymbolMethod", { fg = "#A8FFB3" })
-  vim.api.nvim_set_hl(0, "TelescopeSymbolFunction", { fg = "#FFD847" })
-  vim.api.nvim_set_hl(0, "TelescopeSymbolVariable", { fg = "#C796FF" })
+  vim.api.nvim_set_hl(0, "TelescopeSymbolFunction", { fg = "#C796FF" })
+  vim.api.nvim_set_hl(0, "TelescopeSymbolVariable", { fg = "#F20587" })
   vim.api.nvim_set_hl(0, "TelescopeSymbolString", { fg = "#FF9E64" })
-  vim.api.nvim_set_hl(0, "TelescopeSymbolConstant", { fg = "#FFB167" })
+  vim.api.nvim_set_hl(0, "TelescopeSymbolConstant", { fg = "#77C0FC" })
   vim.api.nvim_set_hl(0, "TelescopeSymbolField", { fg = "#00A89D" })
-  vim.api.nvim_set_hl(0, "TelescopeSymbolProperty", { fg = "#00A89D" })
-  vim.api.nvim_set_hl(0, "TelescopeSymbolInterface", { fg = "#24EAF7" })
+  vim.api.nvim_set_hl(0, "TelescopeSymbolProperty", { fg = "#4DA6FF" })
+  vim.api.nvim_set_hl(0, "TelescopeSymbolInterface", { fg = "#FF77FF" })
   vim.api.nvim_set_hl(0, "TelescopeSymbolDefault", { fg = "#8DD3FA" })
 
   local params = { textDocument = vim.lsp.util.make_text_document_params(bufnr) }

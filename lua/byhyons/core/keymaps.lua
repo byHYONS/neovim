@@ -64,58 +64,10 @@ keymap.set("n", "<leader>cz", helpers.toggle_copilot, { desc = "Toggle On/Off" }
 -- ==========================================
 --        DEBUGGER <leader>d
 -- ==========================================
--- ### Breakpoints ###
-keymap.set("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", { desc = "Toggle Breakpoint" })
-keymap.set(
-  "n",
-  "<leader>dc",
-  "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>",
-  { desc = "Conditional Breakpoint" }
-)
-keymap.set(
-  "n",
-  "<leader>dl",
-  "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>",
-  { desc = "Log Point" }
-)
-keymap.set("n", "<leader>dx", "<cmd>lua require'dap'.clear_breakpoints()<cr>", { desc = "Clear Breakpoints" })
-keymap.set("n", "<leader>dy", "<cmd>Telescope dap list_breakpoints<cr>", { desc = "List Breakpoints" })
--- ### Esecuzione ###
-keymap.set("n", "<leader>dd", "<cmd>lua require'dap'.continue()<cr>", { desc = "Continue" })
-keymap.set("n", "<leader>dj", "<cmd>lua require'dap'.step_over()<cr>", { desc = "Step Over" })
-keymap.set("n", "<leader>dk", "<cmd>lua require'dap'.step_into()<cr>", { desc = "Step Into" })
-keymap.set("n", "<leader>do", "<cmd>lua require'dap'.step_out()<cr>", { desc = "Step Out" })
--- ### Controllo della sessione ###
-keymap.set(
-  "n",
-  "<leader>dX",
-  "<cmd>lua require('dap').disconnect(); require('dapui').close()<cr>",
-  { desc = "Disconnect" }
-)
-keymap.set(
-  "n",
-  "<leader>dt",
-  "<cmd>lua require('dap').terminate(); require('dapui').close()<cr>",
-  { desc = "Terminate" }
-)
--- ### REPL e Run Last ###
-keymap.set("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", { desc = "Toggle REPL" })
-keymap.set("n", "<leader>dll", "<cmd>lua require'dap'.run_last()<cr>", { desc = "Run Last" })
-
--- ### UI Widgets ###
-keymap.set("n", "<leader>dh", function()
-  require("dap.ui.widgets").hover()
-end, { desc = "Hover Widget" })
-keymap.set("n", "<leader>d?", function()
-  local widgets = require("dap.ui.widgets")
-  widgets.centered_float(widgets.scopes)
-end, { desc = "Centered Float Scopes" })
--- ### Integrazione con Telescope ###
-keymap.set("n", "<leader>df", "<cmd>Telescope dap frames<cr>", { desc = "DAP Frames" })
-keymap.set("n", "<leader>dg", "<cmd>Telescope dap commands<cr>", { desc = "DAP Commands" })
-keymap.set("n", "<leader>de", function()
-  require("telescope.builtin").diagnostics({ default_text = ":E:" })
-end, { desc = "DAP Diagnostics" })
+keymap.set("n", "<leader>db", helpers.dap_toggle_breakpoint, { desc = "Toggle Breakpoint" })
+keymap.set("n", "<leader>dd", helpers.dap_continue, { desc = "Play / Continue" })
+keymap.set("n", "<leader>du", helpers.dap_ui_toggle, { desc = "Toggle Debug UI" })
+keymap.set("n", "<leader>dt", helpers.dap_terminate, { desc = "Stop Debug" })
 
 -- ==========================================
 --        TREE WINDOW <leader>e
@@ -136,6 +88,7 @@ keymap.set("n", "<leader>fT", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 keymap.set("n", "<leader>fb", "<cmd>Telescope file_browser<cr>", { desc = "Find Browser" })
 keymap.set("n", "<leader>fM", "<cmd>Telescope marks<CR>", { desc = "Telescope Marks" })
 keymap.set("n", "<leader>fR", "<cmd>Telescope registers<CR>", { desc = "Telescope Registers" })
+keymap.set("n", "<leader>fS", helpers.telescope_document_symbols, { desc = "Find Symbols" })
 
 -- ==========================================
 --        GITHUB <leader>g
@@ -298,20 +251,18 @@ keymap.set("n", "<leader>ss", "<cmd>FzfLua resume<CR>", { desc = "Resume Search"
 -- Laravel Neovim
 keymap.set("n", "<leader>ta", "<cmd>Laravel artisan<CR>", { desc = "Laravel: Artisan" })
 keymap.set("n", "<leader>tr", "<cmd>Laravel routes<CR>", { desc = "Laravel: Routes" })
+keymap.set("n", "<leader>tm", "<cmd>LaravelMake<CR>", { desc = "Laravel: Make" })
+--Laravel Tools
+keymap.set("n", "<leader>tlc", "<cmd>LaravelController<CR>", { desc = "Search: Controller" })
+keymap.set("n", "<leader>tlm", "<cmd>LaravelModel<CR>", { desc = "Search: Model" })
+keymap.set("n", "<leader>tlv", "<cmd>LaravelView<CR>", { desc = "Search: View" })
+keymap.set("n", "<leader>tlr", "<cmd>LaravelRoute<CR>", { desc = "Search: Route" })
 -- Open Posting in Terminal
-keymap.set(
-  "n",
-  "<leader>tp",
-  "<cmd>tabnew<CR><cmd>terminal posting<CR><cmd>startinsert<CR>",
-  { desc = "Terminal: Open API" }
-)
+keymap.set("n", "<leader>tA", helpers.open_posting, { desc = "Terminal: Open API" })
 -- Open Sqlit in Terminal
-keymap.set(
-  "n",
-  "<leader>ts",
-  "<cmd>tabnew<CR><cmd>terminal sqlit<CR><cmd>startinsert<CR>",
-  { desc = "Terminal: Open SQL" }
-)
+keymap.set("n", "<leader>tS", helpers.open_sqlit, { desc = "Terminal: Open SQLite" })
+-- Open Gemini in Terminal Float
+keymap.set("n", "<leader>tG", helpers.open_gemini_terminal, { desc = "Terminal: Gemini" })
 
 -- ==========================================
 --        SESSION <leader>w

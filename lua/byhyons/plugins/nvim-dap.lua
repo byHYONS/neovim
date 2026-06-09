@@ -1,14 +1,18 @@
--- Debug del codice in tempo reale
+-- DAP • Debug del codice in tempo reale
 return {
   "mfussenegger/nvim-dap",
+  event = "VeryLazy",
+
   dependencies = {
     "mfussenegger/nvim-dap-python",
+    "nvim-telescope/telescope-dap.nvim",
   },
-  event = "VeryLazy",
+
   config = function()
-    -- configurazione per Python
-    require("configs.dap_python")
-    --  caricare qui altre configurazioni per altri linguaggi
-    require("byhyons.core.keymaps")
+    require("configs.dap").setup()
+
+    pcall(function()
+      require("telescope").load_extension("dap")
+    end)
   end,
 }
