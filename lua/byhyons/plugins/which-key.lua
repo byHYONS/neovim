@@ -120,6 +120,7 @@ return {
           { "<leader>z", group = "Terminal" },
           { "<leader>?", group = "Buffer Local Keymaps", icon = { icon = "󱕴", color = "cyan" } },
           { "<leader>rr", group = "CSS px/rem" },
+          { "<leader>tl", group = "Laravel Tools" },
 
           { "[", group = "Prev" },
           { "]", group = "Next" },

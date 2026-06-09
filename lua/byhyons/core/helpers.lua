@@ -139,6 +139,19 @@ end
 -- =====================================
 --      HELPER FOR  TERMINAL APPS
 -- =====================================
+-- LazyGit
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "lazygit",
+  callback = function(event)
+    vim.keymap.set("t", "<Esc>", "<Esc>", {
+      buffer = event.buf,
+      noremap = true,
+      silent = true,
+      desc = "LazyGit: keep Esc inside app",
+    })
+  end,
+})
+
 -- SQLite
 function M.open_sqlit()
   vim.cmd("tabnew")

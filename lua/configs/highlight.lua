@@ -7,7 +7,7 @@ M.setup = function()
   " highlight Function guifg=#A0A0FF
   " highlight @keyword.function guifg=#9571ED
   " highlight @constructor guifg=#77C0FC
-  " highlight @variable.builtin cterm=italic gui=italic guifg=#FFD847 
+  highlight @variable.builtin cterm=italic gui=italic guifg=#FFD847 
   " highlight Number guifg=#FFD747
   " highlight @variable.member guifg=#FE4363
   " highlight DiagnosticInfo guifg=#40E0D0
