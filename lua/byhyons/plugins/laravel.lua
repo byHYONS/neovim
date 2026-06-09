@@ -1,6 +1,7 @@
 -- TOOL LARAVEL
 return {
   "adalessa/laravel.nvim",
+  name = "adalessa-laravel.nvim",
   commit = "54aa4e2", -- commit agosto 2025
   dependencies = {
     "tpope/vim-dotenv",
