@@ -23,7 +23,6 @@ return {
         "jsonls",
         "sqls",
         "ast_grep",
-        "ltex_plus",
       },
     },
     dependencies = {
