@@ -28,6 +28,7 @@ return {
         }
         hl.PmenuThumb = { bg = border_bar }
         hl.NoiceCmdlinePopupBorder = { fg = cmd_border }
+        hl.MoreMsg = { fg = border_bar }
 
         hl.DiagnosticFloatingError = { fg = "#FF6B7C" }
         hl.DiagnosticFloatingWarn = { fg = "#FFC569" }

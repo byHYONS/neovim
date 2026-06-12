@@ -1,3 +1,4 @@
+-- POPUP messages
 return {
   "folke/noice.nvim",
   event = "VeryLazy",
@@ -8,6 +9,20 @@ return {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
           ["vim.lsp.util.stylize_markdown"] = true,
           ["cmp.entry.get_documentation"] = true,
+        },
+      },
+      views = {
+        confirm = {
+          border = {
+            padding = { 1, 2 },
+            style = "rounded",
+          },
+          win_options = {
+            winhighlight = {
+              Normal = "NormalFloat",
+              FloatBorder = "NoiceCmdlinePopupBorder",
+            },
+          },
         },
       },
       presets = {

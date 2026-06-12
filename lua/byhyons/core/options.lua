@@ -1,4 +1,9 @@
--- Options nvim
+-- ############################################
+-- ##                                        ##
+-- ##               OPTIONS                  ##
+-- ##                                        ##
+-- ############################################
+
 vim.cmd("let g:netrw_liststyle = 3")
 
 local opt = vim.opt
@@ -40,6 +45,20 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- conferma operazioni
+opt.confirm = true
+
+-- mantiene il cursore 10 righe sotto e sopra
+opt.scrolloff = 10
+
+-- visualizza caretteri invisibili
+opt.list = true
+opt.listchars = {
+  tab = "» ",
+  trail = "·",
+  nbsp = "␣",
+}
 
 -- Block lampeggiante in normal/visual/command, cursor a barra lampeggiante in insert
 vim.opt.guicursor = table.concat({
