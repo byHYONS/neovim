@@ -1,3 +1,4 @@
+-- SNIPPETS • Configura gli snippet per inserire rapidamente codice ricorrente.
 return {
   "L3MON4D3/LuaSnip",
   config = function()

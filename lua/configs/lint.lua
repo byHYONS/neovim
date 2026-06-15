@@ -1,3 +1,10 @@
+-- ############################################
+-- ##                                        ##
+-- ##              LINT                      ##
+-- ##                                        ##
+-- ############################################
+-- Configura i controlli automatici del codice e la segnalazione di errori e warning
+
 local lint = require("lint")
 
 lint.linters_by_ft = {

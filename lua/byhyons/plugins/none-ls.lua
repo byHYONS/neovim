@@ -1,3 +1,4 @@
+-- NONE-LS • Collega formatter e controlli esterni al sistema LSP di Neovim.
 return {
   "nvimtools/none-ls.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },

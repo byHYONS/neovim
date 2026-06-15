@@ -1,3 +1,4 @@
+-- COLORSCHME • Configura il tema grafico di Neovim e le relative personalizzazioni dei colori.
 return {
   "folke/tokyonight.nvim",
   priority = 1000,

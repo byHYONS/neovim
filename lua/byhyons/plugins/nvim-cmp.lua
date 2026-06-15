@@ -1,3 +1,4 @@
+-- NVIM-CMP • Sistema di autocompletamento che unisce suggerimenti da LSP, snippet, buffer e file.
 return {
   "hrsh7th/nvim-cmp",
   commit = "686c17a", -- Elimina icone duplicate

@@ -1,3 +1,4 @@
+-- LULALINE • Impostazione Barra di stato
 return {
   "nvim-lualine/lualine.nvim",
   config = function()

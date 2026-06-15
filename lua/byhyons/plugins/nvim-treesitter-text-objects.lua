@@ -1,3 +1,4 @@
+-- TREESITTER • Migliora la selezione e navigazione nel codice usando la struttura sintattica di Treesitter.
 return {
   "nvim-treesitter/nvim-treesitter-textobjects",
   lazy = true,

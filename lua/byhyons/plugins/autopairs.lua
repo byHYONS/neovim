@@ -1,3 +1,4 @@
+-- AUTOPAIRS • Chiude automaticamente parentesi, virgolette e altri delimitatori.
 return {
   "windwp/nvim-autopairs",
   event = { "InsertEnter" },

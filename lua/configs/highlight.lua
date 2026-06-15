@@ -1,3 +1,10 @@
+-- ############################################
+-- ##                                        ##
+-- ##             HIGHTLIGHT                 ##
+-- ##                                        ##
+-- ############################################
+-- Override e personalizzazioni degli highlight di Neovim.
+
 local M = {}
 
 M.setup = function()
@@ -15,7 +22,8 @@ M.setup = function()
   " highlight DiagnosticVirtualTextInfo guifg=#40E0D0
   " highlight DiagnosticVirtualTextHint guifg=#ADD8E6
   highlight @Variable guifg=#FF6B7C
-  highlight @variable.parameter cterm=bold,italic gui=bold,italic, guifg=#FF6B7C
+  highlight @variable.parameter cterm=bold,italic gui=bold,italic guifg=#FF6B7C
+  highlight @lsp.type.variable.rust cterm=bold,italic gui=bold,italic guifg=#FF6B7C
   " highlight @constant guifg=#FF7B24
   " highlight @constant.builtin guifg=#EB3F5C
   " highlight @Variable.parameter guifg=#FF7B24
@@ -54,7 +62,7 @@ M.setup = function()
   " highlight zshNumber guifg=#FFD747
   " highlight zshType cterm=bold, guifg=#4DA6FF
   " highlight zshBuiltin guifg=#FF7B24
-  highlight zshParentheses guifg=#77C0fc
+  highlight zshParentheses guifg=#77C0FC
   
 
   " highlight QuestionComment guifg=#0000FF

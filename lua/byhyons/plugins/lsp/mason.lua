@@ -1,4 +1,9 @@
--- MASON SERVER LSP
+-- ############################################
+-- ##                                        ##
+-- ##           MESON SERVER LSP             ##
+-- ##                                        ##
+-- ############################################
+
 return {
   {
     "williamboman/mason-lspconfig.nvim",

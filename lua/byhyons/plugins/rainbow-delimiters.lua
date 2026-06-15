@@ -1,3 +1,4 @@
+-- RAINBOW-PAIRS • Colora parentesi e delimitatori annidati con colori diversi.
 return {
   "HiPhish/rainbow-delimiters.nvim",
   config = function()
@@ -12,6 +13,7 @@ return {
       query = {
         [""] = "rainbow-delimiters", -- Usa rainbow-delimiters per tutti i file
         lua = "rainbow-blocks", -- Usa rainbow-blocks per Lua
+        rust = "rainbow-delimiters", -- Usa rainbow-blocks per rust
       },
       -- highlight = {
       --   "RainbowDelimiterRed",

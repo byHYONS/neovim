@@ -1,5 +1,5 @@
 -- =============================================
--- -- Configurazione Neovim
+--           Configurazione Neovim
 -- =============================================
 
 require("byhyons.core")

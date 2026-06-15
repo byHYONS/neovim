@@ -1,3 +1,10 @@
+-- ############################################
+-- ##                                        ##
+-- ##                LSP SAGA                ##
+-- ##                                        ##
+-- ############################################
+-- Rende più comode e belle le finestre LSP di Neovim.
+
 return {
   "nvimdev/lspsaga.nvim",
   event = "LspAttach", -- Carica il plugin quando un server LSP si attacca

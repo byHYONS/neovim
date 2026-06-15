@@ -1,3 +1,4 @@
+-- Inizializza Git
 local Job = require("plenary.job")
 
 function CreateGitHubRepo()

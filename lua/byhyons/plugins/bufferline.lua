@@ -1,3 +1,4 @@
+-- BUFFERLINE • Mostra i buffer aperti come schede e ne facilita la navigazione.
 return {
   "akinsho/bufferline.nvim",
   version = "*",

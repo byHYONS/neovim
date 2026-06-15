@@ -1,3 +1,4 @@
+-- ALPHA • Configura la dashboard iniziale di Neovim con logo, menu e scorciatoie rapide.
 return {
   "goolord/alpha-nvim",
   event = "VimEnter",

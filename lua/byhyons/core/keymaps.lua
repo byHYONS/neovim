@@ -50,6 +50,8 @@ keymap.set("n", "<leader>as", "<cmd>ShowkeysToggle<CR>", { desc = "Showkeys Togg
 keymap.set("n", "<leader>aw", "<cmd>MarkdownPreviewToggle<CR>", { desc = "Veiw Markdown" })
 -- NEORG
 keymap.set("n", "<leader>an", ":Neorg<CR>", { desc = "Neorg" })
+-- HEX Viewre Bin
+keymap.set("n", "<leader>aB", "::HexToggle<CR>", { desc = "Toggle Viewr Bin" })
 
 -- ==========================================
 --        COPILOT <leader>c

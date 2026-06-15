@@ -1,3 +1,4 @@
+-- COMMENT • Permette di commentare e decommentare rapidamente il codice.
 return {
   "numToStr/Comment.nvim",
   event = { "BufReadPre", "BufNewFile" },
