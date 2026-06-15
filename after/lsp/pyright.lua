@@ -1,6 +1,4 @@
 -- PYRIGHT – PYTHON
--- Percorso: ~/.config/nvim/after/lsp/pyright.lua
-
 -- Helper: trova un python “valido” dall’ambiente virtuale o dal progetto
 local function detect_python(bufnr)
   local root = vim.fs.root(bufnr or 0, {

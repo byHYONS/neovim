@@ -4,25 +4,27 @@ return {
     "williamboman/mason-lspconfig.nvim",
     opts = {
       ensure_installed = {
-        "vtsls",
-        "vue_ls",
-        "ts_ls",
+        "ast_grep",
         "bashls",
-        "html",
-        "emmet_ls",
+        "clangd",
         "cssls",
-        "tailwindcss",
-        "lua_ls",
+        "emmet_ls",
+        "gopls",
         "graphql",
-        "svelte",
+        "html",
+        "jsonls",
         "intelephense",
+        "lua_ls",
         "phpactor",
         "prismals",
         "pyright",
-        "clangd",
-        "jsonls",
+        "rust_analyzer",
         "sqls",
-        "ast_grep",
+        "svelte",
+        "tailwindcss",
+        "ts_ls",
+        "vue_ls",
+        "vtsls",
       },
     },
     dependencies = {
@@ -45,23 +47,23 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     opts = {
       ensure_installed = {
-        "shfmt", -- bash formatter
-        "prettier", -- prettier formatter
-        "stylua", -- lua formatter
-        "isort", -- python formatter
-        "black", -- python formatter
-        "pylint", -- python linter
-        "eslint_d", -- js linter
         "blade-formatter",
-        "mypy",
+        "black", -- python formatter
         "debugpy", -- DAP python
-        "php-debug-adapter", -- DAP php
-        "js-debug-adapter", -- DAP javascript
+        "eslint_d", -- js linter
         "flake8",
-        "php-cs-fixer",
-        "phpstan",
-        "sqlfmt",
+        "isort", -- python formatter
         "jq", -- Per manipolare dati JSON
+        "js-debug-adapter", -- DAP javascript
+        "mypy",
+        "phpstan",
+        "php-cs-fixer",
+        "php-debug-adapter", -- DAP php
+        "prettier", -- prettier formatter
+        "pylint", -- python linter
+        "shfmt", -- bash formatter
+        "sqlfmt",
+        "stylua", -- lua formatter
       },
     },
     dependencies = {
