@@ -25,6 +25,46 @@ end
 -- =====================================
 --      HELPER FOR TERMINAL
 -- =====================================
+--  ###  Terminale Jolly Flottante ###
+local floating_job_terminal = nil
+
+function M.open_floating_job_terminal()
+  local cmd = vim.fn.input("Insert CLI Command: ")
+
+  if cmd == "" then
+    return
+  end
+
+  local Terminal = require("toggleterm.terminal").Terminal
+
+  if not floating_job_terminal then
+    floating_job_terminal = Terminal:new({
+      count = 99,
+      direction = "float",
+      hidden = true,
+      close_on_exit = false,
+      start_in_insert = true,
+      float_opts = {
+        border = "curved",
+        title = " CLI Job Terminal ",
+        title_pos = "center",
+      },
+    })
+  end
+
+  floating_job_terminal:open()
+  floating_job_terminal:send(cmd, true)
+end
+-- View terminale Job
+function M.toggle_floating_job_terminal()
+  if floating_job_terminal then
+    floating_job_terminal:toggle()
+  else
+    vim.notify("Nessun terminale jolly ancora creato", vim.log.levels.WARN)
+  end
+end
+
+-- Apre Server Python
 local pythonTerm = nil
 
 function M.save_and_run_python()
@@ -48,6 +88,7 @@ function M.save_and_run_python()
   end
 end
 
+-- Chiude Terminale Python
 function M.close_python_terminal()
   if pythonTerm then
     vim.cmd("stopinsert")
@@ -61,6 +102,7 @@ function M.close_python_terminal()
   end
 end
 
+-- Resetta tutti i Terminali
 function M.reset_all_terminals()
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
     if vim.api.nvim_get_option_value("filetype", { buf = buf }) == "toggleterm" then

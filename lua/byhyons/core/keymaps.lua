@@ -330,6 +330,8 @@ keymap.set("n", "<leader>zx", function()
     vim.cmd("startinsert")
   end, 30)
 end, { desc = "Focus Term" })
+keymap.set("n", "<leader>zj", helpers.open_floating_job_terminal, { desc = "Term Float Job" })
+keymap.set("n", "<leader>zJ", helpers.toggle_floating_job_terminal, { desc = "View Job Terminal" })
 
 -- ==========================================
 --        GENERAL SHORTCUTS
