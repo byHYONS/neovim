@@ -44,6 +44,9 @@ M.setup = function()
   " highlight htmlArg guifg=#FFD847
   highlight cssStyle cterm=bold gui=bold guifg=#9571ED
   highlight cssDefinition guifg=#FF6B7C
+  highlight @css.value cterm=bold,italic gui=bold,italic guifg=#5ED1FF
+  highlight @tag.scss cterm=bold gui=bold guifg=#FE4363
+
   " highlight @tag.attribute guifg=#FFD847
   " highlight @tag guifg=#FE4363
   " highlight @markup.heading guifg=#9AC7BC
@@ -76,6 +79,9 @@ M.setup = function()
 
   -- Highlight Blade
   local highlights = {
+    ["@tag.scss"] = { fg = "#FE4363", bold = true },
+    ["@tag.css"] = { fg = "#FE4363", bold = true },
+
     commentBlade = { fg = "#77C0FC" },
     bladeParentheses = { fg = "#FF7B24" },
     bladePhpParenBlock = { fg = "#9571ED", italic = true },
