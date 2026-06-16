@@ -24,6 +24,7 @@ M.setup = function()
   highlight @Variable guifg=#FF6B7C
   highlight @variable.parameter cterm=bold,italic gui=bold,italic guifg=#FF6B7C
   highlight @lsp.type.variable.rust cterm=bold,italic gui=bold,italic guifg=#FF6B7C
+  highlight LspInlayHint guibg=NONE gui=italic guifg=#7F91A0
   " highlight @constant guifg=#FF7B24
   " highlight @constant.builtin guifg=#EB3F5C
   " highlight @Variable.parameter guifg=#FF7B24
