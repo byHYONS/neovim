@@ -7,6 +7,22 @@
 local M = {}
 
 -- =====================================
+--      HELPER FOR LSP
+-- =====================================
+-- Inlay Hints
+M.toggle_inlay_hints = function()
+  local enabled = vim.lsp.inlay_hint.is_enabled()
+
+  vim.lsp.inlay_hint.enable(not enabled)
+  vim.notify(("Inlay Hints: %s"):format(not enabled and "ON" or "OFF"), vim.log.levels.INFO)
+end
+
+-- Lint
+M.run_lint = function()
+  require("lint").try_lint()
+end
+
+-- =====================================
 --      HELPER FOR COPILOT
 -- =====================================
 local copilot_enabled = true

@@ -33,12 +33,6 @@ return {
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
-        -- Mostra gli Inlay Hints
-        local client = vim.lsp.get_client_by_id(ev.data.client_id)
-        if client and client:supports_method("textDocument/inlayHint") then
-          vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
-        end
-        -- Keymaps
         local opts = { buffer = ev.buf, silent = true }
         opts.desc = "Smart Rename"
         opts.nowait = true
@@ -72,10 +66,6 @@ return {
         end, opts)
         opts.desc = "Hover Doc"
         keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        opts.desc = " Lazy LSP"
-        keymap.set("n", "<leader>l", "", opts)
-        opts.desc = "Restart LSP"
-        keymap.set("n", "<leader>ls", ":LspRestart<CR>", opts)
       end,
     })
 

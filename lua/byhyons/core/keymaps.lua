@@ -164,6 +164,13 @@ keymap.set("n", "<leader>ii", "<cmd>Lspsaga incoming_calls<CR>", { desc = "Incom
 keymap.set("n", "<leader>io", "<cmd>Lspsaga outgoing_calls<CR>", { desc = "Outgoing Calls" }) -- Outgoing Calls
 
 -- ==========================================
+--        TOOLS LSP <leader>l
+-- ==========================================
+keymap.set("n", "<leader>li", helpers.toggle_inlay_hints, { desc = "Toggle Inlay Hints" })
+keymap.set("n", "<leader>ll", helpers.run_lint, { desc = "Run Lint" })
+keymap.set("n", "<leader>ls", helpers.toggle_inlay_hints, { desc = "Restart LSP" })
+
+-- ==========================================
 --        KULALA API <leader>k
 -- ==========================================
 -- Test API
