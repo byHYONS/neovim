@@ -317,17 +317,17 @@ keymap.set("n", "<leader>xt", "<cmd>Trouble todo toggle<CR>", {
 --        TERMINALS <leader>z
 -- ==========================================
 keymap.set("n", "<leader>zo", "<cmd>tabnew<CR>:terminal<CR><Cmd>startinsert<CR>", { desc = "Open Wide Terminal" })
-keymap.set("n", "<leader>zt", ":1ToggleTerm direction=horizontal<CR>", { desc = "Term Toggle" })
-keymap.set("n", "<leader>zf", ":2ToggleTerm direction=float<CR>", { desc = "Term Float Toggle" })
-keymap.set("n", "<leader>zL", ":3TermExec direction=float cmd='php artisan serve'<CR>", { desc = "On Server Laravel" })
-keymap.set("n", "<leader>zN", ":4TermExec direction=float cmd='npm run dev'<CR>", { desc = "On Server Node" })
+keymap.set("n", "<leader>zt", ":10ToggleTerm direction=horizontal<CR>", { desc = "Term Toggle" })
+keymap.set("n", "<leader>zf", ":20ToggleTerm direction=float<CR>", { desc = "Term Float Toggle" })
+keymap.set("n", "<leader>zL", ":30TermExec direction=float cmd='php artisan serve'<CR>", { desc = "On Server Laravel" })
+keymap.set("n", "<leader>zN", ":40TermExec direction=float cmd='npm run dev'<CR>", { desc = "On Server Node" })
 keymap.set("n", "<leader>zr", helpers.save_and_run_python, { desc = "Output Python" })
-keymap.set("n", "<leader>zp", ":5TermExec direction=float cmd='python3 %'<CR>", { desc = "TermFloat Python" })
+keymap.set("n", "<leader>zp", ":50TermExec direction=float cmd='python3 %'<CR>", { desc = "TermFloat Python" })
 keymap.set("t", "<leader>zq", helpers.close_python_terminal, { desc = "Off Output" })
 keymap.set(
   "n",
   "<leader>zG",
-  ":6TermExec direction=float cmd='browser-sync start --server --files \"**/*.html,**/*.css,**/*.js\"'<CR>",
+  ":60TermExec direction=float cmd='browser-sync start --server --files \"**/*.html,**/*.css,**/*.js\"'<CR>",
   { desc = "Go Live" }
 )
 keymap.set("n", "<leader>zd", helpers.reset_all_terminals, { desc = "Reset All Terms" })

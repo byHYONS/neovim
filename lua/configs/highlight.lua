@@ -31,8 +31,10 @@ M.setup = function()
   " highlight @constant.parameter.builtin guifg=#72009F
   " highlight @type guifg=#ADD8E6
   highlight @type cterm=bold gui=bold guifg=#A8FFB3 
+  highlight @keyword.operator.lua cterm=bold gui=bold guifg=#5ED1FF
   " highlight @property cterm=bold gui=bold guifg=#3498DB
   highlight @module cterm=bold,italic gui=bold,italic guifg=#FFC569
+  highlight @string.documentation cterm=italic gui=italic guifg=#9A7342
   " highlight @module cterm=bold gui=bold guifg=#A8FFB3
   " highlight @keyword.conditional cterm=bold gui=bold guifg=#9571ED
   " highlight @function.call cterm=bold gui=italic guifg=#FE4363

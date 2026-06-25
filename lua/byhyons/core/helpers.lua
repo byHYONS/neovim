@@ -261,6 +261,7 @@ function M.open_gemini_terminal()
 
   if not gemini_term then
     gemini_term = Terminal:new({
+      count = 70,
       cmd = "gemini",
       dir = vim.fn.getcwd(),
       direction = "float",
@@ -376,6 +377,19 @@ function M.telescope_document_symbols()
   vim.api.nvim_set_hl(0, "TelescopeSymbolProperty", { fg = "#4DA6FF" })
   vim.api.nvim_set_hl(0, "TelescopeSymbolInterface", { fg = "#FF77FF" })
   vim.api.nvim_set_hl(0, "TelescopeSymbolDefault", { fg = "#8DD3FA" })
+  vim.api.nvim_set_hl(0, "TelescopeSymbolFile", { fg = "#7AA2F7" })
+  vim.api.nvim_set_hl(0, "TelescopeSymbolModule", { fg = "#5ED1FF" })
+  vim.api.nvim_set_hl(0, "TelescopeSymbolNamespace", { fg = "#9AC7BC" })
+  vim.api.nvim_set_hl(0, "TelescopeSymbolPackage", { fg = "#6A9955" })
+  vim.api.nvim_set_hl(0, "TelescopeSymbolConstructor", { fg = "#C586C0" })
+  vim.api.nvim_set_hl(0, "TelescopeSymbolNumber", { fg = "#B5CEA8" })
+  vim.api.nvim_set_hl(0, "TelescopeSymbolBoolean", { fg = "#569CD6" })
+  vim.api.nvim_set_hl(0, "TelescopeSymbolArray", { fg = "#DCDCAA" })
+  vim.api.nvim_set_hl(0, "TelescopeSymbolObject", { fg = "#4EC9B0" })
+  vim.api.nvim_set_hl(0, "TelescopeSymbolKey", { fg = "#9CDCFE" })
+  vim.api.nvim_set_hl(0, "TelescopeSymbolEnum", { fg = "#B8D7A3" })
+  vim.api.nvim_set_hl(0, "TelescopeSymbolOperator", { fg = "#D4D4D4" })
+  vim.api.nvim_set_hl(0, "TelescopeSymbolName", { fg = "#A9B1D6" })
 
   local params = { textDocument = vim.lsp.util.make_text_document_params(bufnr) }
   local responses = vim.lsp.buf_request_sync(bufnr, "textDocument/documentSymbol", params, 1000)
@@ -436,9 +450,10 @@ function M.telescope_document_symbols()
   local displayer = entry_display.create({
     separator = " ",
     items = {
-      { width = 2 },
-      { width = 45 },
-      { width = 18 },
+      { width = 3 }, -- icona
+      { width = 2 }, -- indentazione
+      { width = 45 }, -- nome
+      { width = 18 }, -- tipo
     },
   })
 
@@ -460,8 +475,9 @@ function M.telescope_document_symbols()
             ordinal = entry.name .. " " .. entry.kind,
             display = function()
               return displayer({
-                { meta.icon, meta.hl },
-                indent .. entry.name,
+                { meta.icon .. " ", meta.hl },
+                { indent, meta.hl },
+                { entry.name, "TelescopeSymbolName" },
                 { entry.kind:lower(), meta.hl },
               })
             end,
